@@ -1,0 +1,17 @@
+*.class
+*.orig
+target/
+/classes/
+bin/
+test-output/
+.gradle/
+build/
+temp/
+tmp/
+.idea/
+*.iws
+*.iml
+*.ipr
+*.ids
+out/
+*.log
