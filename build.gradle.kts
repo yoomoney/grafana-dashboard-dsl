@@ -24,6 +24,7 @@ val groupIdSuffix by extra { "common" }
 val artifactID by extra { "yamoney-grafana-kotlin-dsl" }
 
 dependencies {
+    "testCompile"("ru.yandex.money.common:yamoney-test-utils:19.9.1")
     "testCompile"("ru.yandex.money.common:yamoney-kotlin-test-utils:1.2.3")
 }
 
