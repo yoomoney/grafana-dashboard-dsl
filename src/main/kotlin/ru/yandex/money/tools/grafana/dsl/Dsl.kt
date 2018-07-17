@@ -6,11 +6,11 @@ package ru.yandex.money.tools.grafana.dsl
 @Suppress("TopLevelPropertyNaming")
 private const val schemaVersion = 16
 
-fun dashboard(build: DashboardBuilder.() -> Unit) {
+fun dashboard(build: DashboardBuilder.() -> Unit): String {
     val builder = DashboardBuilder()
     builder.build()
 
-    val json = """
+    return """
         |{
         |   "annotations": {
         |       "list": []
@@ -44,6 +44,4 @@ fun dashboard(build: DashboardBuilder.() -> Unit) {
         |    "version": 1
         |}
     """.trimMargin()
-
-    println(json)
 }
