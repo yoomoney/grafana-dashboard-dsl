@@ -2,6 +2,7 @@ package ru.yandex.money.tools.grafana.dsl
 
 interface GrafanaTimeUnit
 
+@Suppress("ClassNaming")
 object now : GrafanaTimeUnit {
     override fun toString() = "now"
 }

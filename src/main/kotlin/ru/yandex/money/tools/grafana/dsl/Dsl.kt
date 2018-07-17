@@ -3,6 +3,7 @@ package ru.yandex.money.tools.grafana.dsl
 /**
  * Версия JSON-схемы для Grafana HTTP API
  */
+@Suppress("TopLevelPropertyNaming")
 private const val schemaVersion = 16
 
 fun dashboard(build: DashboardBuilder.() -> Unit) {
