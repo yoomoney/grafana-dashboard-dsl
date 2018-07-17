@@ -7,8 +7,11 @@ class DashboardBuilder {
     lateinit var title: String
     lateinit var time: GrafanaTimeRange
     var refresh: Refresh = RefreshOff
+    var panels: Panels = EmptyPanels()
 
     fun panels(build: PanelsBuilder.() -> Unit) {
-
+        val builder = PanelsBuilder()
+        builder.build()
+        panels = builder.panels
     }
 }
