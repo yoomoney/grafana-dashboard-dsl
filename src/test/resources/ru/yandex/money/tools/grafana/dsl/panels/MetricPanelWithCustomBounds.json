@@ -1,0 +1,19 @@
+{
+  "datasource": "Graphite",
+  "editable": true,
+  "nullPointMode": "null as zero",
+  "links": [
+
+  ],
+  "id": 1,
+  "title": "Test Panel",
+  "targets": [
+
+  ],
+  "gridPos": {
+    "w": 12,
+    "x": 0,
+    "h": 6,
+    "y": 0
+  }
+}
