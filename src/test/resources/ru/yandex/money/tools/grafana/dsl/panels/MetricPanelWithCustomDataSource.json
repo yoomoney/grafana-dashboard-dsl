@@ -1,0 +1,15 @@
+{
+  "datasource": "Zabbix",
+  "editable": true,
+  "nullPointMode": "null as zero",
+  "links": [],
+  "id": 1,
+  "title": "Test Panel",
+  "targets": [],
+  "gridPos": {
+    "w": 24,
+    "x": 0,
+    "h": 12,
+    "y": 0
+  }
+}

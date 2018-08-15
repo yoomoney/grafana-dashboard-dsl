@@ -1,0 +1,12 @@
+{
+  "hide": 2,
+  "regex": "\\w+",
+  "query": "test_query",
+  "name": "variable",
+  "refresh": 2,
+  "includeAll": true,
+  "sort": 3,
+  "type": "query",
+  "multi": false,
+  "datasource": "Zabbix"
+}

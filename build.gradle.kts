@@ -23,11 +23,6 @@ apply {
 val groupIdSuffix by extra { "common" }
 val artifactID by extra { "yamoney-grafana-kotlin-dsl" }
 
-dependencies {
-    "testCompile"("ru.yandex.money.common:yamoney-test-utils:19.9.1")
-    "testCompile"("ru.yandex.money.common:yamoney-kotlin-test-utils:1.2.3")
-}
-
 buildscript {
     repositories {
         maven("https://nexus.yamoney.ru/content/repositories/thirdparty/")
@@ -44,6 +39,12 @@ buildscript {
     }
 }
 
+dependencies {
+    "compile"("org.json:json:20180130")
+    "testCompile"("ru.yandex.money.common:yamoney-test-utils:19.10.1")
+    "testCompile"("ru.yandex.money.common:yamoney-kotlin-test-utils:1.3.0")
+}
+
 configure<DependencyManagementExtension> {
     // Запрещаем переопределять версии библиотек в обычной секции Gradle dependencies
     overriddenByDependencies(false)
@@ -51,6 +52,10 @@ configure<DependencyManagementExtension> {
     // Фиксируем версии библиотек
     imports {
         mavenBom("ru.yandex.money.platform:yamoney-libraries-dependencies:2.+")
+    }
+
+    dependencies {
+        dependency("org.json:json:20180130")
     }
 }
 

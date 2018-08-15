@@ -1,0 +1,76 @@
+{
+  "stack": false,
+  "renderer": "flot",
+  "legend": {
+    "alignAsTable": true,
+    "max": true,
+    "min": true,
+    "values": true,
+    "show": true,
+    "sortDesc": true,
+    "rightSide": false,
+    "sort": "avg",
+    "hideZero": true,
+    "current": true,
+    "total": true,
+    "avg": true,
+    "hideEmpty": true
+  },
+  "yaxes": [
+    {
+      "logBase": 1,
+      "format": "short",
+      "show": true
+    },
+    {
+      "logBase": 1,
+      "format": "short",
+      "show": true
+    }
+  ],
+  "title": "Test Panel",
+  "type": "graph",
+  "targets": [
+    {
+      "refId": "A",
+      "target": "aliasByNode(*.*.oil-gate.requests.incoming.*.*.process_time.*.count, 0)",
+      "hide": false
+    },
+    {
+      "refId": "B",
+      "target": "aliasByNode(*.*.oil-gate.requests.incoming.*.*.process_time.*.count, 1)",
+      "hide": false
+    }
+  ],
+  "seriesOverrides": [],
+  "yaxis": {"align": false},
+  "gridPos": {
+    "w": 24,
+    "x": 0,
+    "h": 12,
+    "y": 0
+  },
+  "points": false,
+  "xaxis": {
+    "mode": "time",
+    "values": [],
+    "show": true
+  },
+  "percentage": false,
+  "dashLength": 10,
+  "links": [],
+  "id": 1,
+  "lines": true,
+  "spaceLength": 10,
+  "editable": true,
+  "nullPointMode": "null as zero",
+  "steppedLine": false,
+  "fill": 0,
+  "linewidth": 2,
+  "bars": false,
+  "dashes": false,
+  "thresholds": [],
+  "datasource": "Graphite",
+  "decimals": 2,
+  "pointradius": 5
+}

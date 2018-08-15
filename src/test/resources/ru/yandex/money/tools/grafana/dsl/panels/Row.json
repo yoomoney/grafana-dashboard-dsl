@@ -1,0 +1,13 @@
+{
+  "collapsed": false,
+  "panels": [],
+  "id": 1,
+  "title": "Test Row",
+  "type": "row",
+  "gridPos": {
+    "w": 24,
+    "x": 0,
+    "h": 1,
+    "y": 0
+  }
+}

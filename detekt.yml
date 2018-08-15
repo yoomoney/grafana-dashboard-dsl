@@ -72,7 +72,7 @@ complexity:
     threshold: 150
   LongMethod:
     active: true
-    threshold: 20
+    threshold: 50
   LongParameterList:
     active: true
     threshold: 6
@@ -256,7 +256,7 @@ naming:
   active: true
   ClassNaming:
     active: true
-    classPattern: '[A-Z$][a-zA-Z0-9$]*'
+    classPattern: '[A-Za-z$][a-zA-Z0-9$]*'
   EnumNaming:
     active: true
     enumEntryPattern: '^[A-Z][_a-zA-Z0-9]*'
@@ -307,7 +307,7 @@ performance:
   ForEachOnRange:
     active: true
   SpreadOperator:
-    active: true
+    active: false
   UnnecessaryTemporaryInstantiation:
     active: true
 
@@ -369,7 +369,7 @@ style:
     active: false
     maxJumpCount: 1
   MagicNumber:
-    active: true
+    active: false
     ignoreNumbers: '-1,0,1,2'
     ignoreHashCodeFunction: false
     ignorePropertyDeclaration: false
