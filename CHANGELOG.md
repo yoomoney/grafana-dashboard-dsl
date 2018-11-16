@@ -2,7 +2,7 @@
 
 ## NEXT_VERSION
 
-## [0.2.0]() (15-11-2018)
+## [1.0.0]() (15-11-2018)
 
 * Добавлена поддержка новых функций: divideSeries, movingMedian, scale, sumSeries и transformNull
 
