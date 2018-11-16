@@ -1,0 +1,75 @@
+buildscript {
+    apply from: 'project.gradle', to: buildscript
+    copy {
+        from zipTree(buildscript.configurations.classpath.files.find{ it.name.contains('library-project-plugin')})
+        into 'tmp'
+        include 'gradle-scripts/**'
+    }
+}
+apply from: 'tmp/gradle-scripts/_root.gradle'
+/////////////////////////////////////////////
+
+groupIdSuffix = "common"
+artifactID = "yamoney-grafana-kotlin-dsl"
+
+apply plugin: org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
+
+configurations {
+    ktlint
+    detekt
+}
+
+def kotlinVersion = '1.2.50'
+
+dependencies {
+    
+    compile 'org.json:json:20180130',
+            "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
+            "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
+    
+    ktlint 'com.github.shyiko:ktlint:0.24.0'
+    detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.0.0.RC7'
+    
+    testCompile 'ru.yandex.money.common:yamoney-test-utils:19.10.1',
+                'ru.yandex.money.common:yamoney-kotlin-test-utils:1.3.0'
+}
+
+
+task checkWithKtLint(type: JavaExec, group: "verification") {
+    def inputFiles = project.fileTree(dir: "src/main", include: "**/*.kt")
+    def outputDir = "${buildDir}/checkstyleReports/"
+    inputs.files(inputFiles)
+    outputs.dir(outputDir)
+
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.github.shyiko.ktlint.Main"
+    args "src/main/**/*.kt",
+            "--reporter=plain?group_by_file",
+            "--reporter=checkstyle,output=${buildDir}/checkstyleReports/main.xml"
+}
+check.dependsOn checkWithKtLint
+
+task kotlinFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.github.shyiko.ktlint.Main"
+    args "-F", "src/main/**/*.kt"
+}
+
+task checkWithDetekt(type: JavaExec, group: 'verification') {
+    def inputFiles = project.fileTree(dir: 'src/main', include: '**/*.kt')
+    def outputDir = "$buildDir/checkstyleReports/"
+    inputs.files(inputFiles)
+    outputs.dir(outputDir)
+
+    main = 'io.gitlab.arturbosch.detekt.cli.Main'
+    classpath = configurations.detekt
+    def input = "$projectDir/src/main/kotlin"
+    def output = "$buildDir/checkstyleReports"
+    def config = "$projectDir/detekt.yml"
+    def outputName = "main"
+    def params = [ '-i', input, '-c', config, '-o', output, '-on', outputName]
+    args(params)
+}
+check.dependsOn checkWithDetekt
