@@ -14,3 +14,5 @@ class SumSeries(private val metric: Metric) : Metric {
 }
 
 fun String.sumSeries() = SumSeries(StringMetric(this))
+
+fun Metric.sumSeries() = SumSeries(this)

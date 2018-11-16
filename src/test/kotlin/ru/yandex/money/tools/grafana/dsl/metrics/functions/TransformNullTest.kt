@@ -8,9 +8,9 @@ class TransformNullTest {
     @Test
     fun `should create metric that transform metric and replace nulls to constant`() {
         // given
-        val metric = "*.*.count" transformNull 0
+        val metric = "*.*.count" transformNull 0.0
 
         // then
-        metric.asString() shouldEqual "transformNull(*.*.count, 0)"
+        metric.asString() shouldEqual "transformNull(*.*.count, 0.0)"
     }
 }

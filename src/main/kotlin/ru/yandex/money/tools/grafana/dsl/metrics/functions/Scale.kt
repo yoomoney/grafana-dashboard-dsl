@@ -9,10 +9,10 @@ import ru.yandex.money.tools.grafana.dsl.metrics.Metric
  * @author iryabtsev (Igor Ryabtsev)
  * @since 15.11.2018
  */
-class Scale(private val metric: Metric, private val scaleValue: Int) : Metric {
+class Scale(private val metric: Metric, private val scaleValue: Double) : Metric {
     override fun asString() = """scale(${metric.asString()}, $scaleValue)"""
 }
 
-infix fun Metric.scale(scaleValue: Int) = Scale(this, scaleValue)
+infix fun Metric.scale(scaleValue: Double) = Scale(this, scaleValue)
 
-infix fun String.scale(scaleValue: Int) = Scale(StringMetric(this), scaleValue)
+infix fun String.scale(scaleValue: Double) = Scale(StringMetric(this), scaleValue)
