@@ -2,6 +2,10 @@
 
 ## NEXT_VERSION
 
+## [1.1.0]() (16-11-2018)
+
+* Добавлена поддержка финкции alias
+
 ## [1.0.0]() (15-11-2018)
 
 * Добавлена поддержка новых функций: divideSeries, movingMedian, scale, sumSeries и transformNull
