@@ -1,6 +1,10 @@
-# Test-utils
+# grafana-kotlin-dsl
 
 ## NEXT_VERSION
+
+## [1.1.1]() (16-11-2018)
+
+Сборка при помощи gradle-project-plugin
 
 ## [1.1.0]() (16-11-2018)
 
