@@ -1,4 +1,4 @@
-package ru.yandex.money.tools.grafana.dsl.panels
+package ru.yandex.money.tools.grafana.dsl.kit
 
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.sumSeries
@@ -8,6 +8,9 @@ import ru.yandex.money.tools.grafana.dsl.metrics.functions.scale
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.alias
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.transformNull
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.movingMedian
+import ru.yandex.money.tools.grafana.dsl.panels.PanelContainerBuilder
+import ru.yandex.money.tools.grafana.dsl.panels.PanelsBuilder
+import ru.yandex.money.tools.grafana.dsl.panels.graphPanel
 import ru.yandex.money.tools.grafana.dsl.time.m
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
 

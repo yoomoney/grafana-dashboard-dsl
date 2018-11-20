@@ -1,7 +1,6 @@
 package ru.yandex.money.tools.grafana.dsl.kit
 
 import ru.yandex.money.tools.grafana.dsl.dashboard.DashboardBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.logs
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
 
 /**
