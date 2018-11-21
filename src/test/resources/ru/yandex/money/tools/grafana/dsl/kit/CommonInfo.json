@@ -37,7 +37,7 @@
           "acknowledged": 2,
           "count": true
         },
-        "group": {"filter": "/.*/"},
+        "group": {"filter": "/.*/"}
       }],
       "gridPos": {
         "w": 3,
@@ -761,6 +761,243 @@
       "fill": 0,
       "linewidth": 2,
       "bars": true,
+      "dashes": false,
+      "thresholds": [],
+      "datasource": "Graphite",
+      "decimals": 2,
+      "pointradius": 5
+    },
+    {
+      "id": 15,
+      "title": "ERROR logs",
+      "type": "row",
+      "collapsed": false,
+      "panels": [],
+      "gridPos": {
+        "x": 0,
+        "h": 1,
+        "y": 97,
+        "w": 24
+      }
+    },
+    {
+      "stack": false,
+      "renderer": "flot",
+      "legend": {
+        "alignAsTable": true,
+        "max": true,
+        "values": true,
+        "show": true,
+        "sortDesc": true,
+        "rightSide": false,
+        "sort": "avg",
+        "hideZero": true,
+        "current": true,
+        "total": true,
+        "avg": true,
+        "min": true,
+        "hideEmpty": true
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "title": "Error logs count",
+      "type": "graph",
+      "targets": [
+        {
+          "hide": false,
+          "refId": "A",
+          "target": "sumSeries(*.*.test-component.logs.ERROR.count)"
+        }
+      ],
+      "seriesOverrides": [],
+      "yaxis": {
+        "align": false
+      },
+      "gridPos": {
+        "x": 0,
+        "h": 10,
+        "y": 98,
+        "w": 12
+      },
+      "points": false,
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "percentage": false,
+      "dashLength": 10,
+      "links": [],
+      "id": 16,
+      "lines": false,
+      "spaceLength": 10,
+      "editable": true,
+      "nullPointMode": "null as zero",
+      "steppedLine": false,
+      "fill": 0,
+      "linewidth": 2,
+      "bars": true,
+      "dashes": false,
+      "thresholds": [],
+      "datasource": "Graphite",
+      "decimals": 2,
+      "pointradius": 5
+    },
+    {
+      "stack": true,
+      "renderer": "flot",
+      "legend": {
+        "alignAsTable": true,
+        "max": true,
+        "values": true,
+        "show": true,
+        "sortDesc": true,
+        "rightSide": false,
+        "sort": "avg",
+        "hideZero": true,
+        "current": true,
+        "total": true,
+        "avg": true,
+        "min": true,
+        "hideEmpty": true
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "title": "Error logs count",
+      "type": "graph",
+      "targets": [
+        {
+          "hide": false,
+          "refId": "A",
+          "target": "aliasByNode(summarize(*.*.test-component.logs.ERROR.count, '$autoInterval', 'sum'), 1)"
+        }
+      ],
+      "seriesOverrides": [],
+      "yaxis": {
+        "align": false
+      },
+      "gridPos": {
+        "x": 12,
+        "h": 10,
+        "y": 108,
+        "w": 12
+      },
+      "points": false,
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "percentage": false,
+      "dashLength": 10,
+      "links": [],
+      "id": 17,
+      "lines": false,
+      "spaceLength": 10,
+      "editable": true,
+      "nullPointMode": "null as zero",
+      "steppedLine": false,
+      "fill": 0,
+      "linewidth": 2,
+      "bars": true,
+      "dashes": false,
+      "thresholds": [],
+      "datasource": "Graphite",
+      "decimals": 2,
+      "pointradius": 5
+    },
+    {
+      "stack": false,
+      "renderer": "flot",
+      "legend": {
+        "alignAsTable": true,
+        "max": true,
+        "values": true,
+        "show": true,
+        "sortDesc": true,
+        "rightSide": false,
+        "sort": "avg",
+        "hideZero": true,
+        "current": true,
+        "total": true,
+        "avg": true,
+        "min": true,
+        "hideEmpty": true
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "title": "Error logs count",
+      "type": "graph",
+      "targets": [
+        {
+          "hide": false,
+          "refId": "A",
+          "target": "alias(transformNull(scale(divideSeries(sumSeries(*.*.test-component.logs.ERROR.count), sumSeries(*.*.test-component.logs.*.count)), 100000.0), 0.0), 'Current')"
+        },
+        {
+          "hide": false,
+          "refId": "B",
+          "target": "alias(movingMedian(transformNull(scale(divideSeries(sumSeries(*.*.test-component.logs.ERROR.count), sumSeries(*.*.test-component.logs.*.count)), 100000.0), 0.0), '30m'), 'Threshold')"
+        }
+      ],
+      "seriesOverrides": [],
+      "yaxis": {
+        "align": false
+      },
+      "gridPos": {
+        "x": 0,
+        "h": 12,
+        "y": 118,
+        "w": 24
+      },
+      "points": false,
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "percentage": false,
+      "dashLength": 10,
+      "links": [],
+      "id": 18,
+      "lines": true,
+      "spaceLength": 10,
+      "editable": true,
+      "nullPointMode": "null as zero",
+      "steppedLine": false,
+      "fill": 0,
+      "linewidth": 2,
+      "bars": false,
       "dashes": false,
       "thresholds": [],
       "datasource": "Graphite",

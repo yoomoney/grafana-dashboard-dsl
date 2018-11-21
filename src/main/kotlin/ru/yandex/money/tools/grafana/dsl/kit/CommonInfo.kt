@@ -35,5 +35,6 @@ fun DashboardBuilder.commonInfo(
                 builder.thresholdValues[OUTGOING_REQUESTS]
         )
         queue(componentName.name, interval, builder.notificationIds, builder.thresholdValues[QUEUE])
+        logs(componentName.name, interval)
     }
 }
