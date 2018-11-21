@@ -962,12 +962,12 @@
         {
           "hide": false,
           "refId": "A",
-          "target": "alias(transformNull(scale(divideSeries(sumSeries(*.*.test-component.logs.ERROR.count), sumSeries(*.*.test-component.logs.*.count)), 100000.0), 0.0), 'Scaled ratio of errors to the total number of logs')"
+          "target": "alias(transformNull(scale(divideSeries(sumSeries(*.*.test-component.logs.ERROR.count), sumSeries(*.*.test-component.logs.*.count)), 100000.0), 0.0), 'Current')"
         },
         {
           "hide": false,
           "refId": "B",
-          "target": "alias(movingMedian(transformNull(scale(divideSeries(sumSeries(*.*.test-component.logs.ERROR.count), sumSeries(*.*.test-component.logs.*.count)), 100000.0), 0.0), '30m'), 'Moving median of scaled ratio of errors to the total number of logs over 30 minutes')"
+          "target": "alias(movingMedian(transformNull(scale(divideSeries(sumSeries(*.*.test-component.logs.ERROR.count), sumSeries(*.*.test-component.logs.*.count)), 100000.0), 0.0), '30m'), 'Threshold')"
         }
       ],
       "seriesOverrides": [],

@@ -65,13 +65,12 @@ fun PanelContainerBuilder.errorAlert(componentName: String) {
             metric("A") {
                 (("*.*.$componentName.logs.ERROR.count".sumSeries()) divideSeries
                         ("*.*.$componentName.logs.*.count".sumSeries()) scale 100000.0 transformNull 0.0
-                        alias "Scaled ratio of errors to the total number of logs")
+                        alias "Current")
             }
             metric("B") {
                 (("*.*.$componentName.logs.ERROR.count".sumSeries()) divideSeries
                         ("*.*.$componentName.logs.*.count".sumSeries()) scale 100000.0 transformNull 0.0
-                        movingMedian 30.m
-                        alias "Moving median of scaled ratio of errors to the total number of logs over 30 minutes")
+                        movingMedian 30.m alias "Threshold")
             }
         }
     }
