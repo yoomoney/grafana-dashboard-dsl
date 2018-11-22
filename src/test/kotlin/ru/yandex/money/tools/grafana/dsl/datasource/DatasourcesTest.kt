@@ -3,8 +3,6 @@ package ru.yandex.money.tools.grafana.dsl.datasource
 import org.amshove.kluent.shouldEqual
 import org.testng.annotations.DataProvider
 import org.testng.annotations.Test
-import ru.yandex.money.tools.testing.kotlin.and
-import ru.yandex.money.tools.testing.kotlin.provide
 
 class DatasourcesTest {
 
@@ -14,9 +12,9 @@ class DatasourcesTest {
     }
 
     @DataProvider
-    fun representations() = provide(
-            NullDatasource and null,
-            Zabbix and "Zabbix",
-            Graphite and "Graphite"
+    fun representations() = arrayOf(
+            arrayOf(NullDatasource, null),
+            arrayOf(Zabbix, "Zabbix"),
+            arrayOf(Graphite, "Graphite")
     )
 }
