@@ -32,18 +32,6 @@ DSL для генерации Grafana dashboards.
 
 ## Подключение
 
-### С использованием Gradle-plugin (рекомендуется)
-> build.gradle
-```groovy
-buildscript {
-    dependencies {
-        classpath 'ru.yandex.money.gradle.plugins:yamoney-grafana-plugin:1.0.5'
-    }
-}
-apply plugin: 'grafana'
-```
-
-### Без использования Gradle-plugin
 > build.gradle
 ```groovy
 sourceSets {
@@ -53,7 +41,7 @@ sourceSets {
 }
 
 dependencies {
-    grafanaCompile 'ru.yandex.money.common:yamoney-grafana-kotlin-dsl:0.1.0'    
+    grafanaCompile 'ru.yandex.money.common:yamoney-grafana-dashboard-dsl:1.0.0'    
 }
 ```
 Код для генерации должен располагается в `${projectDir}/src/grafana/kotlin/`. Генерация производится [вручную](#вручную):
@@ -71,14 +59,7 @@ fun main(args: Array<String>) {
 
 ## Импорт JSON
 
-### С использованием Jenkins
-Для каждой master-ветки существует Jenkins job `importGrafanaDashboards`, которая 
-в обязательном порядке требует использование Gradle-plugin. Данная задача автоматически
-запустит скрипты генерации JSON-документов и произведет их импорт (с перезаписыванием 
-существующих дэшбордов).
-
-### Вручную
-![Import](https://bitbucket.yamoney.ru/projects/BACKEND-TOOLS/repos/grafana-kotlin-dsl/raw/import_optimized.gif?at=refs%2Fheads%2Fmaster)
+![Import](https://bitbucket.yamoney.ru/projects/BACKEND-TOOLS/repos/grafana-dashboard-dsl/raw/import_optimized.gif?at=refs%2Fheads%2Fmaster)
 
 ## Примеры
 > Простая панель с текстом, использующая дополнительные свойства для кастомизации.
@@ -104,48 +85,6 @@ dashboard(title = "My first Dashboard") {
 }
 ```
 
-> Дэшборд Common-Info с использованием строк и переменных.
-```kotlin
-import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
-import ru.yandex.money.tools.grafana.dsl.kit.Component
-import ru.yandex.money.tools.grafana.dsl.kit.INCOMING_REQUESTS
-import ru.yandex.money.tools.grafana.dsl.kit.OUTGOING_REQUESTS
-import ru.yandex.money.tools.grafana.dsl.kit.PORTAL_BACK_OTHER
-import ru.yandex.money.tools.grafana.dsl.kit.QUEUE
-import ru.yandex.money.tools.grafana.dsl.kit.commonInfo
-import ru.yandex.money.tools.grafana.dsl.time.h
-import ru.yandex.money.tools.grafana.dsl.time.m
-import ru.yandex.money.tools.grafana.dsl.time.now
-
-dashboard(title = "Catalog common info (autogen)") {
-        timeRange = now-2.h .. now
-
-        val hosts by variable(datasource = Zabbix) {
-            query(PORTAL_BACK_OTHER) {
-                regex = ".*catalog.*"
-            }
-        }
-
-        val autoInterval by variable {
-            interval(1.m, 10.m, 30.m, 1.h)
-        }
-
-        tags += "catalog"
-
-        commonInfo(hosts, autoInterval, Component("catalog", "Catalog")) {
-            notifications {
-                id { 181 }
-            }
-
-            thresholds {
-                INCOMING_REQUESTS { 20 }
-                OUTGOING_REQUESTS { 20 }
-                QUEUE { 15 }
-            }
-        }
-    }
-```
-
 ## Разработка
 
 Для разработки дэшбордов, панелей, метрик и т.п. применяется стандартный подход для построения DSL на Kotlin:
@@ -153,8 +92,7 @@ dashboard(title = "Catalog common info (autogen)") {
   быть помечен аннотацией `ru.yandex.money.tools.grafana.dsl.DashboardElement`
 * Data-класс для хранения данных (например, тип графика) новой сущности (примером может служить класс 
   `ru.yandex.money.tools.grafana.dsl.dashboard.Dashboard`), который должен реализовывать интерфейс 
-  `ru.yandex.money.tools.grafana.dsl.json.Json`, если предполагается сериализация это сущности
-  
-Если планируется разработка переиспользуемого дэшборда (например, `common-info`) или панели, которая является 
-специфичной для наших метрик и инфраструктуры, располагайте классы вместе с их зависимостями в пакете 
-`ru.yandex.money.tools.grafana.dsl.kit`, который в будущем может быть вынесен в отдельную библиотеку.
+  `ru.yandex.money.tools.grafana.dsl.json.Json`, если предполагается сериализация этой сущности
+
+**NB:** проект представляет собой исключительно DSL. Не рекомендуется разрабатывать в его рамках специфичные панели
+и дэшборды.
