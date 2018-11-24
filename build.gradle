@@ -9,31 +9,20 @@ buildscript {
 apply from: 'tmp/gradle-scripts/_root.gradle'
 /////////////////////////////////////////////
 
-groupIdSuffix = "common"
+groupIdSuffix = "tools"
 artifactID = "yamoney-grafana-dashboard-dsl"
 
-apply plugin: org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
+apply plugin: 'kotlin'
+
+apply from: 'dependencies.gradle'
 
 configurations {
     ktlint
     detekt
 }
-
-def kotlinVersion = '1.2.50'
-
 dependencies {
-    
-    compile 'org.json:json:20180130',
-            "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
-            "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
-    
     ktlint 'com.github.shyiko:ktlint:0.24.0'
     detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.0.0.RC7'
-    
-    testCompile 'org.testng:testng:6.10', 
-                'commons-io:commons-io:2.4',
-                'org.skyscreamer:jsonassert:1.5.0', 
-                'org.amshove.kluent:kluent:1.34'
 }
 
 
