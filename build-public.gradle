@@ -4,6 +4,7 @@ buildscript {
         jcenter()
         dependencies {
             classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${System.getProperty('kotlinVersion')}"
+            classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.17"
         }
     }
 }
@@ -28,8 +29,16 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'java'
 apply plugin: 'kotlin'
+apply plugin: 'org.jetbrains.dokka'
 
 apply from: 'dependencies.gradle'
+
+dokka {
+    outputFormat = 'javadoc'
+    outputDirectory = "$buildDir/docs/javadoc"
+    jdkVersion = 8
+}
+check.dependsOn('dokka')
 
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'

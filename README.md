@@ -1,14 +1,11 @@
-# Grafana Dashboards Kotlin DSL
+[![Build Status](https://travis-ci.org/yandex-money-tech/grafana-dashboard-dsl.svg?branch=master)](https://travis-ci.org/yandex-money-tech/grafana-dashboard-dsl)
+[![Build status](https://ci.appveyor.com/api/projects/status/rm9w6w0jt994vyys?svg=true)](https://ci.appveyor.com/project/f0y/grafana-dashboard-dsl)
+[![codebeat badge](https://codebeat.co/badges/8bb6412b-cef6-4808-962e-9f9bfa5a13ec)](https://codebeat.co/projects/github-com-yandex-money-tech-grafana-dashboard-dsl-master)
+[![Download](https://api.bintray.com/packages/yandex-money-tech/maven/grafana-dashboard-dsl/images/download.svg) ](https://bintray.com/yandex-money-tech/maven/grafana-dashboard-dsl/_latestVersion)
 
-DSL для генерации Grafana dashboards.
+# Grafana Dashboard DSL
 
-> Авторы:
->
-> Василий Созыкин (vsozykin@yamoney.ru)
->
-> Дмитрий Павлов (dupavlov@yamoney.ru)
->
-> Дмитрий Комаров (komarovdmitry@yamoney.ru)
+DSL на kotlin для генерации Grafana dashboards.
 
 ## Особенности
 
@@ -32,6 +29,16 @@ DSL для генерации Grafana dashboards.
 
 ## Подключение
 
+Библиотека доступна в [Bintray's JCenter repository](http://jcenter.bintray.com) 
+
+```
+<dependency>
+  <groupId>com.yandex.money.tech</groupId>
+  <artifactId>grafana-dashboard-dsl</artifactId>
+  <version>1.0.3</version>
+</dependency>
+```
+
 > build.gradle
 ```groovy
 sourceSets {
@@ -41,10 +48,10 @@ sourceSets {
 }
 
 dependencies {
-    grafanaCompile 'ru.yandex.money.tools:yamoney-grafana-dashboard-dsl:1.0.0'    
+    grafanaCompile 'com.yandex.money.tech:grafana-dashboard-dsl:1.0.3'    
 }
 ```
-Код для генерации должен располагается в `${projectDir}/src/grafana/kotlin/`. Генерация производится [вручную](#вручную):
+Код для генерации должен располагаться в `${projectDir}/src/grafana/kotlin/`. Генерация производится [вручную](#вручную):
 ```kotlin
 import ru.yandex.money.tools.grafana.dsl.dashboard
 
@@ -59,7 +66,7 @@ fun main(args: Array<String>) {
 
 ## Импорт JSON
 
-![Import](https://bitbucket.yamoney.ru/projects/BACKEND-TOOLS/repos/grafana-dashboard-dsl/raw/import_optimized.gif?at=refs%2Fheads%2Fmaster)
+![Import](https://raw.githubusercontent.com/yandex-money-tech/grafana-dashboard-dsl/master/import_optimized.gif)
 
 ## Примеры
 > Простая панель с текстом, использующая дополнительные свойства для кастомизации.
@@ -107,3 +114,11 @@ dashboard(title = "My first Dashboard") {
 - `gradle-public/wrapper/gradle-wrapper.properties` на `gradle/wrapper/gradle-wrapper.properties`,
 - `build-public.gradle` with `build.gradle`.
 Это вызвано багом в Idea: https://github.com/f0y/idea-two-gradle-builds.
+
+# Авторы
+
+> Дмитрий Комаров (komarovdmitry@yamoney.ru)
+>
+> Василий Созыкин (vsozykin@yamoney.ru)
+>
+> Дмитрий Павлов (dupavlov@yamoney.ru)
