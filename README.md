@@ -41,7 +41,7 @@ sourceSets {
 }
 
 dependencies {
-    grafanaCompile 'ru.yandex.money.common:yamoney-grafana-dashboard-dsl:1.0.0'    
+    grafanaCompile 'ru.yandex.money.tools:yamoney-grafana-dashboard-dsl:1.0.0'    
 }
 ```
 Код для генерации должен располагается в `${projectDir}/src/grafana/kotlin/`. Генерация производится [вручную](#вручную):
@@ -94,5 +94,16 @@ dashboard(title = "My first Dashboard") {
   `ru.yandex.money.tools.grafana.dsl.dashboard.Dashboard`), который должен реализовывать интерфейс 
   `ru.yandex.money.tools.grafana.dsl.json.Json`, если предполагается сериализация этой сущности
 
-**NB:** проект представляет собой исключительно DSL. Не рекомендуется разрабатывать в его рамках специфичные панели
-и дэшборды.
+# Сборка проекта
+
+См. конфигурации Travis (`.travis.yml`) или AppVeyor (`appveyor.yml`).
+В репозитории находятся два gradle-проекта:
+- файлы `build.gradle`, `gradlew`, `gradle/wrapper` относятся к проекту для работы во внутренней инфраструктуре Яндекс.Денег;
+- файлы `build-public.gradle`, `gradlew-public`, `gradle-public/wrapper` относятся к проекту для работы извне.
+
+# Импорт проекта в IDE
+
+К сожалению на данный момент необходимо перед импортом проекта в Idea заменить файлы:
+- `gradle-public/wrapper/gradle-wrapper.properties` на `gradle/wrapper/gradle-wrapper.properties`,
+- `build-public.gradle` with `build.gradle`.
+Это вызвано багом в Idea: https://github.com/f0y/idea-two-gradle-builds.
