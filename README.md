@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/yandex-money-tech/grafana-dashboard-dsl.svg?branch=master)](https://travis-ci.org/yandex-money-tech/grafana-dashboard-dsl)
 [![Build status](https://ci.appveyor.com/api/projects/status/rm9w6w0jt994vyys?svg=true)](https://ci.appveyor.com/project/f0y/grafana-dashboard-dsl)
 [![codebeat badge](https://codebeat.co/badges/8bb6412b-cef6-4808-962e-9f9bfa5a13ec)](https://codebeat.co/projects/github-com-yandex-money-tech-grafana-dashboard-dsl-master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Javadoc](https://img.shields.io/badge/javadoc-latest-blue.svg)](https://yandex-money-tech.github.io/grafana-dashboard-dsl/)
 [![Download](https://api.bintray.com/packages/yandex-money-tech/maven/grafana-dashboard-dsl/images/download.svg) ](https://bintray.com/yandex-money-tech/maven/grafana-dashboard-dsl/_latestVersion)
 
 # Grafana Dashboard DSL
