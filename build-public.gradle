@@ -76,6 +76,7 @@ idea {
     }
 }
 test {
+    useTestNG()
     systemProperty "file.encoding", "UTF-8"
     testLogging {
         events "skipped", "failed"
