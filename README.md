@@ -60,28 +60,8 @@ fun main(args: Array<String>) {
 ![Import](https://raw.githubusercontent.com/yandex-money-tech/grafana-dashboard-dsl/master/import_optimized.gif)
 
 ## Примеры
-> Простая панель с текстом, использующая дополнительные свойства для кастомизации.
-```kotlin
-import ru.yandex.money.tools.grafana.dsl.dashboard
-import ru.yandex.money.tools.grafana.dsl.json.set
-import ru.yandex.money.tools.grafana.dsl.panels.panel
-import ru.yandex.money.tools.grafana.dsl.time.off
 
-dashboard(title = "My first Dashboard") {
-    refresh = off
-
-    panels {
-        panel(title = "My first Panel") {
-            // Свойства, которые будут вставлены прямо в JSON-элемент этой панели.
-            properties {
-                it["mode"] = "markdown"
-                it["type"] = "text"
-                it["content"] = "# Wow, it's generated!"
-            }
-        }
-    }
-}
-```
+Примеры доступны в `./src/examples/kotlin/ru/yandex/money/tools/grafana/dsl/examples`
 
 ## Разработка
 

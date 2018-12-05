@@ -15,6 +15,7 @@ artifactID = "yamoney-grafana-dashboard-dsl"
 apply plugin: 'kotlin'
 
 apply from: 'dependencies.gradle'
+apply from: 'examples.gradle'
 
 configurations {
     ktlint
