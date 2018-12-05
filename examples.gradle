@@ -1,0 +1,13 @@
+configurations {
+    examplesCompile.extendsFrom compile
+    examplesRuntime.extendsFrom runtime
+}
+
+sourceSets {
+    examples {
+        kotlin {
+            compileClasspath += main.output
+            runtimeClasspath += main.output
+        }
+    }
+}
