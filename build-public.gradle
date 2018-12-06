@@ -38,6 +38,7 @@ dokka {
     outputFormat = 'javadoc'
     outputDirectory = "$buildDir/docs/javadoc"
     jdkVersion = 8
+    samples = ['src/examples/kotlin']
 }
 check.dependsOn('dokka')
 
