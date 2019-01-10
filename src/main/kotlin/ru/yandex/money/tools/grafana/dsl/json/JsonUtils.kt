@@ -30,8 +30,10 @@ class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapO
         properties[this] = duration.toString()
     }
 
-    infix fun String.to(value: Json<*>) {
-        properties[this] = value.toJson()
+    infix fun String.to(value: Json<*>?) {
+        if (value != null) {
+            properties[this] = value.toJson()
+        }
     }
 
     infix fun String.to(obj: JSONObject) {
