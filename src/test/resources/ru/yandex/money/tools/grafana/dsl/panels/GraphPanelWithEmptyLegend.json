@@ -1,0 +1,66 @@
+{
+  "stack": false,
+  "renderer": "flot",
+  "legend": {
+    "current": false,
+    "total": false,
+    "alignAsTable": false,
+    "avg": false,
+    "min": false,
+    "max": false,
+    "values": false,
+    "show": true,
+    "sortDesc": false,
+    "hideEmpty": false,
+    "rightSide": false,
+    "hideZero": false
+  },
+  "yaxes": [
+    {
+      "format": "short",
+      "logBase": 1,
+      "show": true
+    },
+    {
+      "format": "short",
+      "logBase": 1,
+      "show": true
+    }
+  ],
+  "title": "Test Panel",
+  "type": "graph",
+  "targets": [],
+  "seriesOverrides": [],
+  "yaxis": {
+    "align": false
+  },
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  },
+  "points": false,
+  "xaxis": {
+    "mode": "time",
+    "show": true,
+    "values": []
+  },
+  "percentage": false,
+  "dashLength": 10,
+  "links": [],
+  "id": 1,
+  "lines": true,
+  "spaceLength": 10,
+  "editable": true,
+  "nullPointMode": "null as zero",
+  "steppedLine": false,
+  "fill": 0,
+  "linewidth": 2,
+  "bars": false,
+  "dashes": false,
+  "thresholds": [],
+  "datasource": "Graphite",
+  "decimals": 2,
+  "pointradius": 5
+}

@@ -24,8 +24,30 @@ class GraphPanelBuilder(private val title: String) : PanelBuilder {
 
     val metrics = ReferenceMetricsHolder()
 
+    var legend = Legend.DEFAULT
+
+    var points = false
+
+    var pointradius = 5
+
+    var nullPointMode = NullPointMode.NULL_AS_ZERO
+
+    var fill = 0
+
+    var aliasColors: AliasColors? = null
+
+    var leftYAxis: YAxis? = null
+
+    var rightYAxis: YAxis? = null
+
     override fun properties(propertiesSetter: (JSONObject) -> Unit) {
         propertiesSetters += propertiesSetter
+    }
+
+    fun aliasColors(build: AliasColorsBuilder.() -> Unit) {
+        val builder = AliasColorsBuilder()
+        builder.build()
+        aliasColors = builder.aliasColors
     }
 
     fun metrics(build: MetricsBuilder.() -> Unit) {
@@ -47,7 +69,15 @@ class GraphPanelBuilder(private val title: String) : PanelBuilder {
                     ),
                     type = type,
                     timeShift = timeShift,
-                    stack = stacked
+                    stack = stacked,
+                    legend = legend,
+                    points = points,
+                    pointradius = pointradius,
+                    nullPointMode = nullPointMode,
+                    fill = fill,
+                    aliasColors = aliasColors,
+                    leftYAxis = leftYAxis,
+                    rightYAxis = rightYAxis
             )
     ) { json -> propertiesSetters.forEach { it(json) } }
 }

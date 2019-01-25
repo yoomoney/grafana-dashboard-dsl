@@ -146,4 +146,129 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithStack.json")
     }
+
+    @Test
+    fun `should create graph panel with alias colors`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            aliasColors {
+                "success" to Color.GREEN
+                "fail" to Color.RED
+            }
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithCustomAliasColors.json")
+    }
+
+    @Test
+    fun `should create graph panel with default legend`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            legend = Legend.DEFAULT
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithDefaultLegend.json")
+    }
+
+    @Test
+    fun `should create graph panel with empty legend`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            legend = Legend.EMPTY
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithEmptyLegend.json")
+    }
+
+    @Test
+    fun `should create graph panel with points`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            points = true
+            pointradius = 3
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithPoints.json")
+    }
+
+    @Test
+    fun `should create graph panel with point mode connected`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            nullPointMode = NullPointMode.CONNECTED
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithNullPointModeConnected.json")
+    }
+
+    @Test
+    fun `should create graph panel with filling`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            fill = 1
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithFilling.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis format milliseconds`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(format = YAxis.Format.MILLISECONDS)
+            rightYAxis = YAxis(format = YAxis.Format.MILLISECONDS)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatMilliseconds.json")
+    }
+
 }

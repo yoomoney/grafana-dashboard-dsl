@@ -1,0 +1,14 @@
+{
+  "current": true,
+  "total": false,
+  "alignAsTable": true,
+  "avg": false,
+  "min": false,
+  "max": true,
+  "values": true,
+  "show": true,
+  "sortDesc": false,
+  "hideEmpty": true,
+  "rightSide": false,
+  "hideZero": true
+}
