@@ -3,7 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.time
 import ru.yandex.money.tools.grafana.dsl.json.Json
 
 /**
- * Метка времени.
+ * Timestamp.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
@@ -11,10 +11,10 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 interface Timestamp : Json<String> {
 
     /**
-     * Возвращает отрезок с данного по некоторый момент.
+     * Returns time range from this to [to].
      *
-     * @param to конец отрезка
-     * @return отрезок времени
+     * @param to End of time range
+     * @return time range
      */
     operator fun rangeTo(to: Timestamp) = TimeRange(this, to)
 }

@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Описывает блок "legend" на панели
+ * Represents "legend" block on a panel
  *
  * @author Dmitry Pavlov (dupavlov@yamoney.ru)
  * @since 11.01.2019
@@ -29,8 +29,8 @@ class Legend(
     companion object Factory {
 
         /**
-         * Дэфолтный блок "legend"
-         * Метрики отображаются как таблица с колонками:  "name", "min", "max", "avg", "current", "total"
+         * Default block "legend"
+         * Metrics will show up as table wit columns:  "name", "min", "max", "avg", "current", "total"
          */
         val DEFAULT = Legend(
                 alignAsTable = true,
@@ -49,8 +49,8 @@ class Legend(
         )
 
         /**
-         * Пустой блок "legend"
-         * Отображаются только наименования метрик в виде плоского списка
+         * Empty block "legend"
+         * Only metrics names will show up in a flat list
          */
         val EMPTY = Legend(
                 alignAsTable = false,
@@ -87,7 +87,7 @@ class Legend(
 }
 
 /**
- * Способ сортировки значений блока легенды
+ * Sorting type for legend block values
  */
 enum class Sort(val value: String) {
     AVG("avg"),

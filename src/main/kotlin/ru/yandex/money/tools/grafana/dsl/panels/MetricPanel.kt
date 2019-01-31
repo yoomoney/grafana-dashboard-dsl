@@ -7,7 +7,7 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.metrics.Metrics
 
 /**
- * Панель с метриками.
+ * Panel with metrics.
  *
  * @author Dmitry Komarov
  * @since 25.07.2018

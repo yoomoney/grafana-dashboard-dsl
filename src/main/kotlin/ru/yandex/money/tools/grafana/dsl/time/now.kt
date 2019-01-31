@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.time
 
 /**
- * Текущая метка времени.
+ * Current time.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
@@ -13,10 +13,10 @@ object now : Timestamp {
     override fun toString() = "now"
 
     /**
-     * Возвращает метку времени, отстающую относительно текущей на некоторый отрезок времени.
+     * Returns duration from now to specified value.
      *
-     * @param duration отрезок времени
-     * @return отстающая метка времени
+     * @param duration Time range
+     * @return Time left
      */
     operator fun minus(duration: Duration) = object : Timestamp {
 

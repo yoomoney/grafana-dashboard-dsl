@@ -20,7 +20,7 @@ import ru.yandex.money.tools.grafana.dsl.time.nowD
 import ru.yandex.money.tools.grafana.dsl.time.off
 
 /**
- * Дашборд со single-stat панелями, строками, переменными и графиками
+ * Dashboard with single-stat panels, rows, variables and charts
  *
  * @author Dmitry Komarov
  * @author Dmitry Pavlov (dupavlov@yamoney.ru)
@@ -28,27 +28,28 @@ import ru.yandex.money.tools.grafana.dsl.time.off
  */
 dashboard(title = "Grafana Demo Layouts") {
 
-    timeRange = nowD..now // зададим временной промежуток, за который будут запрошены метрики: с полуночи по настоящее время
+    timeRange = nowD..now // Set time interval for metrics: from midnight to current time
 
-    refresh = off // отключаем периодическое обновление метрик
+    refresh = off // Disable metrics refresh
 
     val medianInterval by variable {
-        interval(1.m, 10.m, 30.m, 1.h) // зададим переменную-интервал для медианы. Имя переменной на дашборде == имени переменной в коде
+        interval(1.m, 10.m, 30.m, 1.h) // Introduce variable-interval for median. Name of variable in code will be equal to it's dashboard name
     }
 
     panels {
-        row(title = "Single Stat Metrics") { // создаем строку с single-stat метриками
+        row(title = "Single Stat Metrics") { // Create row with single-stat metrics
 
-            val singleStat = { title: String, metric: String -> // Создадим свою собственную функцию-фабрику для single-stat панелей
+            val singleStat = { title: String, metric: String -> // Create fabric-function for single-stat panels
 
                 metricPanel(title = title) {
+
                     /*
-                    зададим размеры: 6x3 означает, что в ширину панель будет занимать четверть экрана (в Grafana по ширине
-                    24 колонки), а в высоту 90px (в Grafana единица высоты = 30px)
+                    Panel size, 6 will be qarter of screen, as grafana has 24 columns,
+                    and 3 will be 90px, as height measured in 30px intervals
                      */
                     bounds = 6 to 3
 
-                    properties { // переопределим некоторые свойства в сыром JSON
+                    properties { // Override some properties in JSON
                         it["type"] = "singlestat"
                         it["nullPointMode"] = "connected"
                         it["valueName"] = "avg"
@@ -62,7 +63,7 @@ dashboard(title = "Grafana Demo Layouts") {
                     }
 
                     metrics {
-                        metric("A") { // Зададим метрику с ссылкой на нее. Требуется, чтобы эта ссылка была уникальна для панели
+                        metric("A") { // Define a metric referencing above one (referenceId must be uniq for panel)
                             StringMetric(metric)
                         }
                     }
@@ -70,7 +71,7 @@ dashboard(title = "Grafana Demo Layouts") {
             }
 
             /*
-            Создадим несколько таких панелей
+            Create a few of this panels
              */
             singleStat("Sign Ups", "apps.backend.backend_01.counters.requests.count")
             singleStat("Logins", "apps.backend.backend_02.counters.requests.count")
@@ -83,31 +84,31 @@ dashboard(title = "Grafana Demo Layouts") {
             graphPanel(title = "Graph Metric") {
 
                 bounds = 24 to 18
-                type = "lines" // использовать для рисования графика линии
-                stacked = true // метрики не должны прижиматься к оси Ox, а должны "накладываться" друг на друга
-                legend = Legend.EMPTY // отображать только алиасы метрик
-                fill = 1 // степень заливки установить в 1
-                nullPointMode = NullPointMode.NULL // режим отображения null-значений
-                points = true // использовать режим отображения точек
-                pointradius = 2 // указывать радиус точек
+                type = "lines" // Use lines in chart
+                stacked = true // Metrics must not be stacked onto Ox axis, and should overlap each other
+                legend = Legend.EMPTY // Show only aliases for metrics
+                fill = 1 // Fill rate
+                nullPointMode = NullPointMode.NULL // How to show null values
+                points = true // Show chart points
+                pointradius = 2 // Chart points radius
 
                 aliasColors {
-                    "some metric" to Color.GREEN // использовать цвет из набора предопределенных цветов Color
-                    "another metric" to Color.of(0xBF1B00) // указать цвет через RGB
+                    "some metric" to Color.GREEN // Use predefined color
+                    "another metric" to Color.of(0xBF1B00) // Use custom RGB color
                 }
 
                 metrics {
                     metric("A") {
                         /*
-                        используем infix-функции для создания метрики
+                        use infix style function to define metric
                          */
                         "apps.backend.*.counters.requests.count" movingMedian medianInterval aliasByNode 2 alias "some metric"
                     }
 
                     metric("B") {
                         "*.another.metric.mean"
-                                .averageSeries() // выбрать среднее значение для метрики
-                                .alias("another metric") // указать алиас
+                                .averageSeries() // show average fro metric
+                                .alias("another metric") // define alias
                     }
 
                 }

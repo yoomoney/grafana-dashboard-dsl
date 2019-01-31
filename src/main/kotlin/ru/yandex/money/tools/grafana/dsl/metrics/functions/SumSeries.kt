@@ -3,8 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.metrics.functions
 import ru.yandex.money.tools.grafana.dsl.metrics.Metric
 
 /**
- * Генератор функции sumSeries для graphite. sumSeries объединяет все метрики и возвращает сумму в
- * каждой точке.
+ * Generator for sumSeries function for graphite. sumSeries combines all metrics and returns sum at each point.
  *
  * @author iryabtsev (Igor Ryabtsev)
  * @since 15.11.2018

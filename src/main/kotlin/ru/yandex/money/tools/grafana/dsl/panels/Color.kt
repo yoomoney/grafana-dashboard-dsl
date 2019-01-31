@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
 /**
- * Класс, описывающий цвет для [AliasColors]
+ * Represents color for [AliasColors]
  *
  * @author Dmitry Pavlov (dupavlov@yamoney.ru)
  * @since 11.01.2019
@@ -23,8 +23,7 @@ data class Color(val red: Int, val green: Int, val blue: Int) {
     companion object {
 
         /**
-         * Константы описывают цвета, которые могут быть выбраны в Color picker
-         * Список не является исчерпывающим и включает только наиболее часто используемые
+         * Common colors
          */
         val GREEN = Color.of(0x7EB26D)
         val YELLOW = Color.of(0xEAB839)
@@ -38,7 +37,7 @@ data class Color(val red: Int, val green: Int, val blue: Int) {
         val WHITE = Color.of(0xFCE2DE)
 
         /**
-         * Фабрика, конструирующая цвет из одного объекта [Int]
+         * Constructs color for hex
          */
         fun of(rgb: Int): Color {
             val red = rgb shr 16 and 0xFF

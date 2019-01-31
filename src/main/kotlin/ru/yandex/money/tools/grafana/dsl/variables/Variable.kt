@@ -4,7 +4,7 @@ import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.Json
 
 /**
- * Переменная в Grafana.
+ * Variable in a Grafana.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
@@ -12,7 +12,7 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 interface Variable : Json<JSONObject> {
 
     /**
-     * Имя переменной.
+     * Variable name.
      */
     val name: String
 

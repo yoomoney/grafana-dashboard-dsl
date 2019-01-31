@@ -4,7 +4,7 @@ import ru.yandex.money.tools.grafana.dsl.DashboardElement
 import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 
 /**
- * Билдер для переменных типа "Query".
+ * Builder for "Query" type variables.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

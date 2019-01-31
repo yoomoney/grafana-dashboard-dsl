@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Позиция элемента на дэшборде (вместе с его линейными размерами).
+ * Position of an element on the dashboard (with it's size).
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

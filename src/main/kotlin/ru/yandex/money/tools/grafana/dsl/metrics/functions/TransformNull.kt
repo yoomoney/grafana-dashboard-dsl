@@ -3,8 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.metrics.functions
 import ru.yandex.money.tools.grafana.dsl.metrics.Metric
 
 /**
- * Генератор функции transformNull для graphite. transformNull заменяет все NULL значения на
- * заданную костанту
+ * Generator for transformNull function for graphite. transformNull replaces all NULL values with specified constant.
  *
  * @author iryabtsev (Igor Ryabtsev)
  * @since 15.11.2018

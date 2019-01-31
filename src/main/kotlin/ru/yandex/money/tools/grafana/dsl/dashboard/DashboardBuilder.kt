@@ -3,22 +3,22 @@ package ru.yandex.money.tools.grafana.dsl.dashboard
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
 import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 import ru.yandex.money.tools.grafana.dsl.datasource.NullDatasource
+import ru.yandex.money.tools.grafana.dsl.panels.Panel
+import ru.yandex.money.tools.grafana.dsl.panels.Panels
+import ru.yandex.money.tools.grafana.dsl.panels.PanelsBuilder
 import ru.yandex.money.tools.grafana.dsl.time.Refresh
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.now
 import ru.yandex.money.tools.grafana.dsl.time.s
-import ru.yandex.money.tools.grafana.dsl.panels.PanelsBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.Panel
-import ru.yandex.money.tools.grafana.dsl.panels.Panels
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
 import ru.yandex.money.tools.grafana.dsl.variables.VariableBuilder
 import ru.yandex.money.tools.grafana.dsl.variables.VariableDelegate
 import ru.yandex.money.tools.grafana.dsl.variables.Variables
 
 /**
- * Билдер дэшборда.
+ * Dashboard builder.
  *
- * @property title название будущего дэшборда
+ * @property title Dashboard title
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
@@ -43,12 +43,12 @@ class DashboardBuilder(private val title: String) {
     }
 
     /**
-     * Строит переменную без источника данных.
+     * Build variable without data source.
      */
     fun variable(build: VariableBuilder.() -> Unit) = variable(NullDatasource, build)
 
     /**
-     * Строит переменную с источником данных.
+     * Build variable with data source.
      */
     fun variable(datasource: Datasource, build: VariableBuilder.() -> Unit): VariableDelegate {
         val builder = VariableBuilder(datasource)

@@ -3,8 +3,8 @@ package ru.yandex.money.tools.grafana.dsl.metrics.functions
 import ru.yandex.money.tools.grafana.dsl.metrics.Metric
 
 /**
- * Генератор функции divideSeries для graphite. divideSeries принимает две метрики
- * и возвращает результат деления одной метрики на другую.
+ * Generator for divideSeries function for graphite. divideSeries accepts
+ * two metrics and returns result of dividing them to each other.
  *
  * @author iryabtsev (Igor Ryabtsev)
  * @since 15.11.2018

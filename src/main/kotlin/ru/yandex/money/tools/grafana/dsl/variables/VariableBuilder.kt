@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 import ru.yandex.money.tools.grafana.dsl.time.Duration
 
 /**
- * Билдер для построения переменных.
+ * Variable builder.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

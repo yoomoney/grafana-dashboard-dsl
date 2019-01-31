@@ -4,7 +4,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * Массив JSON-объектов.
+ * Array of JSON objects.
  *
  * @author Dmitry Komarov
  * @since 25.07.2018

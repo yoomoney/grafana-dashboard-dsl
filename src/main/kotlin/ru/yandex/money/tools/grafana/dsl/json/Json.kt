@@ -1,9 +1,9 @@
 package ru.yandex.money.tools.grafana.dsl.json
 
 /**
- * Представляет объект, который может быть сериализован в JSON.
+ * Represents an object that can be serialized to JSON.
  *
- * @param J тип JSON-сущности, в которую может быть сериализован объект (например, строка, массив, объект)
+ * @param J Type of JSON object to serialize to (string, array, object, etc)
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 24.07.2018
@@ -11,9 +11,9 @@ package ru.yandex.money.tools.grafana.dsl.json
 interface Json<out J> {
 
     /**
-     * Возвращает JSON-представление объекта.
+     * returns object as JSON.
      *
-     * @return JSON-представление
+     * @return JSON
      */
     fun toJson(): J
 }

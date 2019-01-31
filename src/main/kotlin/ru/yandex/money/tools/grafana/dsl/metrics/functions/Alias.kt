@@ -3,8 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.metrics.functions
 import ru.yandex.money.tools.grafana.dsl.metrics.Metric
 
 /**
- * Генератор функции alias для graphite. alias устанавливает имя для метрики,
- * которое отображается под графиком.
+ * Generator for alias function for graphite. alias sets the metric name that is displayed on UI.
  *
  * @author iryabtsev (Igor Ryabtsev)
  * @since 16.11.2018

@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.metrics
 
 /**
- * Метрика, отображаемая на панелях дэшборда.
+ * Metric displayed on dashboard panels.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/23/18
@@ -9,9 +9,9 @@ package ru.yandex.money.tools.grafana.dsl.metrics
 interface Metric {
 
     /**
-     * Возвращает строковое представление метрики.
+     * Returns string representation of a metric.
      *
-     * @return строковое представление метрики
+     * @return String representation of a metric
      */
     fun asString(): String
 }

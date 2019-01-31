@@ -5,8 +5,8 @@ import ru.yandex.money.tools.grafana.dsl.time.Duration
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
 
 /**
- * Генератор функции movingMedian для graphite. movingMedian принимает метрику и временной интервал
- * возвращает значения медианы за заданный интервал времени до текущего момента.
+ * Generator for movingMedian function for graphite. movingMedian accepts metrics and
+ * time interval and returns median values from specified time interval to current moment.
  *
  * @author iryabtsev (Igor Ryabtsev)
  * @since 15.11.2018

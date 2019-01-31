@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.time.Duration
 import ru.yandex.money.tools.grafana.dsl.time.m
 
 /**
- * Переменная типа "Interval".
+ * Variable with a "Interval" type.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/23/18

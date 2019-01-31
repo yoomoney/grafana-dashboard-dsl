@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Описывает блок "Left Y" или "Right Y" для оси Y панели в разделе Legend
+ * Describes block "Left Y" or "Right Y" for Y-axis panel in Legend block
  *
  * @author Dmitry Pavlov (dupavlov@yamoney.ru)
  * @since 11.01.2019
@@ -22,7 +22,7 @@ class YAxis(
          */
         val SHORT = "short"
         /**
-         * Миллисекунды
+         * Milliseconds
          */
         val MILLISECONDS = "ms"
     }

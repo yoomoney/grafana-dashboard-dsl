@@ -3,8 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.metrics.functions
 import ru.yandex.money.tools.grafana.dsl.metrics.Metric
 
 /**
- * Генератор функции averageSeries для graphite.
- * возвращает среднее значение метрики для каждой точки на оси X
+ * Generator for averageSeries function for graphite. Returns average value for metric for each point on X-axis
  *
  * @author Dmitry Pavlov (dupavlov@yamoney.ru)
  * @since 11.01.2019

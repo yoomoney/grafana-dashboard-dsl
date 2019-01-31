@@ -4,7 +4,7 @@ import ru.yandex.money.tools.grafana.dsl.json.emptyJsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Строка на дэшборде.
+ * Row on a dashboard.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

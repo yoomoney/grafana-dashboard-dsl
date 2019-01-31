@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.JsonArray
 
 /**
- * Переменные, используемые для запроса метрик.
+ * Variables, used in metric queries.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

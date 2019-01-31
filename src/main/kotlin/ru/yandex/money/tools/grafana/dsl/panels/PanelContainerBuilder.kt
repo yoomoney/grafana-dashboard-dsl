@@ -16,7 +16,7 @@ fun nextPosition(width: Int, height: Int): Position {
 }
 
 /**
- * Билдер для контейнеров панелей. Например, строк.
+ * Builder for panels containers, for example: strings.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

@@ -5,24 +5,24 @@ import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
-import ru.yandex.money.tools.grafana.dsl.time.TimeRange
-import ru.yandex.money.tools.grafana.dsl.time.Refresh
-import ru.yandex.money.tools.grafana.dsl.variables.Variables
 import ru.yandex.money.tools.grafana.dsl.panels.Panels
+import ru.yandex.money.tools.grafana.dsl.time.Refresh
+import ru.yandex.money.tools.grafana.dsl.time.TimeRange
 import ru.yandex.money.tools.grafana.dsl.time.d
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
 import ru.yandex.money.tools.grafana.dsl.time.s
+import ru.yandex.money.tools.grafana.dsl.variables.Variables
 
 /**
- * Отдельный дэшборд. Представляет собой корневой JSON-документ, предназначенный для импорт в Grafana.
+ * Dashboard. Represents root of JSON-document, used for importing into Grafana.
  *
- * @property title отображаемое название дэшборда
- * @property timeRange продолжительность промежутка времени, за котороый будут запрошены метрики
- * @property refresh продолжительность периода обновления метрик
- * @property tags тэги дэшборда, которые можно использовать при поиске
- * @property variables переменные, которые можно переиспользовать для запроса метрик
- * @property panels панели дэшборда
+ * @property title Display title
+ * @property timeRange Metrics time range
+ * @property refresh Metrics refresh rate
+ * @property tags Tags
+ * @property variables Variables that should be reused for querying metrics
+ * @property panels Panels
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
