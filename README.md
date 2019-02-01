@@ -13,8 +13,8 @@ Kotlin DSL for generating Grafana dashboards.
 ## Features
 
 * Grafana Dashboards as a Code: review and vcs control over dashboards
-* Reuse dashboards, panels, configs, etc
-* Uniform metric visualisation
+* Reusable dashboards, panels, configs, etc
+* Share visualization style across different metrics
 * Easy to keep metrics up-to-date
 * Easy to extend to most features of Grafana
 * Easy to include in CI cycle: dashboard is a JSON-document
@@ -40,7 +40,7 @@ dependencies {
 }
 ```
 
-Code for dashboards generation must be in `${projectDir}/src/grafana/kotlin/`. Generation performed manually:
+Code for dashboards generation must be placed in `${projectDir}/src/grafana/kotlin/`. Generation performed manually:
 
 ```kotlin
 import ru.yandex.money.tools.grafana.dsl.dashboard

@@ -61,7 +61,7 @@ class GraphPanel(
 }
 
 /**
- * Types of how null values can be displayed
+ * Display mode for null values
  */
 enum class NullPointMode(val value: String) {
 

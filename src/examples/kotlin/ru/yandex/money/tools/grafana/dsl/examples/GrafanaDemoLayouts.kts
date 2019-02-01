@@ -44,8 +44,8 @@ dashboard(title = "Grafana Demo Layouts") {
                 metricPanel(title = title) {
 
                     /*
-                    Panel size, 6 will be qarter of screen, as grafana has 24 columns,
-                    and 3 will be 90px, as height measured in 30px intervals
+                    Panel size, 6 will be quarter of screen, as grafana has 24 columns,
+                    and 3 will be 90px, as height is measured in 30px intervals
                      */
                     bounds = 6 to 3
 
@@ -107,7 +107,7 @@ dashboard(title = "Grafana Demo Layouts") {
 
                     metric("B") {
                         "*.another.metric.mean"
-                                .averageSeries() // show average fro metric
+                                .averageSeries() // show average value for metric
                                 .alias("another metric") // define alias
                     }
 

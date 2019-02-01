@@ -4,7 +4,7 @@ import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.Json
 
 /**
- * Variable in a Grafana.
+ * Variable in Grafana.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

@@ -23,7 +23,7 @@ data class Color(val red: Int, val green: Int, val blue: Int) {
     companion object {
 
         /**
-         * Common colors
+         * Common colors, that can be chosen from color picker in Grafana
          */
         val GREEN = Color.of(0x7EB26D)
         val YELLOW = Color.of(0xEAB839)
@@ -37,7 +37,7 @@ data class Color(val red: Int, val green: Int, val blue: Int) {
         val WHITE = Color.of(0xFCE2DE)
 
         /**
-         * Constructs color for hex
+         * Constructs color from hex representation
          */
         fun of(rgb: Int): Color {
             val red = rgb shr 16 and 0xFF

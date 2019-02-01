@@ -30,7 +30,7 @@ class Legend(
 
         /**
          * Default block "legend"
-         * Metrics will show up as table wit columns:  "name", "min", "max", "avg", "current", "total"
+         * Metrics will be displayed as table with columns:  "name", "min", "max", "avg", "current", "total"
          */
         val DEFAULT = Legend(
                 alignAsTable = true,
@@ -50,7 +50,7 @@ class Legend(
 
         /**
          * Empty block "legend"
-         * Only metrics names will show up in a flat list
+         * Only metrics names will be displayed in a flat list
          */
         val EMPTY = Legend(
                 alignAsTable = false,
