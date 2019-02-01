@@ -4,7 +4,7 @@ import org.json.JSONArray
 import ru.yandex.money.tools.grafana.dsl.json.Json
 
 /**
- * Тэги, используемые при поиске дэшборда в Grafana.
+ * Tags, used to search for dashboard in Grafana.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

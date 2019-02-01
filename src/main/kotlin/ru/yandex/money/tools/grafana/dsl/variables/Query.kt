@@ -4,7 +4,7 @@ import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Переменная типа "Query".
+ * Variable with a "Query" type.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

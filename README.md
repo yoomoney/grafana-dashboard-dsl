@@ -8,29 +8,26 @@
 
 # Grafana Dashboard DSL
 
-DSL на kotlin для генерации Grafana dashboards.
+Kotlin DSL for generating Grafana dashboards.
 
-## Особенности
+## Features
 
-Проект предоставляет удобный DSL для генерации дэшбордов в виде JSON-документов, 
-пригодных для импорта в Grafana. Вот главные особенности:
+* Grafana Dashboards as a Code: review and vcs control over dashboards
+* Reusable dashboards, panels, configs, etc
+* Share visualization style across different metrics
+* Easy to keep metrics up-to-date
+* Easy to extend to most features of Grafana
+* Easy to include in CI cycle: dashboard is a JSON-document
+* Power of Kotlin language
 
-* Grafana Dashboards as a Code: ревью и версионирование дэшбордов
-* Переиспользование дэшбордов, панелей и т.д.
-* Единообразная визуализация метрик
-* Легкость поддержки метрик в актуальном состоянии
-* Прозрачность расширения под большинство существующих возможностей Grafana
-* Простое встраивание в CI: на выходе просто JSON-документ
-* Возможность использования конструкций Kotlin: циклы, условия и т.д.
+## Usage with gradle plugin
 
-## Подключение при помощи gradle-плагина
+See documentation at [Grafana Dashboard Plugin](https://github.com/yandex-money-tech/grafana-dashboard-plugin)
 
-Смотрите документацию [Grafana Dashboard Plugin](https://github.com/yandex-money-tech/grafana-dashboard-plugin)
-
-## Подключение вручную
-
+## Manual usage
 
 > build.gradle
+
 ```groovy
 sourceSets {
     grafana {
@@ -42,7 +39,9 @@ dependencies {
     grafanaCompile 'com.yandex.money.tech:grafana-dashboard-dsl:1.0.5'    
 }
 ```
-Код для генерации должен располагаться в `${projectDir}/src/grafana/kotlin/`. Генерация производится вручную:
+
+Code for dashboards generation must be placed in `${projectDir}/src/grafana/kotlin/`. Generation performed manually:
+
 ```kotlin
 import ru.yandex.money.tools.grafana.dsl.dashboard
 
@@ -55,41 +54,47 @@ fun main(args: Array<String>) {
 }
 ```
 
-## Импорт JSON
+## JSON Import
 
 ![Import](https://raw.githubusercontent.com/yandex-money-tech/grafana-dashboard-dsl/master/import_optimized.gif)
 
-## Примеры
+## Examples
 
-Примеры доступны в `./src/examples/kotlin/ru/yandex/money/tools/grafana/dsl/examples`
+Examples are in `./src/examples/kotlin/ru/yandex/money/tools/grafana/dsl/examples`
 
-## Разработка
+## Development
 
-Для разработки дэшбордов, панелей, метрик и т.п. применяется стандартный подход для построения DSL на Kotlin:
-* класс для хранения конфигурации новой сущности (обычно имеют название `*Configuration` или `*Builder`), который должен 
-  быть помечен аннотацией `ru.yandex.money.tools.grafana.dsl.DashboardElement`
-* Data-класс для хранения данных (например, тип графика) новой сущности (примером может служить класс 
-  `ru.yandex.money.tools.grafana.dsl.dashboard.Dashboard`), который должен реализовывать интерфейс 
-  `ru.yandex.money.tools.grafana.dsl.json.Json`, если предполагается сериализация этой сущности
+To create new dashboards, panels, metrics, and others, create a class (usually with postfix `*Configuration` or`*Builder`),
+mark it with annotation `ru.yandex.money.tools.grafana.dsl.DashboardElement`, and create data-class for it's contents,
+that's implements `ru.yandex.money.tools.grafana.dsl.json.Json`
 
-# Сборка проекта
+For example see `DashboardBuilder` and `Dashboard` classes
 
-См. конфигурации Travis (`.travis.yml`) или AppVeyor (`appveyor.yml`).
-В репозитории находятся два gradle-проекта:
-- файлы `build.gradle`, `gradlew`, `gradle/wrapper` относятся к проекту для работы во внутренней инфраструктуре Яндекс.Денег;
-- файлы `build-public.gradle`, `gradlew-public`, `gradle-public/wrapper` относятся к проекту для работы извне.
+# How to contribute?
 
-# Импорт проекта в IDE
+Just fork the repo and send us a pull request.
 
-К сожалению на данный момент необходимо перед импортом проекта в Idea заменить файлы:
-- `gradle-public/wrapper/gradle-wrapper.properties` на `gradle/wrapper/gradle-wrapper.properties`,
-- `build-public.gradle` на `build.gradle`.
-Это вызвано багом в Idea: https://github.com/f0y/idea-two-gradle-builds.
+Make sure your branch builds without any warnings/issues.
 
-# Авторы
+# How to build?
 
-> Дмитрий Комаров (komarovdmitry@yamoney.ru)
->
-> Василий Созыкин (vsozykin@yamoney.ru)
->
-> Дмитрий Павлов (dupavlov@yamoney.ru)
+See configuration for Travis (`.travis.yml`) or AppVeyor (`appveyor.yml`).
+There are two gradle projects in this repository:
+
+* Files `build.gradle`, `gradlew`, `gradle/wrapper` is for internal use in Yandex.Money infrastructure
+* Files `build-public.gradle`, `gradlew-public`, `gradle-public/wrapper` are for public use
+
+# Importing into IntelliJ IDEA
+
+Unfortunately, at this moment, intellij does not support this build configuration, so you have to change some files before importing:
+
+* Move `gradle-public/wrapper/gradle-wrapper.properties` into `gradle/wrapper/gradle-wrapper.properties`
+* Move `build-public.gradle` into `build.gradle`
+
+Vote for this issue [IDEA-199116](https://youtrack.jetbrains.net/issue/IDEA-199116), to make intellij support these types of configuration.
+
+# Contributors
+
+* Dmitriy Komarov (komarovdmitry@yamoney.ru)
+* Vasiliy Sozykin (vsozykin@yamoney.ru)
+* Dmitriy Pavlov (dupavlov@yamoney.ru)

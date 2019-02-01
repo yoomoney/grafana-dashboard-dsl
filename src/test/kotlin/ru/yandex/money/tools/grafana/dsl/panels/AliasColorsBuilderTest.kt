@@ -6,7 +6,7 @@ import ru.yandex.money.tools.grafana.dsl.panels.Color.Companion.GREEN
 import ru.yandex.money.tools.grafana.dsl.panels.Color.Companion.RED
 
 /**
- * Тестирует [AliasColors] и [AliasColorsBuilder]
+ * [AliasColors] and [AliasColorsBuilder] Test
  */
 class AliasColorsBuilderTest {
 

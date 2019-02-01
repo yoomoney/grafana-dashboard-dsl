@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.JsonArray
 
 /**
- * Коллекция метрик.
+ * Metrics collection.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/23/18

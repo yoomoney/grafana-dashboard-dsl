@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl
 
 /**
- * DSL-маркер, который следует использовать над каждым билдером элементов дэшборда.
+ * DSL-marker, that should be used for every builder class.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

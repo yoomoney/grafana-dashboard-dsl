@@ -6,7 +6,7 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.time.Duration
 
 /**
- * Обычный график со стандартными настройками легенды, осей и threshold'ов.
+ * Common chart with legend, axis, thresholds.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/23/18
@@ -61,7 +61,7 @@ class GraphPanel(
 }
 
 /**
- * Описывает значения для свойства "nullPointMode"
+ * Display mode for null values
  */
 enum class NullPointMode(val value: String) {
 

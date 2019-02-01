@@ -4,7 +4,7 @@ import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.Json
 
 /**
- * Описывает блок "aliasColors" на панели
+ * Represents "aliasColors" block on a panel
  *
  * @author Dmitry Pavlov (dupavlov@yamoney.ru)
  * @since 11.01.2019

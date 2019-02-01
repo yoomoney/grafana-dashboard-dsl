@@ -3,7 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.panels
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Базовая панель.
+ * Base panel.
  *
  * @author Dmitry Komarov
  * @since 25.07.2018

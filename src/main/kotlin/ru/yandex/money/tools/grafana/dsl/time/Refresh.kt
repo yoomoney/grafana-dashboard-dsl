@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.time
 
 /**
- * Продолжительность периода обновления метрик на дэшборде.
+ * Refresh interval.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
@@ -9,9 +9,9 @@ package ru.yandex.money.tools.grafana.dsl.time
 interface Refresh {
 
     /**
-     * Возвращает представление периода обновления метрик.
+     * Returns metric refresh period.
      *
-     * @return период метрики
+     * @return Metric period
      */
     fun asRefreshPeriod(): Any
 }

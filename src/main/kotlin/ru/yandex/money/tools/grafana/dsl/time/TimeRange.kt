@@ -5,10 +5,10 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Отрезок во времени, с определенными началом и концом.
+ * Time range.
  *
- * @property from начало отрезка
- * @property to конец отрезка
+ * @property from Start
+ * @property to End
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

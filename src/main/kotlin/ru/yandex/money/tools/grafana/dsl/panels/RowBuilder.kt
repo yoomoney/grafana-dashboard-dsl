@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
 /**
- * Построитель для строки, содержащей панели.
+ * Builder for a string, containing panels.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

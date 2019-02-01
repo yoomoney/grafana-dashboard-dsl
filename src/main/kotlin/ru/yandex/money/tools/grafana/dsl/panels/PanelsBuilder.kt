@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
 /**
- * Билдер панелей.
+ * Panels builder.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18

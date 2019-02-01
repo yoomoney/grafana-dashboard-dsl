@@ -3,8 +3,8 @@ package ru.yandex.money.tools.grafana.dsl.metrics.functions
 import ru.yandex.money.tools.grafana.dsl.metrics.Metric
 
 /**
- * Генератор функции scale для graphite. scale принимает метрику и значение, на которое
- * необходимо умножить каждое значение в метрике.
+ * Generator for scale function for graphite. scale accepts metric
+ * and value, and scales metrics multiplying it values to scale.
  *
  * @author iryabtsev (Igor Ryabtsev)
  * @since 15.11.2018

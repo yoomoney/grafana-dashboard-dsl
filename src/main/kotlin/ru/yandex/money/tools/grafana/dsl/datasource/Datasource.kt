@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.datasource
 
 /**
- * Источник данных для метрик.
+ * Data source for metrics.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/23/18
@@ -9,9 +9,9 @@ package ru.yandex.money.tools.grafana.dsl.datasource
 interface Datasource {
 
     /**
-     * Возвращает строковое название источника данных.
+     * Returns string representation of this data source.
      *
-     * @return название
+     * @return title
      */
     fun asDatasourceName(): String?
 }

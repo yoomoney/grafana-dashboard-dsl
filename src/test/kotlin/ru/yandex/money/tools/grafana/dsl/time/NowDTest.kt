@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldEqual
 import org.testng.annotations.Test
 
 /**
- * Тестирует [nowD]
+ * [nowD] Test
  */
 class NowDTest {
 

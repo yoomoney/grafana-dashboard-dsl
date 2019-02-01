@@ -1,7 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.time
 
 /**
- * Метка времени, соответствующая началу текущего дня
+ * Start of a day
  *
  * @author Dmitry Pavlov (dupavlov@yamoney.ru)
  * @since 11.01.2019

@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.jsonFile
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 
 /**
- * Тестирует [Legend]
+ * [Legend] Test
  */
 class LegendTest {
 

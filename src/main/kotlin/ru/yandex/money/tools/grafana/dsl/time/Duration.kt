@@ -1,11 +1,10 @@
 package ru.yandex.money.tools.grafana.dsl.time
 
 /**
- * Некоторый отрезок времени определенной продолжительности.
+ * A time-based amount of time.
  *
- * @param number длина отрезка
- * @param unit единица времени, в которой измеряется длина отрезка. Например: s (секунды), m (минуты), h (часы),
- *             d (дни), w (недели).
+ * @param number time duration
+ * @param unit time unit. Examples: s (seconds), m (minutes), h (hours), d (days), w (weeks).
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
@@ -18,26 +17,26 @@ class Duration(private val number: Int, private val unit: String) : Refresh {
 }
 
 /**
- * Возвращает [Duration] в секундах
+ * Returns [Duration] in seconds
  */
 val Int.s get() = Duration(this, "s")
 
 /**
- * Возвращает [Duration] в минутах
+ * Returns [Duration] in minutes
  */
 val Int.m get() = Duration(this, "m")
 
 /**
- * Возвращает [Duration] в часах
+ * Returns [Duration] in hours
  */
 val Int.h get() = Duration(this, "h")
 
 /**
- * Возвращает [Duration] в днях
+ * Returns [Duration] in days
  */
 val Int.d get() = Duration(this, "d")
 
 /**
- * Возвращает [Duration] в неделях
+ * Returns [Duration] in weeks
  */
 val Int.w get() = Duration(this, "w")
