@@ -6,10 +6,10 @@ package ru.yandex.money.tools.grafana.dsl.panels
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
  */
-class RowBuilder(title: String) : PanelContainerBuilder {
+class RowBuilder(title: String, repeat: String?) : PanelContainerBuilder {
 
     override val panels = mutableListOf<Panel>(
-            Row(BasePanel(id = idGenerator++, title = title, position = nextPosition(24, 1)))
+            Row(BasePanel(id = idGenerator++, title = title, position = nextPosition(24, 1)), repeat)
     )
 
     internal fun createRow() = panels.toList()

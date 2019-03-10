@@ -3,7 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.variables
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Basic data of a varaible.
+ * Basic data of a variable.
  *
  * @author Dmitry Komarov
  * @since 25.07.2018

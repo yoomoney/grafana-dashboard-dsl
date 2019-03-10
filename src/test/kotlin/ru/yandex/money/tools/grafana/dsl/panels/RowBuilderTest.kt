@@ -2,6 +2,8 @@ package ru.yandex.money.tools.grafana.dsl.panels
 
 import org.amshove.kluent.shouldBe
 import org.testng.annotations.Test
+import ru.yandex.money.tools.grafana.dsl.dashboard.DashboardBuilder
+import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.jsonFile
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 
@@ -11,9 +13,15 @@ class RowBuilderTest : AbstractPanelTest() {
     fun `should create row with 1 panel`() {
         // given
         val panelsBuilder = PanelsBuilder()
+        val dashboardBuilder = DashboardBuilder("Test Dashboard")
+        val values by dashboardBuilder.variable(datasource = Zabbix) {
+            query("My variable") {
+                regex = ".*"
+            }
+        }
 
         // when
-        panelsBuilder.row("Test Row") {
+        panelsBuilder.row("Test Row", repeatFor = values) {
             panel("Test Panel") {}
         }
 

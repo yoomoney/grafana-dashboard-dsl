@@ -20,12 +20,14 @@
     {
       "format": "short",
       "logBase": 1,
-      "show": true
+      "show": true,
+      "decimals": 1
     },
     {
       "format": "short",
       "logBase": 1,
-      "show": true
+      "show": true,
+      "decimals": 1
     }
   ],
   "title": "Test Panel",
