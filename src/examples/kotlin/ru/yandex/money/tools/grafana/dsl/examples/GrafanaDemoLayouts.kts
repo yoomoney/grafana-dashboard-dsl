@@ -1,6 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.examples
 
 import ru.yandex.money.tools.grafana.dsl.dashboard
+import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.json.set
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.StringMetric
@@ -34,6 +35,12 @@ dashboard(title = "Grafana Demo Layouts") {
 
     val medianInterval by variable {
         interval(1.m, 10.m, 30.m, 1.h) // Introduce variable-interval for median. Name of variable in code will be equal to it's dashboard name
+    }
+
+    val hosts by variable(datasource = Zabbix) {
+        query("Service Hosts*.") {
+            regex = ".*demo-service.*" // Set of applications' hosts. It can be used for repeat row for each value
+        }
     }
 
     panels {
@@ -114,6 +121,25 @@ dashboard(title = "Grafana Demo Layouts") {
                 }
 
             }
+        }
+
+        row(title = "Repeated row", repeatFor = hosts) { // That row with all nested panels will be repeated for each values of hosts
+
+            graphPanel(title = "Graph panel with per-host metrics") {
+
+                metrics {
+
+                    metric("A") {
+                        /*
+                        You can use variable, specified in the definition above
+                         */
+                        StringMetric("apps.backend.\$hosts.counters.requests.count")
+                    }
+
+                }
+
+            }
+
         }
     }
 }

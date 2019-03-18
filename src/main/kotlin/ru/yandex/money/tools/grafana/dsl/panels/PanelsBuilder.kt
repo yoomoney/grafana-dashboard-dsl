@@ -1,5 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
+import ru.yandex.money.tools.grafana.dsl.variables.Variable
+
 /**
  * Panels builder.
  *
@@ -10,8 +12,8 @@ class PanelsBuilder : PanelContainerBuilder {
 
     override val panels = mutableListOf<Panel>()
 
-    fun row(title: String, build: RowBuilder.() -> Unit) {
-        val builder = RowBuilder(title)
+    fun row(title: String, repeatFor: Variable? = null, build: RowBuilder.() -> Unit) {
+        val builder = RowBuilder(title, repeatFor?.name)
         builder.build()
         panels += builder.createRow()
     }

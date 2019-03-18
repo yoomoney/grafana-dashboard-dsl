@@ -2,6 +2,33 @@
 
 ## NEXT_VERSION
 
+## [1.3.0]() (14-03-2019)
+* Now it's possible to change decimal value for Y-axis. You can specify precision of values by Y-axis correspond with
+  your requirements.
+```kotlin
+  dashboard(title = "My dashboard") {
+    panels {
+      graphPanel(title = "MyPanel") {
+        leftYAxis = YAxis(decimals = 3)
+      }
+    }
+  }
+```
+* Support for repeatable rows has been added. It's possible to use repeatable row with set of panels, based on variable.
+```kotlin
+  dashboard(title = "My dashboard") {
+    val values by variable(datasource = Zabbix) {
+      query("My variable") {
+        regex = ".*"
+      }
+    }
+    panels {
+      row("My Row", repeatFor = values) {
+      }
+    }
+  }
+```
+
 ## [1.2.1]() (29-01-2019)
 
 * Translate README, CHANGELOG and comments to english

@@ -13,7 +13,8 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 class YAxis(
     private val format: String = YAxis.Format.SHORT,
     private val logBase: Int = 1,
-    private val show: Boolean = true
+    private val show: Boolean = true,
+    private val decimals: Int = 1
 ) : Json<JSONObject> {
 
     companion object Format {
@@ -31,5 +32,6 @@ class YAxis(
         "format" to format
         "logBase" to logBase
         "show" to show
+        "decimals" to decimals
     }
 }

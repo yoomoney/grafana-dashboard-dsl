@@ -3,6 +3,7 @@
   "panels": [],
   "id": 1,
   "title": "Test Row",
+  "repeat": "values",
   "type": "row",
   "gridPos": {
     "w": 24,
