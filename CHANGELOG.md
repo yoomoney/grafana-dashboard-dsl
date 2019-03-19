@@ -1,7 +1,7 @@
-# grafana-dashboard-dsl
-
-## NEXT_VERSION
-
+### NEXT_VERSION_TYPE=MINOR
+### NEXT_VERSION_DESCRIPTION_BEGIN
+* Improve CHANGELOG.md next version description format
+### NEXT_VERSION_DESCRIPTION_END
 ## [1.3.0]() (14-03-2019)
 * Now it's possible to change decimal value for Y-axis. You can specify precision of values by Y-axis correspond with
   your requirements.

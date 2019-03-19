@@ -1,4 +1,4 @@
-System.setProperty("platformLibraryProjectVersion", "2.+")
+System.setProperty("platformLibraryProjectVersion", "3.+")
 System.setProperty("kotlinVersion", "1.2.50")
 
 repositories {
