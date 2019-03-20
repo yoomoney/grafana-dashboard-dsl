@@ -12,6 +12,7 @@ import ru.yandex.money.tools.grafana.dsl.metrics.functions.movingMedian
 import ru.yandex.money.tools.grafana.dsl.panels.Color
 import ru.yandex.money.tools.grafana.dsl.panels.Legend
 import ru.yandex.money.tools.grafana.dsl.panels.NullPointMode
+import ru.yandex.money.tools.grafana.dsl.panels.YAxis
 import ru.yandex.money.tools.grafana.dsl.panels.graphPanel
 import ru.yandex.money.tools.grafana.dsl.panels.metricPanel
 import ru.yandex.money.tools.grafana.dsl.time.h
@@ -94,6 +95,8 @@ dashboard(title = "Grafana Demo Layouts") {
                 nullPointMode = NullPointMode.NULL // How to show null values
                 points = true // Show chart points
                 pointradius = 2 // Chart points radius
+                leftYAxis = YAxis(format = YAxis.MILLISECONDS, min = 0, max = 100)
+                rightYAxis = YAxis()
 
                 aliasColors {
                     "some metric" to Color.GREEN // Use predefined color

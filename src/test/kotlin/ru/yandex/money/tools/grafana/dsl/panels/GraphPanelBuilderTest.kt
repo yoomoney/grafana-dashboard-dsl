@@ -271,4 +271,22 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatMilliseconds.json")
     }
 
+    @Test
+    fun `should create graph panel with left axis min and max values`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(min = 10, max = 100)
+            rightYAxis = YAxis()
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisMinMaxValues.json")
+    }
+
 }
