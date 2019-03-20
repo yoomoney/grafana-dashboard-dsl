@@ -13,7 +13,6 @@ class DatasourcesTest {
 
     @DataProvider
     fun representations() = arrayOf(
-            arrayOf(NullDatasource, null),
             arrayOf(Zabbix, "Zabbix"),
             arrayOf(Graphite, "Graphite")
     )

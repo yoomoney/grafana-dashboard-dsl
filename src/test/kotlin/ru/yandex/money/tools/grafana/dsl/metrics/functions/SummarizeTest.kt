@@ -50,8 +50,6 @@ class SummarizeTest {
             throw UnsupportedOperationException()
         }
 
-        override fun asVariable() = "\$fake"
-
         override val name = "fake"
     }
 }

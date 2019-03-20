@@ -1,0 +1,11 @@
+{
+  "hide": 2,
+  "datasource": "Zabbix",
+  "query": "App version",
+  "name": "variable",
+  "refresh": 1,
+  "includeAll": false,
+  "sort": 3,
+  "type": "query",
+  "multi": false
+}

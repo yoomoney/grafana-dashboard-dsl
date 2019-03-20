@@ -1,0 +1,14 @@
+{
+  "hide": 0,
+  "regex": ".*test.*",
+  "datasource": "Zabbix",
+  "query": "App version",
+  "name": "variable",
+  "allValue": "test",
+  "refresh": 0,
+  "includeAll": true,
+  "label": "Test",
+  "sort": 0,
+  "type": "query",
+  "multi": true
+}

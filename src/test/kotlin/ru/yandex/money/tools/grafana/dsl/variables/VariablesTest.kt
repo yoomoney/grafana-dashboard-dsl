@@ -61,5 +61,4 @@ class VariablesTest {
         variable.asVariable() shouldEqual "\$variable"
         variable.toJson().toString() shouldEqualToJson jsonFile("IntervalVar.json")
     }
-
 }

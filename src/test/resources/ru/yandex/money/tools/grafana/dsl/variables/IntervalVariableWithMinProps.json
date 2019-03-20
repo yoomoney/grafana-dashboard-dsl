@@ -1,0 +1,7 @@
+{
+  "name": "variable",
+  "hide": 0,
+  "auto": false,
+  "type": "interval",
+  "query": "1m,10m,1h"
+}

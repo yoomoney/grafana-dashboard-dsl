@@ -8,7 +8,7 @@ operator fun JSONObject.set(key: String, value: Any?) {
     this.put(key, value)
 }
 
-class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapOf<String, Any?>()) {
+class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapOf()) {
 
     infix fun String.to(value: String?) {
         properties[this] = value
