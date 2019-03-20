@@ -1,6 +1,5 @@
 package ru.yandex.money.tools.grafana.dsl.variables
 
-import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.time.Duration
 import ru.yandex.money.tools.grafana.dsl.time.m
 
@@ -10,23 +9,13 @@ import ru.yandex.money.tools.grafana.dsl.time.m
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/23/18
  */
-class Interval(name: String, durations: Array<out Duration>) : Variable {
-
-    override fun asVariable() = delegate.asVariable()
-
-    private val delegate = BaseVariable(
-            name = name,
-            hidden = false,
-            type = "interval",
-            includeAll = false,
-            query = durations.joinToString(",")
-    )
-
-    override val name get() = delegate.name
-
-    override fun toJson() = jsonObject(delegate.toJson()) {
-        "auto" to true
-        "auto_count" to 30
-        "auto_min" to 1.m
-    }
-}
+@Deprecated("This class will be deleted in 2.0.0", replaceWith = ReplaceWith("IntervalVariable"))
+class Interval(name: String, durations: Array<out Duration>) : Variable by IntervalVariable(
+    name = name,
+    displayName = null,
+    hidingMode = HidingMode.NONE,
+    values = durations,
+    auto = true,
+    stepCount = 30,
+    minInterval = 1.m
+)

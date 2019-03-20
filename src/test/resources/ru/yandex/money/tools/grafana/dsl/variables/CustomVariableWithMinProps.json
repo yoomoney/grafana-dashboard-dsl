@@ -1,0 +1,29 @@
+{
+  "hide": 0,
+  "current": {
+    "value": "1",
+    "text": "1"
+  },
+  "query": "1,2,3",
+  "name": "variable",
+  "options": [
+    {
+      "value": "1",
+      "selected": true,
+      "text": "1"
+    },
+    {
+      "value": "2",
+      "selected": false,
+      "text": "2"
+    },
+    {
+      "value": "3",
+      "selected": false,
+      "text": "3"
+    }
+  ],
+  "includeAll": false,
+  "type": "custom",
+  "multi": false
+}

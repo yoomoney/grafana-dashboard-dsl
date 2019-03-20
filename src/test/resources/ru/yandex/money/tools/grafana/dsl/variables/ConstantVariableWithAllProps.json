@@ -1,0 +1,18 @@
+{
+  "hide": 1,
+  "current": {
+    "value": "test",
+    "text": "test"
+  },
+  "query": "test",
+  "name": "variable",
+  "options": [
+    {
+      "value": "test",
+      "selected": true,
+      "text": "test"
+    }
+  ],
+  "label": "Test",
+  "type": "constant"
+}

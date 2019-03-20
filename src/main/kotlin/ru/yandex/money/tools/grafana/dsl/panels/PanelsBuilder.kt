@@ -12,6 +12,13 @@ class PanelsBuilder : PanelContainerBuilder {
 
     override val panels = mutableListOf<Panel>()
 
+    /**
+     * This method is used to support backward compatibility.
+     */
+    fun row(title: String, build: RowBuilder.() -> Unit) {
+        row(title, null, build)
+    }
+
     fun row(title: String, repeatFor: Variable? = null, build: RowBuilder.() -> Unit) {
         val builder = RowBuilder(title, repeatFor?.name)
         builder.build()

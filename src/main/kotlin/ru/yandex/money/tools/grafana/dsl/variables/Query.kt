@@ -1,7 +1,6 @@
 package ru.yandex.money.tools.grafana.dsl.variables
 
 import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
-import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
  * Variable with a "Query" type.
@@ -9,21 +8,22 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
  */
-class Query(name: String, private val datasource: Datasource, query: String, private val regex: String) : Variable {
-
-    override fun asVariable() = variable.asVariable()
-
-    private val variable = BaseVariable(name = name, query = query, type = "query", includeAll = true)
-
-    override val name get() = variable.name
-
-    override fun toJson() = jsonObject(variable.toJson()) {
-        "datasource" to datasource.asDatasourceName()
-        "sort" to NUMERICAL_ASCENDING_SORT
-        "regex" to regex
-    }
-
-    companion object {
-        private const val NUMERICAL_ASCENDING_SORT = 3
-    }
-}
+@Deprecated("This class will be deleted in 2.0.0", replaceWith = ReplaceWith("QueryVariable"))
+class Query(
+    name: String,
+    datasource: Datasource,
+    query: String,
+    regex: String
+) : Variable by QueryVariable(
+    name = name,
+    displayName = null,
+    hidingMode = HidingMode.VARIABLE,
+    query = query,
+    datasource = datasource,
+    refreshMode = RefreshMode.ON_TIME_RANGE_CHANGE,
+    regex = regex,
+    sortOrder = SortOrder.NUMERICAL_ASC,
+    multiValuesAllowed = false,
+    includeAllValue = true,
+    allValue = null
+)

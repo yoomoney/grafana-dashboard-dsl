@@ -5,8 +5,5 @@
   "auto_count": 30,
   "query": "1s,1m,1h",
   "name": "variable",
-  "refresh": 2,
-  "includeAll": false,
-  "type": "interval",
-  "multi": false
+  "type": "interval"
 }

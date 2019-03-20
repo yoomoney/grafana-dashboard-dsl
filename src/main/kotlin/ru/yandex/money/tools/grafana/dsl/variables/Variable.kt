@@ -16,5 +16,8 @@ interface Variable : Json<JSONObject> {
      */
     val name: String
 
-    fun asVariable(): String
+    /**
+     * Returns string representation of this variable.
+     */
+    fun asVariable(): String = "$$name"
 }

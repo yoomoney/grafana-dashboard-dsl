@@ -3,9 +3,15 @@ package ru.yandex.money.tools.grafana.dsl.variables
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
+/**
+ * Provider for local variable delegates.
+ *
+ * @author Dmitry Komarov
+ * @since 14.03.2019
+ */
 class VariableDelegate(
-    private val variableFactory: (String) -> Variable,
-    private val variables: MutableList<Variable>
+    private val variables: MutableList<Variable>,
+    private val variableFactory: (String) -> Variable
 ) {
 
     operator fun provideDelegate(thisRef: Nothing?, property: KProperty<*>): ReadOnlyProperty<Nothing?, Variable> {

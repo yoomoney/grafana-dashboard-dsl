@@ -33,14 +33,10 @@ dashboard(title = "Grafana Demo Layouts") {
 
     refresh = off // Disable metrics refresh
 
-    val medianInterval by variable {
-        interval(1.m, 10.m, 30.m, 1.h) // Introduce variable-interval for median. Name of variable in code will be equal to it's dashboard name
-    }
+    val medianInterval by variables.interval(1.m, 10.m, 30.m, 1.h) // Introduce variable-interval for median. Name of variable in code will be equal to it's dashboard name
 
-    val hosts by variable(datasource = Zabbix) {
-        query("Service Hosts*.") {
-            regex = ".*demo-service.*" // Set of applications' hosts. It can be used for repeat row for each value
-        }
+    val hosts by variables.query(datasource = Zabbix, query = "Service Hosts*.") {
+        regex = ".*demo-service.*" // Set of applications' hosts. It can be used for repeat row for each value
     }
 
     panels {

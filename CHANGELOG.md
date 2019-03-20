@@ -1,5 +1,50 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Methods that created variables delegates in `DashboardBuilder` are deprecated now and will be deleted in next major 
+  release. To create variable delegate use `VariablesBuilder` class instead.
+  
+  The old way to create variable delegate: 
+  ```kotlin
+  dashboard(title = "My dashboard") {
+    val myVar by variable {
+      interval(1.m, 10.m)
+    }
+  }
+  ```
+  Since `1.5.0` this code should be like this:
+  ```kotlin
+  dashboard(title = "My dashboard") {
+    val myVar by variables.interval(1.m, 10.m) // variables is an instance of VariablesBuilder class provided by DashboardBuilder
+  }
+  ```
+  
+* Method `Variable.asVariable()` now have default implementation
+
+* `BaseVariable` was reworked:
+  * `hidden` property was removed, use `hidingMode` property instead. Now, `hidden = true` equals 
+    to `hidingMode = HidingMode.VARIABLE` and `hidden = false` equals to `hidingMode = HidingMode.NONE`
+  * `query` property was moved to other variable implementations (e.g. `QueryVariable`)
+  * `includeAll` property was moved to other variable implementations (e.g. `CustomVariable`)
+  * Added optional `displayName` property for Grafana variables labels
+  
+  To support backward compatibility with `1.4.0` there is new companion object's method `invoke` that supports old-style
+  format of `BaseVariable`. This method is marked as *deprecated* and will be deleted in next major release.
+  
+* `Query` class marked as *deprecated* and will be deleted in next major release. Use `QueryVariable` instead
+
+* `Interval` class marked as *deprecated* and will be deleted in next major release. Use `IntervalVariable` instead
+
+* More types of variable added:
+  * `const` variable with fixed value
+  * `custom` variable with array of fixed values
+  * `textbox` variable with ability to edit variable value on the fly
+  
+* `null`s are not supported for `Datasource.asDatasourceName()` any more. Since `1.5.0`, this method should return 
+  non-null values only. `NullDatasource` marked as deprecated and will be deleted in next major release
+  
+* New graphite function was added: `highest(metric, n, aggregation)` that can be used to draw N metrics aggregated by 
+  given function. See `Highest` class for details
+
 ### NEXT_VERSION_DESCRIPTION_END
 ## [1.4.0]() (19-03-2019)
 

@@ -1,0 +1,7 @@
+{
+  "name": "variable",
+  "hide": 1,
+  "label": "Test",
+  "type": "textbox",
+  "query": "test"
+}

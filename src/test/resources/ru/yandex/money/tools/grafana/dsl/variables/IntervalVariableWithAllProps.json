@@ -1,0 +1,10 @@
+{
+  "hide": 0,
+  "auto": true,
+  "auto_min": "10m",
+  "auto_count": 10,
+  "query": "1m,10m,1h",
+  "name": "variable",
+  "label": "Test",
+  "type": "interval"
+}
