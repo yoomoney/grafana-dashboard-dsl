@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Added ability to specify minimum and maximum values for Y axis
 ### NEXT_VERSION_DESCRIPTION_END
 ## [1.5.0]() (20-03-2019)
 

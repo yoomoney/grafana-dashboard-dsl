@@ -14,7 +14,9 @@ class YAxis(
     private val format: String = YAxis.Format.SHORT,
     private val logBase: Int = 1,
     private val show: Boolean = true,
-    private val decimals: Int = 1
+    private val decimals: Int = 1,
+    private val min: Int? = null,
+    private val max: Int? = null
 ) : Json<JSONObject> {
 
     companion object Format {
@@ -33,5 +35,11 @@ class YAxis(
         "logBase" to logBase
         "show" to show
         "decimals" to decimals
+        if (min != null) {
+            "min" to min
+        }
+        if (max != null) {
+            "max" to max
+        }
     }
 }
