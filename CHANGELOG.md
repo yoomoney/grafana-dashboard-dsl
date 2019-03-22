@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [1.6.0]() (22-03-2019)
+
 * Added ability to specify minimum and maximum values for Y axis
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [1.5.0]() (20-03-2019)
 
 * Methods that created variables delegates in `DashboardBuilder` are deprecated now and will be deleted in next major
