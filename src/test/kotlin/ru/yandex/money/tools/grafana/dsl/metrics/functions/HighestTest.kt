@@ -12,7 +12,7 @@ class HighestTest {
         val metric = "*.*.count" highestCurrent 5
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, 5, 'current')"
+        metric.asString() shouldEqual "highestCurrent(*.*.count, 5)"
     }
 
     @Test
@@ -21,7 +21,7 @@ class HighestTest {
         val metric = StringMetric("*.*.count") highestCurrent 5
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, 5, 'current')"
+        metric.asString() shouldEqual "highestCurrent(*.*.count, 5)"
     }
 
     @Test
@@ -33,7 +33,7 @@ class HighestTest {
         val metric = "*.*.count" highestCurrent n
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, \$n, 'current')"
+        metric.asString() shouldEqual "highestCurrent(*.*.count, \$n)"
     }
 
     @Test
@@ -45,7 +45,7 @@ class HighestTest {
         val metric = StringMetric("*.*.count") highestCurrent n
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, \$n, 'current')"
+        metric.asString() shouldEqual "highestCurrent(*.*.count, \$n)"
     }
 
     @Test
@@ -54,7 +54,7 @@ class HighestTest {
         val metric = "*.*.count" highestMax 5
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, 5, 'max')"
+        metric.asString() shouldEqual "highestMax(*.*.count, 5)"
     }
 
     @Test
@@ -63,7 +63,7 @@ class HighestTest {
         val metric = StringMetric("*.*.count") highestMax 5
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, 5, 'max')"
+        metric.asString() shouldEqual "highestMax(*.*.count, 5)"
     }
 
     @Test
@@ -75,7 +75,7 @@ class HighestTest {
         val metric = "*.*.count" highestMax n
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, \$n, 'max')"
+        metric.asString() shouldEqual "highestMax(*.*.count, \$n)"
     }
 
     @Test
@@ -87,7 +87,7 @@ class HighestTest {
         val metric = StringMetric("*.*.count") highestMax n
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, \$n, 'max')"
+        metric.asString() shouldEqual "highestMax(*.*.count, \$n)"
     }
 
     @Test
@@ -96,7 +96,7 @@ class HighestTest {
         val metric = "*.*.count" highestAverage 5
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, 5, 'average')"
+        metric.asString() shouldEqual "highestAverage(*.*.count, 5)"
     }
 
     @Test
@@ -105,7 +105,7 @@ class HighestTest {
         val metric = StringMetric("*.*.count") highestAverage 5
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, 5, 'average')"
+        metric.asString() shouldEqual "highestAverage(*.*.count, 5)"
     }
 
     @Test
@@ -117,7 +117,7 @@ class HighestTest {
         val metric = "*.*.count" highestAverage n
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, \$n, 'average')"
+        metric.asString() shouldEqual "highestAverage(*.*.count, \$n)"
     }
 
     @Test
@@ -129,6 +129,6 @@ class HighestTest {
         val metric = StringMetric("*.*.count") highestAverage n
 
         // then
-        metric.asString() shouldEqual "highest(*.*.count, \$n, 'average')"
+        metric.asString() shouldEqual "highestAverage(*.*.count, \$n)"
     }
 }
