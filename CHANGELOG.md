@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=PATCH
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Fix aggregation in `Highest` graphite function
 ### NEXT_VERSION_DESCRIPTION_END
 ## [1.6.0]() (22-03-2019)
 
@@ -13,15 +14,15 @@ release. To create variable delegate use `VariablesBuilder` class instead.
 The old way to create variable delegate:
 ```kotlin
 dashboard(title = "My dashboard") {
-val myVar by variable {
-interval(1.m, 10.m)
-}
+    val myVar by variable {
+        interval(1.m, 10.m)
+    }
 }
 ```
 Since `1.5.0` this code should be like this:
 ```kotlin
 dashboard(title = "My dashboard") {
-val myVar by variables.interval(1.m, 10.m) // variables is an instance of VariablesBuilder class provided by DashboardBuilder
+    val myVar by variables.interval(1.m, 10.m) // variables is an instance of VariablesBuilder class provided by DashboardBuilder
 }
 ```
 

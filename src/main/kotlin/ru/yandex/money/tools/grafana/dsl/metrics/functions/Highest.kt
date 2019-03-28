@@ -5,7 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.metrics.Metric
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
 
 /**
- * Takes one [metric] followed by an integer [n] and an [aggregation] function. Out of all metrics passed, draws only
+ * Takes one [metric] followed by an integer [n] and an aggregation function. Out of all metrics passed, draws only
  * the [n] metrics with the highest aggregated value over the time period specified.
  *
  * For example, `"server*.instance*.threads.busy" highestCurrent 5` draws the 5 servers with the highest busy threads.
@@ -16,10 +16,17 @@ import ru.yandex.money.tools.grafana.dsl.variables.Variable
 class Highest internal constructor(
     private val metric: Metric,
     private val n: String,
-    private val aggregation: String
+    aggregation: String
 ) : Metric {
 
-    override fun asString(): String = "highest(${metric.asString()}, $n, '$aggregation')"
+    private val highestFunction: String = when (aggregation) {
+        "max" -> "highestMax"
+        "average" -> "highestAverage"
+        "current" -> "highestCurrent"
+        else -> throw IllegalArgumentException("Unknown aggregation: aggregation=$aggregation")
+    }
+
+    override fun asString(): String = "$highestFunction(${metric.asString()}, $n)"
 }
 
 infix fun Metric.highestCurrent(n: Int): Metric = Highest(this, n.toString(), "current")
