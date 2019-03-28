@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=PATCH
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [1.6.1]() (28-03-2019)
+
 * Fix aggregation in `Highest` graphite function
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [1.6.0]() (22-03-2019)
 
 * Added ability to specify minimum and maximum values for Y axis
