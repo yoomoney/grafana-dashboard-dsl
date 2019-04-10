@@ -36,7 +36,7 @@ sourceSets {
 }
 
 dependencies {
-    grafanaCompile 'com.yandex.money.tech:grafana-dashboard-dsl:1.0.5'    
+    grafanaCompile 'com.yandex.money.tech:grafana-dashboard-dsl:1.7.0'    
 }
 ```
 

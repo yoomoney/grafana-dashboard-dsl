@@ -8,6 +8,7 @@ import ru.yandex.money.tools.grafana.dsl.metrics.functions.StringMetric
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.alias
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.averageSeries
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.groupByNodes
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.movingMedian
 import ru.yandex.money.tools.grafana.dsl.panels.Color
 import ru.yandex.money.tools.grafana.dsl.panels.Legend
@@ -113,6 +114,7 @@ dashboard(title = "Grafana Demo Layouts") {
 
                     metric("B") {
                         "*.another.metric.mean"
+                                .groupByNodes(0)
                                 .averageSeries() // show average value for metric
                                 .alias("another metric") // define alias
                     }
