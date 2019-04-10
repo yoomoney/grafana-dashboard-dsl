@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [1.7.0]() (10-04-2019)
 
 * Added `GroupByNodes` graphite function and corresponding `groupByNodes()` extension functions for `Metric`
