@@ -1,0 +1,15 @@
+{
+  "hideAcknowledged": false,
+  "showHostname": false,
+  "trigger": "/.*/",
+  "minseverity": 0,
+  "enable": true,
+  "hide": false,
+  "showOkEvents": false,
+  "application": "/.*/",
+  "datasource": "Zabbix",
+  "name": "test",
+  "iconColor": "rgba(255,96,96,1)",
+  "host": "/.*/",
+  "group": "/.*/"
+}

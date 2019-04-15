@@ -1,0 +1,47 @@
+[
+  {
+    "hideAcknowledged": false,
+    "showHostname": false,
+    "trigger": "/release-start/",
+    "minseverity": 0,
+    "enable": true,
+    "hide": false,
+    "showOkEvents": false,
+    "application": "/backend/",
+    "datasource": "Zabbix",
+    "name": "Test annotation",
+    "iconColor": "rgba(255,96,96,1)",
+    "host": "/ci/",
+    "group": "Zabbix"
+  },
+  {
+    "hideAcknowledged": false,
+    "showHostname": false,
+    "trigger": "/release-success/",
+    "minseverity": 0,
+    "enable": false,
+    "hide": false,
+    "showOkEvents": false,
+    "application": "/backend/",
+    "datasource": "Zabbix",
+    "name": "Disabled annotation",
+    "iconColor": "rgba(255,96,96,1)",
+    "host": "/ci/",
+    "group": "Zabbix"
+  },
+  {
+    "hideAcknowledged": false,
+    "showHostname": true,
+    "trigger": "/release-fail/",
+    "minseverity": 0,
+    "enable": true,
+    "hide": true,
+    "showOkEvents": false,
+    "application": "/backend/",
+    "datasource": "Zabbix",
+    "name": "Hidden and colored annotation",
+    "iconColor": "rgba(191,27,0,1)",
+    "host": "/ci/",
+    "group": "Zabbix"
+  }
+]

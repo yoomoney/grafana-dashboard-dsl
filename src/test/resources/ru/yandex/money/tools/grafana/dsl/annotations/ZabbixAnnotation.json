@@ -1,0 +1,15 @@
+{
+  "hideAcknowledged": true,
+  "showHostname": true,
+  "trigger": "/trigger/",
+  "minseverity": 5,
+  "enable": false,
+  "hide": true,
+  "showOkEvents": true,
+  "application": "/app/",
+  "datasource": "Zabbix",
+  "name": "test",
+  "iconColor": "rgba(100,176,200,1)",
+  "host": "/test/",
+  "group": "Zabbix"
+}
