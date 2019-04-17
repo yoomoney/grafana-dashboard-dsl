@@ -1,0 +1,11 @@
+ru.yandex.money.tools.grafana.dsl
+ru.yandex.money.tools.grafana.dsl.annotations
+ru.yandex.money.tools.grafana.dsl.dashboard
+ru.yandex.money.tools.grafana.dsl.datasource
+ru.yandex.money.tools.grafana.dsl.json
+ru.yandex.money.tools.grafana.dsl.metrics
+ru.yandex.money.tools.grafana.dsl.metrics.functions
+ru.yandex.money.tools.grafana.dsl.panels
+ru.yandex.money.tools.grafana.dsl.panels.alerting
+ru.yandex.money.tools.grafana.dsl.time
+ru.yandex.money.tools.grafana.dsl.variables
