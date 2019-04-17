@@ -2,6 +2,7 @@ package ru.yandex.money.tools.grafana.dsl.dashboard
 
 import org.json.JSONArray
 import org.json.JSONObject
+import ru.yandex.money.tools.grafana.dsl.annotations.Annotations
 import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
@@ -23,6 +24,7 @@ import ru.yandex.money.tools.grafana.dsl.variables.Variables
  * @property tags Tags
  * @property variables Variables that should be reused for querying metrics
  * @property panels Panels
+ * @property annotations Annotations that displayed on graphs. Has default value for backward compatibility.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
@@ -33,7 +35,8 @@ class Dashboard(
     private val refresh: Refresh,
     private val tags: Tags,
     private val variables: Variables,
-    private val panels: Panels
+    private val panels: Panels,
+    private val annotations: Annotations = Annotations(emptyList())
 ) : Json<JSONObject> {
 
     override fun toJson() = jsonObject {
@@ -46,7 +49,7 @@ class Dashboard(
             "list" to variables
         }
         "annotations" to jsonObject {
-            "list" to JSONArray()
+            "list" to annotations
         }
         "editable" to false
         "graphTooltip" to 0

@@ -14,7 +14,7 @@ class AliasColors : Json<JSONObject> {
     private val aliasToColor: MutableMap<String, String> = mutableMapOf()
 
     operator fun set(key: String, value: Color) {
-        aliasToColor[key] = value.asString()
+        aliasToColor[key] = value.asHexString()
     }
 
     override fun toJson() = JSONObject(aliasToColor)
