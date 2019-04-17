@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [1.8.0]() (17-04-2019)
 
 * [Grafana Annotations](http://docs.grafana.org/reference/annotations/) are now supported. There is `ZabbixAnnotation`
