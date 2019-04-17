@@ -1,13 +1,13 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [1.8.0]() (17-04-2019)
+
 * [Grafana Annotations](http://docs.grafana.org/reference/annotations/) are now supported. There is `ZabbixAnnotation`
-  an annotation implementation that uses Zabbix as query datasource. See usage examples in `AnnotationsDemo.kts` example
+an annotation implementation that uses Zabbix as query datasource. See usage examples in `AnnotationsDemo.kts` example
 * `Color` class has changes:
-  * New method `asRgbaString` that returns string representation of color in format `rgba(red,green,blue,1)`
-  * New method `asHexString` that returns string representation of color in format `#hex(reg)hex(green)hex(blue)`
-  * Method `asString` is alias for `asHexString` now
-  * Companion factory method `of` is alias for new secondary constructor
-### NEXT_VERSION_DESCRIPTION_END
+* New method `asRgbaString` that returns string representation of color in format `rgba(red,green,blue,1)`
+* New method `asHexString` that returns string representation of color in format `#hex(reg)hex(green)hex(blue)`
+* Method `asString` is alias for `asHexString` now
+* Companion factory method `of` is alias for new secondary constructor
+
 ## [1.7.0]() (10-04-2019)
 
 * Added `GroupByNodes` graphite function and corresponding `groupByNodes()` extension functions for `Metric`
