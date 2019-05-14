@@ -1,9 +1,10 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Build configuration moved to `yamoney-kotlin-module-plugin`
 ### NEXT_VERSION_DESCRIPTION_END
 ## [1.8.1]() (14-05-2019)
 
-* Добавлен репозиторий с Gradle плагинами
+* Added repository with Gradle plugins
 
 ## [1.8.0]() (17-04-2019)
 

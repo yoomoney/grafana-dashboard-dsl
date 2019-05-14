@@ -38,5 +38,4 @@ class LegendTest {
         )
         legend.toJson().toString() shouldEqualToJson jsonFile("CustomLegendBlock.json")
     }
-
 }

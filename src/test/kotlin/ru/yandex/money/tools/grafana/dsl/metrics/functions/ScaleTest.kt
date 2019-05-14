@@ -3,7 +3,6 @@ package ru.yandex.money.tools.grafana.dsl.metrics.functions
 import org.amshove.kluent.shouldEqual
 import org.testng.annotations.Test
 
-
 class ScaleTest {
     @Test
     fun `should create metric that scales metric to constant`() {
