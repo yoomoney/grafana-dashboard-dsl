@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=PATCH
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [1.8.1]() (14-05-2019)
+
 * Добавлен репозиторий с Gradle плагинами
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [1.8.0]() (17-04-2019)
 
 * [Grafana Annotations](http://docs.grafana.org/reference/annotations/) are now supported. There is `ZabbixAnnotation`
