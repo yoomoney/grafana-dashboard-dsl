@@ -61,5 +61,4 @@ class ColorTest {
     fun `should return appropriate value for each constant`(color: Color, value: String) {
         color.asString() shouldEqual value
     }
-
 }

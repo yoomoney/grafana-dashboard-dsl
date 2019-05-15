@@ -7,6 +7,7 @@ buildscript {
     }
 }
 apply from: 'tmp/gradle-scripts/_root.gradle'
+apply plugin: 'yamoney-kotlin-module-plugin'
 /////////////////////////////////////////////
 
 groupIdSuffix = "tools"
@@ -14,57 +15,3 @@ artifactID = "yamoney-grafana-dashboard-dsl"
 
 apply from: 'dependencies.gradle'
 apply from: 'examples.gradle'
-
-ext {
-    findbugsEnabled = false
-    checkstyleEnabled = false
-}
-
-configurations {
-    ktlint
-    detekt
-}
-dependencies {
-    ktlint 'com.github.shyiko:ktlint:0.24.0'
-    detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.0.0.RC7'
-}
-
-
-task checkWithKtLint(type: JavaExec, group: "verification") {
-    def inputFiles = project.fileTree(dir: "src/main", include: "**/*.kt")
-    def outputDir = "${buildDir}/checkstyleReports/"
-    inputs.files(inputFiles)
-    outputs.dir(outputDir)
-
-    description = "Check Kotlin code style."
-    classpath = configurations.ktlint
-    main = "com.github.shyiko.ktlint.Main"
-    args "src/main/**/*.kt",
-            "--reporter=plain?group_by_file",
-            "--reporter=checkstyle,output=${buildDir}/checkstyleReports/main.xml"
-}
-check.dependsOn checkWithKtLint
-
-task kotlinFormat(type: JavaExec, group: "formatting") {
-    description = "Fix Kotlin code style deviations."
-    classpath = configurations.ktlint
-    main = "com.github.shyiko.ktlint.Main"
-    args "-F", "src/main/**/*.kt"
-}
-
-task checkWithDetekt(type: JavaExec, group: 'verification') {
-    def inputFiles = project.fileTree(dir: 'src/main', include: '**/*.kt')
-    def outputDir = "$buildDir/checkstyleReports/"
-    inputs.files(inputFiles)
-    outputs.dir(outputDir)
-
-    main = 'io.gitlab.arturbosch.detekt.cli.Main'
-    classpath = configurations.detekt
-    def input = "$projectDir/src/main/kotlin"
-    def output = "$buildDir/checkstyleReports"
-    def config = "$projectDir/detekt.yml"
-    def outputName = "main"
-    def params = [ '-i', input, '-c', config, '-o', output, '-on', outputName]
-    args(params)
-}
-check.dependsOn checkWithDetekt

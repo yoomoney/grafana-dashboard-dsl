@@ -19,15 +19,11 @@ class AliasColorsBuilderTest {
         }
 
         builder.aliasColors.toJson().toString() shouldEqual """{"fail":"#bf1b00","success":"#7eb26d"}"""
-
-
     }
 
     @Test
     fun `should create empty alias colors block`() {
 
         AliasColorsBuilder().aliasColors.toJson().toString() shouldEqual """{}"""
-
     }
-
 }

@@ -29,7 +29,7 @@ class SummarizeTest {
     @Test
     fun `should create metric from variable and function`() {
         // given
-        val metric = "*.*.oil-gate.requests.incoming.*.*.process_time.*.count".summarize(FakeVariable,"avg")
+        val metric = "*.*.oil-gate.requests.incoming.*.*.process_time.*.count".summarize(FakeVariable, "avg")
 
         // then
         metric.asString() shouldEqual "summarize(*.*.oil-gate.requests.incoming.*.*.process_time.*.count, '$${FakeVariable.name}', 'avg')"

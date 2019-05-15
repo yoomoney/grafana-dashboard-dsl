@@ -17,5 +17,4 @@ class AverageSeriesTest {
     fun `should create metric that gets averageSeries (metric)`() {
         StringMetric("*.*.mean").averageSeries().asString() shouldEqual "averageSeries(*.*.mean)"
     }
-
 }

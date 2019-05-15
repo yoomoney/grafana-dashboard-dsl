@@ -1,8 +1,6 @@
 dependencies {
 
-    compile 'org.json:json:20180130',
-            "org.jetbrains.kotlin:kotlin-stdlib:${System.getProperty('kotlinVersion')}",
-            "org.jetbrains.kotlin:kotlin-reflect:${System.getProperty('kotlinVersion')}"
+    compile 'org.json:json:20180130'
 
     testCompile 'org.testng:testng:6.10',
             'commons-io:commons-io:2.4',

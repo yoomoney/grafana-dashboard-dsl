@@ -28,5 +28,4 @@ class GroupByNodesTest {
         // then
         metric.asString() shouldEqual "groupByNodes(*.*.oil-gate.requests.incoming.*.*.process_time.*.count, 'sum', 0)"
     }
-
 }

@@ -288,5 +288,4 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisMinMaxValues.json")
     }
-
 }

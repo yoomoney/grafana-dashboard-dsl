@@ -118,9 +118,7 @@ dashboard(title = "Grafana Demo Layouts") {
                                 .averageSeries() // show average value for metric
                                 .alias("another metric") // define alias
                     }
-
                 }
-
             }
         }
 
@@ -136,11 +134,8 @@ dashboard(title = "Grafana Demo Layouts") {
                          */
                         StringMetric("apps.backend.\$hosts.counters.requests.count")
                     }
-
                 }
-
             }
-
         }
     }
 }
