@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [1.10.0]() (13-06-2019)
+
 * Added possibility to specify several nodes in `aliasByNode` function
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [1.9.0]() (15-05-2019)
 
 * Build configuration moved to `yamoney-kotlin-module-plugin`
