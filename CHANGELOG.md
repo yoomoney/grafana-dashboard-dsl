@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Added possibility to specify several nodes in `aliasByNode` function
 ### NEXT_VERSION_DESCRIPTION_END
 ## [1.9.0]() (15-05-2019)
 

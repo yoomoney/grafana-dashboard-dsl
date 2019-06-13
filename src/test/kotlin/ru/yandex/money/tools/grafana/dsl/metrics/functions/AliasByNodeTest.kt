@@ -13,4 +13,13 @@ class AliasByNodeTest {
         // then
         metric.asString() shouldEqual "aliasByNode(*.*.oil-gate.requests.incoming.*.*.process_time.*.count, 1)"
     }
+
+    @Test
+    fun `should create metric that aliased by nodes`() {
+        // given
+        val metric = "*.*.oil-gate.requests.incoming.*.*.process_time.*.count".aliasByNode(1, 2)
+
+        // then
+        metric.asString() shouldEqual "aliasByNode(*.*.oil-gate.requests.incoming.*.*.process_time.*.count, 1, 2)"
+    }
 }

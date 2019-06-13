@@ -2,14 +2,14 @@ package ru.yandex.money.tools.grafana.dsl.metrics.functions
 
 import ru.yandex.money.tools.grafana.dsl.metrics.Metric
 
-class AliasByNode(private val metric: Metric, private val node: Int = 0) : Metric {
-    override fun asString() = "aliasByNode(${metric.asString()}, $node)"
+class AliasByNode(private val metric: Metric, private val nodes: IntArray) : Metric {
+    override fun asString() = "aliasByNode(${metric.asString()}, ${nodes.joinToString(", ")})"
 }
 
-infix fun String.aliasByNode(node: Int) = AliasByNode(StringMetric(this), node)
+infix fun String.aliasByNode(node: Int) = AliasByNode(StringMetric(this), intArrayOf(node))
 
-fun String.aliasByNode() = AliasByNode(StringMetric(this))
+fun String.aliasByNode(vararg nodes: Int) = AliasByNode(StringMetric(this), nodes)
 
-infix fun Metric.aliasByNode(node: Int) = AliasByNode(this, node)
+infix fun Metric.aliasByNode(node: Int) = AliasByNode(this, intArrayOf(node))
 
-fun Metric.aliasByNode() = AliasByNode(this)
+fun Metric.aliasByNode(vararg nodes: Int) = AliasByNode(this, nodes)
