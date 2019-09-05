@@ -4,7 +4,6 @@
   "legend": {
     "alignAsTable": true,
     "max": true,
-    "min": true,
     "values": true,
     "show": true,
     "sortDesc": true,
@@ -14,18 +13,19 @@
     "current": true,
     "total": true,
     "avg": true,
+    "min": true,
     "hideEmpty": true
   },
   "yaxes": [
     {
-      "logBase": 1,
       "format": "short",
+      "logBase": 1,
       "show": true,
       "decimals": 1
     },
     {
-      "logBase": 1,
       "format": "short",
+      "logBase": 1,
       "show": true,
       "decimals": 1
     }
@@ -33,19 +33,29 @@
   "title": "Test Panel",
   "type": "graph",
   "targets": [],
-  "seriesOverrides": [],
-  "yaxis": {"align": false},
+  "seriesOverrides": [
+    {
+      "alias": "total",
+      "bars": false,
+      "lines": true,
+      "linewidth": 2,
+      "stack": false
+    }
+  ],
+  "yaxis": {
+    "align": false
+  },
   "gridPos": {
-    "w": 24,
     "x": 0,
     "h": 12,
-    "y": 0
+    "y": 0,
+    "w": 24
   },
   "points": false,
   "xaxis": {
     "mode": "time",
-    "values": [],
-    "show": true
+    "show": true,
+    "values": []
   },
   "percentage": false,
   "dashLength": 10,
@@ -61,7 +71,7 @@
   "bars": false,
   "dashes": false,
   "thresholds": [],
-  "datasource": "Zabbix",
+  "datasource": "Graphite",
   "decimals": 2,
   "pointradius": 5,
   "tooltip": {

@@ -7,6 +7,7 @@ import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.json.set
 import ru.yandex.money.tools.grafana.dsl.jsonFile
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.asPercent
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 
 class MetricPanelBuilderTest : AbstractPanelTest() {
@@ -92,5 +93,26 @@ class MetricPanelBuilderTest : AbstractPanelTest() {
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("MetricPanelWithMetrics.json")
+    }
+
+    @Test
+    fun `should create metric panel with as percent metric on metric`() {
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.metricPanel(title = "Test Panel") {
+            metrics {
+                val refMetric = "*.*.oil-gate.requests.incoming.*.*.process_time.*.count1" aliasByNode 0
+                metric("A") {
+                    "*.*.oil-gate.requests.incoming.*.*.process_time.*.count2" aliasByNode 1 asPercent refMetric
+                }
+            }
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("MetricPanelWithAsPercentMetric.json")
     }
 }

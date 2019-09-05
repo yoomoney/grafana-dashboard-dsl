@@ -1,8 +1,11 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
+import ru.yandex.money.tools.grafana.dsl.json.JsonArray
 import ru.yandex.money.tools.grafana.dsl.json.emptyJsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
+import ru.yandex.money.tools.grafana.dsl.panels.graph.display.drawoptions.HoverTooltip
+import ru.yandex.money.tools.grafana.dsl.panels.graph.display.seriesoverrides.SeriesOverride
 import ru.yandex.money.tools.grafana.dsl.time.Duration
 
 /**
@@ -17,13 +20,18 @@ class GraphPanel(
     private val timeShift: Duration? = null,
     private val stack: Boolean = true,
     private val legend: Legend = Legend.DEFAULT,
+    private val decimals: Int? = 2,
     private val points: Boolean = false,
     private val pointradius: Int = 5,
     private val nullPointMode: NullPointMode = NullPointMode.NULL_AS_ZERO,
     private val fill: Int = 0,
+    private val lineWidth: Int = 2,
+    private val staircase: Boolean = false,
+    private val hoverTooltip: HoverTooltip = HoverTooltip(),
     private val aliasColors: AliasColors? = null,
     private val leftYAxis: YAxis? = null,
-    private val rightYAxis: YAxis? = null
+    private val rightYAxis: YAxis? = null,
+    private val seriesOverrides: List<SeriesOverride> = emptyList()
 ) : Panel {
 
     override fun toJson() = jsonObject(basePanel.toJson()) {
@@ -32,22 +40,23 @@ class GraphPanel(
         "bars" to (type == "bars")
         "lines" to (type == "lines")
         "dashes" to false
-        "steppedLine" to false
+        "steppedLine" to staircase
         "points" to points
         "stack" to stack
         "dashLength" to 10
-        "decimals" to 2
-        "linewidth" to 2
+        "decimals" to decimals
+        "linewidth" to lineWidth
         "spaceLength" to 10
         "pointradius" to pointradius
         "percentage" to false
         "renderer" to "flot"
         "fill" to fill
-        "seriesOverrides" to emptyJsonArray()
+        "seriesOverrides" to JsonArray(seriesOverrides)
         "thresholds" to emptyJsonArray()
         "timeShift" to timeShift?.toString()
         "nullPointMode" to nullPointMode.value
         "aliasColors" to aliasColors
+        "tooltip" to hoverTooltip
         "xaxis" to jsonObject {
             "mode" to "time"
             "show" to true

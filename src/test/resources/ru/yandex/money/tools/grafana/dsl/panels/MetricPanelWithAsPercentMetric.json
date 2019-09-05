@@ -1,0 +1,21 @@
+{
+  "datasource": "Graphite",
+  "editable": true,
+  "nullPointMode": "null as zero",
+  "links": [],
+  "id": 1,
+  "title": "Test Panel",
+  "targets": [
+    {
+      "refId": "A",
+      "target": "asPercent(aliasByNode(*.*.oil-gate.requests.incoming.*.*.process_time.*.count2, 1), aliasByNode(*.*.oil-gate.requests.incoming.*.*.process_time.*.count1, 0))",
+      "hide": false
+    }
+  ],
+  "gridPos": {
+    "w": 24,
+    "x": 0,
+    "h": 12,
+    "y": 0
+  }
+}

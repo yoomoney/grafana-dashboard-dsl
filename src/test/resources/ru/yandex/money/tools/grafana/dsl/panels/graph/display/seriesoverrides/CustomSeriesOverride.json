@@ -1,0 +1,7 @@
+{
+  "alias": "total",
+  "bars": false,
+  "lines": true,
+  "linewidth": 2,
+  "stack": false
+}

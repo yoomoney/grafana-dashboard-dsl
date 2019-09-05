@@ -61,8 +61,7 @@
   "bars": false,
   "dashes": false,
   "thresholds": [],
-  "datasource": "Zabbix",
-  "decimals": 2,
+  "datasource": "Graphite",
   "pointradius": 5,
   "tooltip": {
     "shared": true,

@@ -11,10 +11,10 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  * @since 11.01.2019
  */
 class YAxis(
-    private val format: String = YAxis.Format.SHORT,
-    private val logBase: Int = 1,
+    private val format: String = SHORT,
+    private val scale: Scale = Scale.LINEAR,
     private val show: Boolean = true,
-    private val decimals: Int = 1,
+    private val decimals: Int? = 1,
     private val min: Int? = null,
     private val max: Int? = null
 ) : Json<JSONObject> {
@@ -25,14 +25,35 @@ class YAxis(
          */
         val SHORT = "short"
         /**
+         * bytes
+         */
+        val BYTES = "bytes"
+        /**
+         * Decimal bytes
+         */
+        val DECIMAL_BYTES = "decbytes"
+        /**
          * Milliseconds
          */
         val MILLISECONDS = "ms"
+        /**
+         * Percent 0-100
+         */
+        val PERCENT = "percent"
+        val NONE = "none"
+    }
+
+    enum class Scale(val logBase: Int) {
+        LINEAR(1),
+        LOG2(2),
+        LOG10(10),
+        LOG32(32),
+        LOG1024(1024)
     }
 
     override fun toJson() = jsonObject {
         "format" to format
-        "logBase" to logBase
+        "logBase" to scale.logBase
         "show" to show
         "decimals" to decimals
         if (min != null) {
