@@ -1,16 +1,16 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [1.11.0]() (10-09-2019)
+
 * New fields at `GraphPanel` class:
-    1. `staircase` field can be change `Staircase` display parameter on graph panel
-    2. `decimals` field can be change `Decimals` legend parameter that override automatic decimal precision
+1. `staircase` field can be change `Staircase` display parameter on graph panel
+2. `decimals` field can be change `Decimals` legend parameter that override automatic decimal precision
 * New functions for `metrics`:
-    1. `sortByTotal` sorts the list of metrics in descending order by the sum of values across the time period specified.
-    2. `perSecond` represents packets of metric per second if packets are higher.
-    3. `asPercent` represents the ratio of one metric to another as a percentage.
-    4. `override` accepts on `alias(...)` function and overrides parameters
+1. `sortByTotal` sorts the list of metrics in descending order by the sum of values across the time period specified.
+2. `perSecond` represents packets of metric per second if packets are higher.
+3. `asPercent` represents the ratio of one metric to another as a percentage.
+4. `override` accepts on `alias(...)` function and overrides parameters
 * New classes:
-    1. `HoverTooltip` overrides default Hover tooltip parameters on graph display menu
-### NEXT_VERSION_DESCRIPTION_END
+1. `HoverTooltip` overrides default Hover tooltip parameters on graph display menu
+
 ## [1.10.0]() (13-06-2019)
 
 * Added possibility to specify several nodes in `aliasByNode` function
