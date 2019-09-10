@@ -67,5 +67,10 @@
   "thresholds": [],
   "datasource": "Graphite",
   "decimals": 2,
-  "pointradius": 5
+  "pointradius": 5,
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  }
 }

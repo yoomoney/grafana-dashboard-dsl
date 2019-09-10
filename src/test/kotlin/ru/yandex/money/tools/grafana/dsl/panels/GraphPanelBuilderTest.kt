@@ -6,7 +6,9 @@ import org.testng.annotations.Test
 import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.json.set
 import ru.yandex.money.tools.grafana.dsl.jsonFile
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.alias
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
+import ru.yandex.money.tools.grafana.dsl.panels.graph.display.drawoptions.HoverTooltip
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 import ru.yandex.money.tools.grafana.dsl.time.h
 
@@ -148,6 +150,38 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
     }
 
     @Test
+    fun `should create graph panel with decimals`() {
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            decimals = null
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithDecimals.json")
+    }
+
+    @Test
+    fun `should create graph panel with stepped line`() {
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            staircase = true
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithSteppedLine.json")
+    }
+
+    @Test
     fun `should create graph panel with alias colors`() {
 
         // given
@@ -261,14 +295,68 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
 
         // when
         testContainer.graphPanel(title = "Test Panel") {
-            leftYAxis = YAxis(format = YAxis.Format.MILLISECONDS)
-            rightYAxis = YAxis(format = YAxis.Format.MILLISECONDS)
+            leftYAxis = YAxis(format = YAxis.MILLISECONDS)
+            rightYAxis = YAxis(format = YAxis.MILLISECONDS)
         }
 
         // then
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatMilliseconds.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis format bytes`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(format = YAxis.BYTES)
+            rightYAxis = YAxis(format = YAxis.BYTES)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatBytes.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis format none`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(format = YAxis.NONE)
+            rightYAxis = YAxis(format = YAxis.NONE)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatNone.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis format percent`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(format = YAxis.PERCENT)
+            rightYAxis = YAxis(format = YAxis.PERCENT)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatPercent.json")
     }
 
     @Test
@@ -287,5 +375,44 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisMinMaxValues.json")
+    }
+
+    @Test
+    fun `should create graph panel with custom hover tooltip`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            hoverTooltip = HoverTooltip(HoverTooltip.Mode.SINGLE, HoverTooltip.SortOrder.INCREASING, HoverTooltip.StackedValue.CUMULATIVE)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithCustomHoverTooltip.json")
+    }
+
+    @Test
+    fun `should create graph panel with series overrides`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            "*.*.oil-gate.requests.incoming.*.*.process_time.*.count" alias "total" override {
+                bars = false
+                lines = true
+                lineWidth = 2
+                stack = false
+            }
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithSeriesOverrides.json")
     }
 }

@@ -4,7 +4,6 @@
   "legend": {
     "alignAsTable": true,
     "max": true,
-    "min": true,
     "values": true,
     "show": true,
     "sortDesc": true,
@@ -14,18 +13,19 @@
     "current": true,
     "total": true,
     "avg": true,
+    "min": true,
     "hideEmpty": true
   },
   "yaxes": [
     {
+      "format": "none",
       "logBase": 1,
-      "format": "short",
       "show": true,
       "decimals": 1
     },
     {
+      "format": "none",
       "logBase": 1,
-      "format": "short",
       "show": true,
       "decimals": 1
     }
@@ -34,18 +34,20 @@
   "type": "graph",
   "targets": [],
   "seriesOverrides": [],
-  "yaxis": {"align": false},
+  "yaxis": {
+    "align": false
+  },
   "gridPos": {
-    "w": 24,
     "x": 0,
     "h": 12,
-    "y": 0
+    "y": 0,
+    "w": 24
   },
   "points": false,
   "xaxis": {
     "mode": "time",
-    "values": [],
-    "show": true
+    "show": true,
+    "values": []
   },
   "percentage": false,
   "dashLength": 10,
@@ -61,7 +63,7 @@
   "bars": false,
   "dashes": false,
   "thresholds": [],
-  "datasource": "Zabbix",
+  "datasource": "Graphite",
   "decimals": 2,
   "pointradius": 5,
   "tooltip": {

@@ -69,5 +69,10 @@
     "fail": "#bf1b00",
     "success": "#7eb26d"
   },
-  "pointradius": 5
+  "pointradius": 5,
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  }
 }
