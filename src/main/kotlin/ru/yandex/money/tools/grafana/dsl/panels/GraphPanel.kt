@@ -16,16 +16,17 @@ import ru.yandex.money.tools.grafana.dsl.time.Duration
  */
 class GraphPanel(
     private val basePanel: Panel,
-    private val type: String,
     private val timeShift: Duration? = null,
-    private val stack: Boolean = true,
+    private val stack: Boolean = false,
     private val legend: Legend = Legend.DEFAULT,
-    private val decimals: Int? = 2,
+    private val decimals: Int? = null,
     private val points: Boolean = false,
+    private val bars: Boolean = false,
+    private val lines: Boolean = true,
     private val pointradius: Int = 5,
-    private val nullPointMode: NullPointMode = NullPointMode.NULL_AS_ZERO,
-    private val fill: Int = 0,
-    private val lineWidth: Int = 2,
+    private val nullValue: NullValue = NullValue.NULL,
+    private val fill: Int = 1,
+    private val lineWidth: Int = 1,
     private val staircase: Boolean = false,
     private val hoverTooltip: HoverTooltip = HoverTooltip(),
     private val aliasColors: AliasColors? = null,
@@ -37,11 +38,11 @@ class GraphPanel(
     override fun toJson() = jsonObject(basePanel.toJson()) {
         "type" to "graph"
         "legend" to legend
-        "bars" to (type == "bars")
-        "lines" to (type == "lines")
+        "bars" to bars
+        "lines" to lines
+        "points" to points
         "dashes" to false
         "steppedLine" to staircase
-        "points" to points
         "stack" to stack
         "dashLength" to 10
         "decimals" to decimals
@@ -54,7 +55,7 @@ class GraphPanel(
         "seriesOverrides" to JsonArray(seriesOverrides)
         "thresholds" to emptyJsonArray()
         "timeShift" to timeShift?.toString()
-        "nullPointMode" to nullPointMode.value
+        "nullPointMode" to nullValue.value
         "aliasColors" to aliasColors
         "tooltip" to hoverTooltip
         "xaxis" to jsonObject {
@@ -67,14 +68,4 @@ class GraphPanel(
         }
         "yaxes" to jsonArray[leftYAxis ?: YAxis(), rightYAxis ?: YAxis()]
     }
-}
-
-/**
- * Display mode for null values
- */
-enum class NullPointMode(val value: String) {
-
-    CONNECTED("connected"),
-    NULL("null"),
-    NULL_AS_ZERO("null as zero")
 }

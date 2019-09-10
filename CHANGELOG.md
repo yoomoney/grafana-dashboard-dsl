@@ -1,5 +1,17 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MAJOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Update class `Dashboard`:
+    1. Add field `uid` to change dashboard url: `https://localhost:8500/d/uid/dashboard-name`
+* Refactor class `YAxis`:
+    1. Field `format` change name to `unit` and type to enum `YAxis.Unit`
+    2. Change field `decimals` default value from `1` to `null` (`auto` in Grafana)
+* Refactor class `GraphPanel`:
+    1. Change field `decimals` default value from `2` to `null` (`auto` in Grafana)
+    2. Change field `lineWidth` default value from `2` to `1`
+    3. Change field `fill` default value from `0` to `1`
+    4. Change field `nullPointMode` name to `nullValue` and default value from `null as zero` to `null`
+    5. Delete field `type` and add fields `lines` and `bars`. Set `lines` default value to `true`
+    6. Change field `stacked` default value to `false`
 ### NEXT_VERSION_DESCRIPTION_END
 ## [1.11.0]() (10-09-2019)
 

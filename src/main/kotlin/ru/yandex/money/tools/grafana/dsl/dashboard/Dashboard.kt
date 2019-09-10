@@ -30,6 +30,7 @@ import ru.yandex.money.tools.grafana.dsl.variables.Variables
  * @since 7/21/18
  */
 class Dashboard(
+    private val uid: String? = null,
     private val title: String,
     private val timeRange: TimeRange,
     private val refresh: Refresh,
@@ -40,6 +41,7 @@ class Dashboard(
 ) : Json<JSONObject> {
 
     override fun toJson() = jsonObject {
+        "uid" to uid
         "title" to title
         "time" to timeRange
         "refresh" to refresh.asRefreshPeriod()

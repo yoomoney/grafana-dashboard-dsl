@@ -41,7 +41,7 @@
     "y": 0,
     "w": 24
   },
-  "points": true,
+  "points": false,
   "xaxis": {
     "mode": "time",
     "show": true,
@@ -54,7 +54,7 @@
   "lines": true,
   "spaceLength": 10,
   "editable": true,
-  "nullPointMode": "null",
+  "nullPointMode": "null as zero",
   "steppedLine": false,
   "fill": 1,
   "linewidth": 1,
@@ -62,7 +62,7 @@
   "dashes": false,
   "thresholds": [],
   "datasource": "Graphite",
-  "pointradius": 3,
+  "pointradius": 5,
   "tooltip": {
     "shared": true,
     "sort": 0,

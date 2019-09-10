@@ -11,36 +11,21 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  * @since 11.01.2019
  */
 class YAxis(
-    private val format: String = SHORT,
+    private val unit: Unit = Unit.SHORT,
     private val scale: Scale = Scale.LINEAR,
     private val show: Boolean = true,
-    private val decimals: Int? = 1,
+    private val decimals: Int? = null,
     private val min: Int? = null,
     private val max: Int? = null
 ) : Json<JSONObject> {
 
-    companion object Format {
-        /**
-         * short
-         */
-        val SHORT = "short"
-        /**
-         * bytes
-         */
-        val BYTES = "bytes"
-        /**
-         * Decimal bytes
-         */
-        val DECIMAL_BYTES = "decbytes"
-        /**
-         * Milliseconds
-         */
-        val MILLISECONDS = "ms"
-        /**
-         * Percent 0-100
-         */
-        val PERCENT = "percent"
-        val NONE = "none"
+    enum class Unit(val unit: String) {
+        SHORT("short"),
+        BYTES("bytes"),
+        DECIMAL_BYTES("decbytes"),
+        MILLISECONDS("ms"),
+        PERCENT_0_100("percent"),
+        NONE("none"),
     }
 
     enum class Scale(val logBase: Int) {
@@ -52,15 +37,11 @@ class YAxis(
     }
 
     override fun toJson() = jsonObject {
-        "format" to format
+        "format" to unit.unit
         "logBase" to scale.logBase
         "show" to show
         "decimals" to decimals
-        if (min != null) {
-            "min" to min
-        }
-        if (max != null) {
-            "max" to max
-        }
+        "min" to min
+        "max" to max
     }
 }

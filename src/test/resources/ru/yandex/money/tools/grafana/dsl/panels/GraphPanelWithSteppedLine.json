@@ -20,14 +20,12 @@
     {
       "logBase": 1,
       "format": "short",
-      "show": true,
-      "decimals": 1
+      "show": true
     },
     {
       "logBase": 1,
       "format": "short",
-      "show": true,
-      "decimals": 1
+      "show": true
     }
   ],
   "title": "Test Panel",
@@ -54,11 +52,10 @@
   "lines": true,
   "spaceLength": 10,
   "editable": true,
-  "nullPointMode": "null as zero",
-  "decimals": 2,
+  "nullPointMode": "null",
   "steppedLine": true,
-  "fill": 0,
-  "linewidth": 2,
+  "fill": 1,
+  "linewidth": 1,
   "bars": false,
   "dashes": false,
   "thresholds": [],

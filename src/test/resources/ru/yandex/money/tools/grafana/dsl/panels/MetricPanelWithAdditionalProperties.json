@@ -2,7 +2,7 @@
   "datasource": "Graphite",
   "editable": true,
   "legend": {},
-  "nullPointMode": "null as zero",
+  "nullPointMode": "null",
   "links": [],
   "id": 1,
   "title": "Test Panel",

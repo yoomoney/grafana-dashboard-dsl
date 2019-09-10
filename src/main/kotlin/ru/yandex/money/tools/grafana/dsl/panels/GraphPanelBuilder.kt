@@ -20,27 +20,29 @@ class GraphPanelBuilder(private val title: String) : PanelBuilder {
 
     var datasource: Datasource = Graphite
 
-    var type = "lines"
-
     var timeShift: Duration? = null
 
-    var stacked = false
+    var stack = false
 
     val metrics = ReferenceMetricsHolder()
 
     var legend = Legend.DEFAULT
 
-    var decimals: Int? = 2
+    var decimals: Int? = null
 
     var points = false
 
+    var lines = true
+
+    var bars = false
+
     var pointradius = 5
 
-    var nullPointMode = NullPointMode.NULL_AS_ZERO
+    var nullValue = NullValue.NULL
 
-    var fill = 0
+    var fill = 1
 
-    var lineWidth = 2
+    var lineWidth = 1
 
     var staircase = false
 
@@ -88,14 +90,15 @@ class GraphPanelBuilder(private val title: String) : PanelBuilder {
                             datasource = datasource,
                             metrics = Metrics(metrics.metrics)
                     ),
-                    type = type,
                     timeShift = timeShift,
-                    stack = stacked,
+                    stack = stack,
                     legend = legend,
                     decimals = decimals,
+                    bars = bars,
+                    lines = lines,
                     points = points,
                     pointradius = pointradius,
-                    nullPointMode = nullPointMode,
+                    nullValue = nullValue,
                     fill = fill,
                     lineWidth = lineWidth,
                     staircase = staircase,
