@@ -1,7 +1,7 @@
 {
   "datasource": "Zabbix",
   "editable": true,
-  "nullPointMode": "null as zero",
+  "nullPointMode": "null",
   "links": [],
   "id": 1,
   "title": "Test Panel",

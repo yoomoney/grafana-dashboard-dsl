@@ -108,7 +108,8 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
 
         // when
         testContainer.graphPanel(title = "Test Panel") {
-            type = "bars"
+            bars = true
+            lines = false
         }
 
         // then
@@ -140,7 +141,7 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
 
         // when
         testContainer.graphPanel(title = "Test Panel") {
-            stacked = true
+            stack = true
         }
 
         // then
@@ -261,13 +262,47 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
 
         // when
         testContainer.graphPanel(title = "Test Panel") {
-            nullPointMode = NullPointMode.CONNECTED
+            nullValue = NullValue.CONNECTED
         }
 
         // then
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithNullPointModeConnected.json")
+    }
+
+    @Test
+    fun `should create graph panel with point mode null as zero`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            nullValue = NullValue.NULL_AS_ZERO
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithNullPointModeNullAsZero.json")
+    }
+
+    @Test
+    fun `should create graph panel with point mode null`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            nullValue = NullValue.NULL
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithNullPointModeNull.json")
     }
 
     @Test
@@ -295,14 +330,32 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
 
         // when
         testContainer.graphPanel(title = "Test Panel") {
-            leftYAxis = YAxis(format = YAxis.MILLISECONDS)
-            rightYAxis = YAxis(format = YAxis.MILLISECONDS)
+            leftYAxis = YAxis(unit = YAxis.Unit.MILLISECONDS)
+            rightYAxis = YAxis(unit = YAxis.Unit.MILLISECONDS)
         }
 
         // then
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatMilliseconds.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis format decimal bytes`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(unit = YAxis.Unit.DECIMAL_BYTES)
+            rightYAxis = YAxis(unit = YAxis.Unit.DECIMAL_BYTES)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatDecimalBytes.json")
     }
 
     @Test
@@ -313,8 +366,8 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
 
         // when
         testContainer.graphPanel(title = "Test Panel") {
-            leftYAxis = YAxis(format = YAxis.BYTES)
-            rightYAxis = YAxis(format = YAxis.BYTES)
+            leftYAxis = YAxis(unit = YAxis.Unit.BYTES)
+            rightYAxis = YAxis(unit = YAxis.Unit.BYTES)
         }
 
         // then
@@ -330,10 +383,11 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         val testContainer = TestContainerBuilder()
 
         // when
-        testContainer.graphPanel(title = "Test Panel") {
-            leftYAxis = YAxis(format = YAxis.NONE)
-            rightYAxis = YAxis(format = YAxis.NONE)
+        val build: GraphPanelBuilder.() -> Unit = {
+            leftYAxis = YAxis(unit = YAxis.Unit.NONE)
+            rightYAxis = YAxis(unit = YAxis.Unit.NONE)
         }
+        testContainer.graphPanel(title = "Test Panel", build = build)
 
         // then
         val panels = testContainer.panels
@@ -349,14 +403,86 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
 
         // when
         testContainer.graphPanel(title = "Test Panel") {
-            leftYAxis = YAxis(format = YAxis.PERCENT)
-            rightYAxis = YAxis(format = YAxis.PERCENT)
+            leftYAxis = YAxis(unit = YAxis.Unit.PERCENT_0_100)
+            rightYAxis = YAxis(unit = YAxis.Unit.PERCENT_0_100)
         }
 
         // then
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisFormatPercent.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis scale log 2`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(scale = YAxis.Scale.LOG2)
+            rightYAxis = YAxis(scale = YAxis.Scale.LOG2)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisScaleLog2.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis scale log 10`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(scale = YAxis.Scale.LOG10)
+            rightYAxis = YAxis(scale = YAxis.Scale.LOG10)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisScaleLog10.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis scale log 32`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(scale = YAxis.Scale.LOG32)
+            rightYAxis = YAxis(scale = YAxis.Scale.LOG32)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisScaleLog32.json")
+    }
+
+    @Test
+    fun `should create graph panel with left axis scale log 1024`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            leftYAxis = YAxis(scale = YAxis.Scale.LOG1024)
+            rightYAxis = YAxis(scale = YAxis.Scale.LOG1024)
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithYAxisScaleLog1024.json")
     }
 
     @Test

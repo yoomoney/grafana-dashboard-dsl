@@ -19,12 +19,12 @@
   "yaxes": [
     {
       "format": "short",
-      "logBase": 1,
+      "logBase": 2,
       "show": true
     },
     {
       "format": "short",
-      "logBase": 1,
+      "logBase": 2,
       "show": true
     }
   ],
@@ -41,7 +41,7 @@
     "y": 0,
     "w": 24
   },
-  "points": true,
+  "points": false,
   "xaxis": {
     "mode": "time",
     "show": true,
@@ -62,7 +62,7 @@
   "dashes": false,
   "thresholds": [],
   "datasource": "Graphite",
-  "pointradius": 3,
+  "pointradius": 5,
   "tooltip": {
     "shared": true,
     "sort": 0,

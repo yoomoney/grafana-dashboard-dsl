@@ -20,14 +20,12 @@
     {
       "format": "short",
       "logBase": 1,
-      "show": true,
-      "decimals": 1
+      "show": true
     },
     {
       "format": "short",
       "logBase": 1,
-      "show": true,
-      "decimals": 1
+      "show": true
     }
   ],
   "title": "Test Panel",
@@ -56,15 +54,14 @@
   "lines": true,
   "spaceLength": 10,
   "editable": true,
-  "nullPointMode": "null as zero",
+  "nullPointMode": "null",
   "steppedLine": false,
   "fill": 1,
-  "linewidth": 2,
+  "linewidth": 1,
   "bars": false,
   "dashes": false,
   "thresholds": [],
   "datasource": "Graphite",
-  "decimals": 2,
   "pointradius": 5,
   "tooltip": {
     "shared": true,

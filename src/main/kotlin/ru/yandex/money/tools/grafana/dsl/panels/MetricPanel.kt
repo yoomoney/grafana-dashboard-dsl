@@ -15,13 +15,13 @@ import ru.yandex.money.tools.grafana.dsl.metrics.Metrics
 class MetricPanel(
     private val basePanel: Panel,
     private val datasource: Datasource = Graphite,
-    private val nullPointMode: String = "null as zero",
+    private val nullValue: NullValue = NullValue.NULL,
     private val metrics: Metrics
 ) : Panel {
 
     override fun toJson() = jsonObject(basePanel.toJson()) {
         "datasource" to datasource.asDatasourceName()
-        "nullPointMode" to nullPointMode
+        "nullPointMode" to nullValue.value
         "targets" to metrics
         "editable" to true
         "links" to emptyJsonArray()

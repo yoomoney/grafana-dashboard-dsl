@@ -15,7 +15,7 @@ import ru.yandex.money.tools.grafana.dsl.metrics.functions.perSecond
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.sortByTotal
 import ru.yandex.money.tools.grafana.dsl.panels.Color
 import ru.yandex.money.tools.grafana.dsl.panels.Legend
-import ru.yandex.money.tools.grafana.dsl.panels.NullPointMode
+import ru.yandex.money.tools.grafana.dsl.panels.NullValue
 import ru.yandex.money.tools.grafana.dsl.panels.YAxis
 import ru.yandex.money.tools.grafana.dsl.panels.graphPanel
 import ru.yandex.money.tools.grafana.dsl.panels.metricPanel
@@ -97,16 +97,16 @@ dashboard(title = "Grafana Demo Layouts") {
 
                 bounds = 24 to 18
                 type = "lines" // Use lines in chart
-                stacked = true // Metrics must not be stacked onto Ox axis, and should overlap each other
+                stack = true // Metrics must not be stacked onto Ox axis, and should overlap each other
                 legend = Legend.EMPTY // Show only aliases for metrics
                 fill = 1 // Fill rate
                 staircase = true // enable staircase line vizualization
-                decimals = null // set automatic decimal precision
-                nullPointMode = NullPointMode.NULL // How to show null values
+                decimals = 2 // set decimal precision
+                nullValue = NullValue.NULL // How to show null values
                 points = true // Show chart points
                 pointradius = 2 // Chart points radius
-                leftYAxis = YAxis(format = YAxis.MILLISECONDS, min = 0, max = 100, scale = YAxis.Scale.LOG10)
-                rightYAxis = YAxis(format = YAxis.PERCENT, scale = YAxis.Scale.LOG1024)
+                leftYAxis = YAxis(unit = YAxis.Unit.MILLISECONDS, min = 0, max = 100, scale = YAxis.Scale.LOG10)
+                rightYAxis = YAxis(unit = YAxis.Unit.PERCENT_0_100, scale = YAxis.Scale.LOG1024)
 
                 aliasColors {
                     "some metric" to Color.GREEN // Use predefined color
