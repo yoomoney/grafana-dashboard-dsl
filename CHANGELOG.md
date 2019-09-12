@@ -1,5 +1,11 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=PATCH
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Delete deprecated objects:
+1. `Interval`
+2. `Query`
+* Delete deprecated builders:
+1. `VariableBuilder`
+2. `QueryBuilder`
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.0.0]() (11-09-2019)
 
