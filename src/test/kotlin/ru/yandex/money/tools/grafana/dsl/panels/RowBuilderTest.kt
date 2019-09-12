@@ -14,10 +14,8 @@ class RowBuilderTest : AbstractPanelTest() {
         // given
         val panelsBuilder = PanelsBuilder()
         val dashboardBuilder = DashboardBuilder("Test Dashboard")
-        val values by dashboardBuilder.variable(datasource = Zabbix) {
-            query("My variable") {
-                regex = ".*"
-            }
+        val values by dashboardBuilder.variables.query(datasource = Zabbix, query = "My variable") {
+            regex = ".*"
         }
 
         // when

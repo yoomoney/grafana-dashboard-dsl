@@ -1,6 +1,5 @@
 package ru.yandex.money.tools.grafana.dsl.variables
 
-import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
@@ -31,46 +30,5 @@ class BaseVariable(
         "type" to type
         "label" to displayName
         "hide" to hidingMode.mode
-    }
-
-    companion object {
-
-        /**
-         * Create a [BaseVariable] to support backward compatibility.
-         *
-         * @param name name of a variable
-         * @param hidden if **true** then variable will not be shown at dashboard screen
-         * @param includeAll if **true** then *All* option will be available for variable value
-         * @param query a string query for variable
-         * @param type type of a variable
-         *
-         * @return variable
-         */
-        @Deprecated("This method created to support backward compatibility and will be deleted in 2.0.0")
-        operator fun invoke(
-            name: String,
-            hidden: Boolean = true,
-            includeAll: Boolean,
-            query: String,
-            type: String
-        ): Variable {
-            val delegate = VariableWithQuery(
-                delegate = BaseVariable(
-                    name = name,
-                    type = type,
-                    displayName = null,
-                    hidingMode = if (hidden) HidingMode.VARIABLE else HidingMode.NONE
-                ),
-                query = query
-            )
-
-            return object : Variable by delegate {
-                override fun toJson(): JSONObject = jsonObject(delegate.toJson()) {
-                    "includeAll" to includeAll
-                    "multi" to false
-                    "refresh" to RefreshMode.ON_TIME_RANGE_CHANGE.mode
-                }
-            }
-        }
     }
 }

@@ -3,7 +3,6 @@ package ru.yandex.money.tools.grafana.dsl.dashboard
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
 import ru.yandex.money.tools.grafana.dsl.annotations.Annotations
 import ru.yandex.money.tools.grafana.dsl.annotations.AnnotationsBuilder
-import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 import ru.yandex.money.tools.grafana.dsl.panels.Panel
 import ru.yandex.money.tools.grafana.dsl.panels.Panels
 import ru.yandex.money.tools.grafana.dsl.panels.PanelsBuilder
@@ -11,8 +10,6 @@ import ru.yandex.money.tools.grafana.dsl.time.Refresh
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.now
 import ru.yandex.money.tools.grafana.dsl.time.s
-import ru.yandex.money.tools.grafana.dsl.variables.VariableBuilder
-import ru.yandex.money.tools.grafana.dsl.variables.VariableDelegate
 import ru.yandex.money.tools.grafana.dsl.variables.Variables
 import ru.yandex.money.tools.grafana.dsl.variables.VariablesBuilder
 
@@ -45,16 +42,6 @@ class DashboardBuilder(private val title: String) {
         val builder = PanelsBuilder()
         builder.build()
         panels += builder.panels
-    }
-
-    /**
-     * Build variable.
-     */
-    @Deprecated("This method will be deleted in 2.0.0", ReplaceWith("VariablesBuilder"))
-    fun variable(datasource: Datasource? = null, build: VariableBuilder.() -> Unit): VariableDelegate {
-        val builder = VariableBuilder(datasource)
-        builder.build()
-        return builder.createDelegate(variables.variables)
     }
 
     /**
