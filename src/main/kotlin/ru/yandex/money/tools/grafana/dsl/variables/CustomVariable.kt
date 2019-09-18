@@ -2,6 +2,7 @@ package ru.yandex.money.tools.grafana.dsl.variables
 
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
+import java.util.stream.Collectors
 
 /**
  * Variable that contains list of user predefined values.
@@ -37,6 +38,36 @@ class CustomVariable private constructor(
         allValue: String?,
         values: Array<out String>
     ) : this(
+        name = name,
+        displayName = displayName,
+        hidingMode = hidingMode,
+        multiValuesAllowed = multiValuesAllowed,
+        includeAllValue = includeAllValue,
+        allValue = allValue,
+        options = values.map { VariableValue(it) }
+    )
+
+    /**
+     * Public constructor for custom variable with named options.
+     *
+     * @param name see [BaseVariable.name]
+     * @param displayName see [BaseVariable.displayName]
+     * @param hidingMode see [BaseVariable.hidingMode]
+     * @param multiValuesAllowed enables multiple values selected at the same time
+     * @param includeAllValue when **true** the *All* option is available to select
+     * @param allValue optional value that will be used when *All* option is selected. Ignored by Grafana
+     * when [includeAllValue] is false
+     * @param options array of options for this variable.
+     */
+    constructor(
+        name: String,
+        displayName: String?,
+        hidingMode: HidingMode,
+        multiValuesAllowed: Boolean,
+        includeAllValue: Boolean,
+        allValue: String?,
+        options: List<VariableValue> = emptyList()
+    ) : this(
         delegate = VariableWithValues(
             delegate = VariableWithQuery(
                 delegate = BaseVariable(
@@ -45,9 +76,9 @@ class CustomVariable private constructor(
                     hidingMode = hidingMode,
                     type = "custom"
                 ),
-                query = values.joinToString(",")
+                query = options.stream().map { option -> option.value }.collect(Collectors.joining(","))
             ),
-            values = insertAllValueIfNeeded(values, includeAllValue),
+            values = insertAllValueIfNeeded(options, includeAllValue),
             selectedIndex = if (includeAllValue) 1 else 0
         ),
         multiValuesAllowed = multiValuesAllowed,
@@ -81,12 +112,11 @@ class CustomVariable private constructor(
     }
 
     companion object {
-
-        private fun insertAllValueIfNeeded(values: Array<out String>, includeAllValue: Boolean): List<VariableValue> =
+        private fun insertAllValueIfNeeded(values: List<VariableValue>, includeAllValue: Boolean): List<VariableValue> =
             if (includeAllValue) {
-                listOf(VariableValue("\$__all", "All")) + values.map { VariableValue(it) }
+                listOf(VariableValue("\$__all", "All")) + values
             } else {
-                values.map { VariableValue(it) }
+                values
             }
     }
 }
