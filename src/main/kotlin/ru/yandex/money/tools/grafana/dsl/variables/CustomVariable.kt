@@ -2,7 +2,6 @@ package ru.yandex.money.tools.grafana.dsl.variables
 
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
-import java.util.stream.Collectors
 
 /**
  * Variable that contains list of user predefined values.
@@ -76,7 +75,7 @@ class CustomVariable private constructor(
                     hidingMode = hidingMode,
                     type = "custom"
                 ),
-                query = options.stream().map { option -> option.value }.collect(Collectors.joining(","))
+                query = options.joinToString(",") { it -> it.value }
             ),
             values = insertAllValueIfNeeded(options, includeAllValue),
             selectedIndex = if (includeAllValue) 1 else 0
