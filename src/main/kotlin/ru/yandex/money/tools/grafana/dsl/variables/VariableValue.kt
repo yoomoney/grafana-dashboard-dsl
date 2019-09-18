@@ -12,8 +12,6 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  */
 class VariableValue(val value: String, private val name: String = value) : Json<JSONObject> {
 
-    constructor(value: String) : this(value, value)
-
     override fun toJson() = jsonObject {
         "text" to name
         "value" to value

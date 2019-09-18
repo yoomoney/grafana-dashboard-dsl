@@ -42,7 +42,7 @@ class CustomVariableTest {
         val builder = VariablesBuilder()
 
         // when
-        val variable by builder.custom(listOf(VariableValue("1", "first"))) {
+        val variable by builder.custom(VariableValue("1", "first")) {
             displayName = "Test"
             hidingMode = HidingMode.LABEL
             multiValuesAllowed = true
@@ -60,7 +60,7 @@ class CustomVariableTest {
         val builder = VariablesBuilder()
 
         // when
-        val variable by builder.custom(listOf(VariableValue("1", "first")))
+        val variable by builder.custom(VariableValue("1", "first"))
 
         // then
         variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithNamedOptionsAndMinProps.json")
