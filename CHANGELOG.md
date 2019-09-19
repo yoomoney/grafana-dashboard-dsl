@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.1.0]() (19-09-2019)
+
 * Added possibility to specify names of options in a custom variable.
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.0.1]() (12-09-2019)
 
 * Delete deprecated objects:
