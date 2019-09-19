@@ -1,0 +1,26 @@
+{
+  "hide": 1,
+  "current": {
+    "value": "1",
+    "text": "first"
+  },
+  "query": "1",
+  "name": "variable",
+  "options": [
+    {
+      "value": "$__all",
+      "selected": false,
+      "text": "All"
+    },
+    {
+      "value": "1",
+      "selected": true,
+      "text": "first"
+    }
+  ],
+  "allValue": "test",
+  "includeAll": true,
+  "label": "Test",
+  "type": "custom",
+  "multi": true
+}

@@ -35,4 +35,34 @@ class CustomVariableTest {
         // then
         variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithMinProps.json")
     }
+
+    @Test
+    fun `should create variable with named options`() {
+        // given
+        val builder = VariablesBuilder()
+
+        // when
+        val variable by builder.custom(VariableValue("1", "first")) {
+            displayName = "Test"
+            hidingMode = HidingMode.LABEL
+            multiValuesAllowed = true
+            includeAllValue = true
+            allValue = "test"
+        }
+
+        // then
+        variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithNamedOptions.json")
+    }
+
+    @Test
+    fun `should create variable with minimal properties set and named options`() {
+        // given
+        val builder = VariablesBuilder()
+
+        // when
+        val variable by builder.custom(VariableValue("1", "first"))
+
+        // then
+        variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithNamedOptionsAndMinProps.json")
+    }
 }

@@ -93,6 +93,29 @@ class VariablesBuilder {
     }
 
     /**
+     * Creates *custom* variable with named option list.
+     *
+     * @param options options of variable
+     * @param build builder function to setting up variable properties
+     */
+    fun custom(vararg options: VariableValue, build: CustomVariable.Builder.() -> Unit = {}): VariableDelegate {
+        val builder = CustomVariable.Builder()
+        builder.build()
+
+        return VariableDelegate(variables) {
+            CustomVariable(
+                name = it,
+                displayName = builder.displayName,
+                hidingMode = builder.hidingMode,
+                options = options.asList(),
+                multiValuesAllowed = builder.multiValuesAllowed,
+                includeAllValue = builder.includeAllValue,
+                allValue = builder.allValue
+            )
+        }
+    }
+
+    /**
      * Creates *constant*.
      *
      * @param value a value of constant

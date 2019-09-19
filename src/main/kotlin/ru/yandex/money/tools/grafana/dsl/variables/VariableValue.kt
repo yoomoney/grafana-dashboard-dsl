@@ -10,7 +10,7 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  * @author Dmitry Komarov
  * @since 20.03.2019
  */
-class VariableValue(private val value: String, private val name: String = value) : Json<JSONObject> {
+class VariableValue(val value: String, private val name: String = value) : Json<JSONObject> {
 
     override fun toJson() = jsonObject {
         "text" to name
