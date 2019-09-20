@@ -1,6 +1,6 @@
 ### NEXT_VERSION_TYPE=MINOR
-* Remove condition for setting selected index in custom variable 
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Remove condition for setting selected index in custom variable 
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.1.0]() (19-09-2019)
 
