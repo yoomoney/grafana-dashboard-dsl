@@ -1,17 +1,12 @@
 {
-  "hide": 1,
+  "hide": 0,
   "current": {
-    "value": "$__all",
-    "text": "All"
+    "value": "3",
+    "text": "3"
   },
   "query": "1,2,3",
   "name": "variable",
   "options": [
-    {
-      "value": "$__all",
-      "selected": true,
-      "text": "All"
-    },
     {
       "value": "1",
       "selected": false,
@@ -24,13 +19,11 @@
     },
     {
       "value": "3",
-      "selected": false,
+      "selected": true,
       "text": "3"
     }
   ],
-  "allValue": "test",
-  "includeAll": true,
-  "label": "Test",
+  "includeAll": false,
   "type": "custom",
-  "multi": true
+  "multi": false
 }

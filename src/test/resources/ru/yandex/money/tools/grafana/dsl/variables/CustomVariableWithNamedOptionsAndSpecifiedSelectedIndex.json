@@ -4,7 +4,7 @@
     "value": "$__all",
     "text": "All"
   },
-  "query": "1,2,3",
+  "query": "1,2",
   "name": "variable",
   "options": [
     {
@@ -15,17 +15,12 @@
     {
       "value": "1",
       "selected": false,
-      "text": "1"
+      "text": "first"
     },
     {
       "value": "2",
       "selected": false,
-      "text": "2"
-    },
-    {
-      "value": "3",
-      "selected": false,
-      "text": "3"
+      "text": "second"
     }
   ],
   "allValue": "test",
