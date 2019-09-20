@@ -1,6 +1,9 @@
 ### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
-* Remove condition for setting selected index in custom variable 
+* Added ability to set a selected index in a custom variable
+* Update `CustomVariable` class:
+1. Remove condition for setting selected index in `constructor`
+2. Add field `selectedIndex` with default value "0"
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.1.0]() (19-09-2019)
 
