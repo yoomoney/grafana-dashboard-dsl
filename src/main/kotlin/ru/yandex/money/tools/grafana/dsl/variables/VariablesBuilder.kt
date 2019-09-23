@@ -87,7 +87,8 @@ class VariablesBuilder {
                 values = values,
                 multiValuesAllowed = builder.multiValuesAllowed,
                 includeAllValue = builder.includeAllValue,
-                allValue = builder.allValue
+                allValue = builder.allValue,
+                selectedIndex = builder.selectedIndex
             )
         }
     }
@@ -110,7 +111,8 @@ class VariablesBuilder {
                 options = options.asList(),
                 multiValuesAllowed = builder.multiValuesAllowed,
                 includeAllValue = builder.includeAllValue,
-                allValue = builder.allValue
+                allValue = builder.allValue,
+                selectedIndex = builder.selectedIndex
             )
         }
     }

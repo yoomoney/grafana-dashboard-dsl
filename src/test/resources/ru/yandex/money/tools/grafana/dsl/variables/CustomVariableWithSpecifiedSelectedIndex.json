@@ -1,0 +1,24 @@
+{
+  "hide": 0,
+  "current": {
+    "value": "2",
+    "text": "second"
+  },
+  "query": "1,2",
+  "name": "variable",
+  "options": [
+    {
+      "value": "1",
+      "selected": false,
+      "text": "first"
+    },
+    {
+      "value": "2",
+      "selected": true,
+      "text": "second"
+    }
+  ],
+  "includeAll": false,
+  "type": "custom",
+  "multi": false
+}

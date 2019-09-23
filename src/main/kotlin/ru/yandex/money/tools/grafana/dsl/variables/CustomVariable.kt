@@ -27,6 +27,7 @@ class CustomVariable private constructor(
      * @param allValue optional value that will be used when *All* option is selected. Ignored by Grafana
      * when [includeAllValue] is false
      * @param values array of options for this variable. This array will be serialized as a CSV string.
+     * @param selectedIndex index of selected value
      */
     constructor(
         name: String,
@@ -35,7 +36,8 @@ class CustomVariable private constructor(
         multiValuesAllowed: Boolean,
         includeAllValue: Boolean,
         allValue: String?,
-        values: Array<out String>
+        values: Array<out String>,
+        selectedIndex: Int = 0
     ) : this(
         name = name,
         displayName = displayName,
@@ -43,7 +45,8 @@ class CustomVariable private constructor(
         multiValuesAllowed = multiValuesAllowed,
         includeAllValue = includeAllValue,
         allValue = allValue,
-        options = values.map { VariableValue(it) }
+        options = values.map { VariableValue(it) },
+        selectedIndex = selectedIndex
     )
 
     /**
@@ -57,6 +60,7 @@ class CustomVariable private constructor(
      * @param allValue optional value that will be used when *All* option is selected. Ignored by Grafana
      * when [includeAllValue] is false
      * @param options array of options for this variable.
+     * @param selectedIndex index of selected value
      */
     constructor(
         name: String,
@@ -65,7 +69,8 @@ class CustomVariable private constructor(
         multiValuesAllowed: Boolean,
         includeAllValue: Boolean,
         allValue: String?,
-        options: List<VariableValue> = emptyList()
+        options: List<VariableValue> = emptyList(),
+        selectedIndex: Int = 0
     ) : this(
         delegate = VariableWithValues(
             delegate = VariableWithQuery(
@@ -78,7 +83,7 @@ class CustomVariable private constructor(
                 query = options.joinToString(",") { it -> it.value }
             ),
             values = insertAllValueIfNeeded(options, includeAllValue),
-            selectedIndex = if (includeAllValue) 1 else 0
+            selectedIndex = selectedIndex
         ),
         multiValuesAllowed = multiValuesAllowed,
         includeAllValue = includeAllValue,
@@ -108,6 +113,8 @@ class CustomVariable private constructor(
         var includeAllValue: Boolean = false
 
         var allValue: String? = null
+
+        var selectedIndex: Int = 0
     }
 
     companion object {

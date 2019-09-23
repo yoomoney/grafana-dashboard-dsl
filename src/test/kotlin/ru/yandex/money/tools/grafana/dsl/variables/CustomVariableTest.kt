@@ -51,7 +51,8 @@ class CustomVariableTest {
         }
 
         // then
-        variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithNamedOptions.json")
+        val jsonObject = variable.toJson().toString()
+        jsonObject shouldEqualToJson jsonFile("CustomVariableWithNamedOptions.json")
     }
 
     @Test
@@ -64,5 +65,51 @@ class CustomVariableTest {
 
         // then
         variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithNamedOptionsAndMinProps.json")
+    }
+
+    @Test
+    fun `should create variable with specified selected index `() {
+        // given
+        val builder = VariablesBuilder()
+
+        // when
+        val variable by builder.custom(VariableValue("1", "first"), VariableValue("2", "second")) {
+            selectedIndex = 1
+        }
+
+        // then
+        variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithSpecifiedSelectedIndex.json")
+    }
+
+    @Test
+    fun `should create variable with all properties set named options and specified selected index`() {
+        // given
+        val builder = VariablesBuilder()
+
+        // when
+        val variable by builder.custom(VariableValue("1", "first"), VariableValue("2", "second")) {
+            displayName = "Test"
+            multiValuesAllowed = true
+            includeAllValue = true
+            allValue = "test"
+            selectedIndex = 2
+        }
+
+        // then
+        variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithAllPropsAndSpecifiedSelectedIndex.json")
+    }
+
+    @Test
+    fun `should create variable with minimal properties set specified selected index`() {
+        // given
+        val builder = VariablesBuilder()
+
+        // when
+        val variable by builder.custom("1", "2", "3") {
+            selectedIndex = 2
+        }
+
+        // then
+        variable.toJson().toString() shouldEqualToJson jsonFile("CustomVariableWithMinPropsSelectedIndex.json")
     }
 }
