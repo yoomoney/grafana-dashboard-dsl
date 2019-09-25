@@ -1,5 +1,13 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add new panel `Singlestat`. Add new classes for configure it:
+    1. `SinglestatBuilder` - configure `Singlestat` panel
+    2. `Repeat`, `RepeatBuilder` - apply panel for all values from variable
+    3. `ZabbixMetric` - metric from Zabbix datasource
+    4. `ValueMappingType`, `RangeToTextType`, `ValueToTextType` - set type of mapping
+    5. `ValueMapping`, `RangeToText`, `ValueToText` - set value mappings
+    6. `ValueMappings`, `ValueMappingsBuilder` - configure value mappings tab for panel
+    7. `TimeRange`, `TimeRangeBuilder` - configure time range tab in panel
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.2.0]() (23-09-2019)
 
