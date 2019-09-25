@@ -11,7 +11,9 @@ operator fun JSONObject.set(key: String, value: Any?) {
 class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapOf()) {
 
     infix fun String.to(duration: Duration?) {
-        properties[this] = duration?.toString()
+        if (duration != null) {
+            properties[this] = duration.toString()
+        }
     }
 
     infix fun String.to(value: Json<*>?) {
@@ -36,10 +38,6 @@ class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapO
         obj.toJson().toMap().forEach { (k, v) ->
             properties[k] = v
         }
-    }
-
-    fun embed(objs: Collection<Json<JSONObject>>) {
-        objs.stream().forEach(this::embed)
     }
 
     internal fun toJson() = JSONObject(properties)
