@@ -6,6 +6,11 @@ import ru.yandex.money.tools.grafana.dsl.json.JsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
+/**
+ * Value mappings tab on panel sets type and mappings that shows in panel
+ * @author Aleksey Antufev
+ * @since 24.09.2019
+ * */
 class ValueMappings(
     private val valueMappingType: ValueMappingType,
     private val valueMappings: List<ValueMapping> = emptyList()

@@ -2,6 +2,11 @@ package ru.yandex.money.tools.grafana.dsl.panels
 
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
 
+/**
+ * Builder for Value Mappings tab
+ * @author Aleksey Antufev
+ * @since 24.09.2019
+ */
 @DashboardElement
 class ValueMappingsBuilder<T : ValueMappingType> {
 

@@ -3,7 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.panels.repeat
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
 
 /**
- * TODO:
+ * Builder for Repeat
  * @author Aleksey Antufev
  * @since 20.09.2019
  */

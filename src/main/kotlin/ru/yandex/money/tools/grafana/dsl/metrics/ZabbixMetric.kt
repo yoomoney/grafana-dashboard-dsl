@@ -5,10 +5,9 @@ import ru.yandex.money.tools.grafana.dsl.json.emptyJsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
- * Variable that contains interval values that can be used in queries.
- *
- * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
- * @since 7/23/18
+ * Metric for Zabbix datasource that integrates for panels.
+ * @author Aleksey Antufev
+ * @since 25.09.2019
  */
 class ZabbixMetric private constructor(
     private val mode: Mode,

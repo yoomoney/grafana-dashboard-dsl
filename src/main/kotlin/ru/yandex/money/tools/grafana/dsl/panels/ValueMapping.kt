@@ -4,8 +4,18 @@ import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
+/**
+ * Value mapping interface
+ * @author Aleksey Antufev
+ * @since 24.09.2019
+ */
 interface ValueMapping : Json<JSONObject>
 
+/**
+ * Mapping: value -> text
+ * @author Aleksey Antufev
+ * @since 24.09.2019
+ * */
 class ValueToText(
     private val value: String = "",
     private val text: String = ""
@@ -29,6 +39,11 @@ class ValueToText(
     }
 }
 
+/**
+ * Mapping: from..to -> text
+ * @author Aleksey Antufev
+ * @since 24.09.2019
+ * */
 class RangeToText(
     private val from: String = "",
     private val to: String = "",

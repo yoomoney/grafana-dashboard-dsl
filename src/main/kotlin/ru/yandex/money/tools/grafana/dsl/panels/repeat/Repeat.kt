@@ -6,7 +6,7 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
 
 /**
- * Repeat tab in panel
+ * Repeat tab in panel that can apply panel for all values from variable
  * @author Aleksey Antufev
  * @since 19.09.2019
  */

@@ -10,6 +10,11 @@ import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
 import ru.yandex.money.tools.grafana.dsl.panels.repeat.RepeatBuilder
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
 
+/**
+ * Builder for Singlestat tab
+ * @author Aleksey Antufev
+ * @since 24.09.2019
+ */
 class SingleStatPanelBuilder(private val title: String) : PanelBuilder {
 
     private var propertiesSetter: (JSONObject) -> Unit = {}
