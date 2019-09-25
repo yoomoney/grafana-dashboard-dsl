@@ -3,7 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.time
 import org.testng.annotations.Test
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 
-class TimeRangeTest {
+class TimeTest {
 
     @Test
     fun `should create range correctly`() {

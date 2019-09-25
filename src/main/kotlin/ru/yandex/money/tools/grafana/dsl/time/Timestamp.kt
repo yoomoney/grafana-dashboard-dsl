@@ -16,5 +16,5 @@ interface Timestamp : Json<String> {
      * @param to End of time range
      * @return time range
      */
-    operator fun rangeTo(to: Timestamp) = TimeRange(this, to)
+    operator fun rangeTo(to: Timestamp) = Time(this, to)
 }

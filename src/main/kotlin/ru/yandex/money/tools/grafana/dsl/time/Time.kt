@@ -13,7 +13,7 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
  * @since 7/21/18
  */
-class TimeRange(private val from: Timestamp, private val to: Timestamp) : Json<JSONObject> {
+class Time(private val from: Timestamp, private val to: Timestamp) : Json<JSONObject> {
 
     override fun toJson() = jsonObject {
         "from" to from
