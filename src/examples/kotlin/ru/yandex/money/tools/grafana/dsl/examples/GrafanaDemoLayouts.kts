@@ -34,7 +34,7 @@ import ru.yandex.money.tools.grafana.dsl.time.off
  */
 dashboard(title = "Grafana Demo Layouts") {
 
-    time = nowD..now // Set time interval for metrics: from midnight to current time
+    timeRange = nowD..now // Set time interval for metrics: from midnight to current time
 
     refresh = off // Disable metrics refresh
 
