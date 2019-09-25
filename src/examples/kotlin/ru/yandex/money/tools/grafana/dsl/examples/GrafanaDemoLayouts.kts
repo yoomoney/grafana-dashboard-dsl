@@ -161,14 +161,18 @@ dashboard(title = "Grafana Demo Layouts") {
             }
         }
 
-        singleStat(hosts.asVariable()) { // Singlestat panel
+        singleStat(hosts.asVariable()) {
+            // Singlestat panel
 
-            repeat(hosts) { //apply singlestat panel for all values from variable
+            repeat(hosts) {
+                // apply singlestat panel for all values from variable
                 direction = Horizontal(2) // horizontal panels direction and 2 units between them
             }
 
-            metrics<Zabbix> { // metric from datasource Zabbix
-                textQuery {// text query
+            metrics<Zabbix> {
+                // metric from datasource Zabbix
+                textQuery {
+                    // text query
                     host = hosts.asVariable()
                     application = "/App acquirer Ping General/"
                     item = "/service version/"
@@ -176,7 +180,8 @@ dashboard(title = "Grafana Demo Layouts") {
                 }
             }
 
-            valueMappings<ValueToTextType> { // set value mappings that shows in singlestat panel
+            valueMappings<ValueToTextType> {
+                // set value mappings that shows in singlestat panel
                 valueToText {
                     "null" to "N/A" // null value shows 'N/A'
                 }
@@ -184,7 +189,7 @@ dashboard(title = "Grafana Demo Layouts") {
 
             timerange {
                 timeShift = 5.m // set 5 min shift for repeat
-                hideTimeOverrideInfo = true //dont show time override info on panel
+                hideTimeOverrideInfo = true // dont show time override info on panel
             }
         }
     }
