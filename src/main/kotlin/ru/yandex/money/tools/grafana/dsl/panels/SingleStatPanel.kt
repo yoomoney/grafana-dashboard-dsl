@@ -11,14 +11,14 @@ import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
 class SingleStatPanel(
     private val basePanel: Panel,
     private val valueMappings: ValueMappings = ValueMappings(ValueToTextType),
-    private val timeRange: TimeRange = TimeRange(),
+    private val timerange: Timerange = Timerange(),
     private val repeat: Repeat? = null
 ) : Panel {
 
     override fun toJson() = jsonObject(basePanel.toJson()) {
         "type" to "singlestat"
         embed(valueMappings)
-        embed(timeRange)
+        embed(timerange)
         if (repeat != null) {
             embed(repeat)
         }

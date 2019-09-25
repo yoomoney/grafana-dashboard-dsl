@@ -45,7 +45,7 @@ class SingleStatPanelBuilderTest {
                         }
                     }
 
-                    timeRange {
+                    timerange {
                         hideTimeOverrideInfo = true
                     }
                 }
@@ -88,7 +88,7 @@ class SingleStatPanelBuilderTest {
                         }
                     }
 
-                    timeRange {
+                    timerange {
                         hideTimeOverrideInfo = true
                     }
                 }

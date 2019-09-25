@@ -23,7 +23,7 @@ class SingleStatPanelBuilder(private val title: String) : PanelBuilder {
 
     private var repeat: Repeat? = null
 
-    private var timeRange = TimeRange()
+    private var timerange = Timerange()
 
     var metrics: List<DashboardMetric> = mutableListOf()
 
@@ -54,10 +54,10 @@ class SingleStatPanelBuilder(private val title: String) : PanelBuilder {
         valueMappings = builder.createValueMappings<T>()
     }
 
-    fun timeRange(build: TimeRangeBuilder.() -> Unit) {
-        val builder = TimeRangeBuilder()
+    fun timerange(build: TimerangeBuilder.() -> Unit) {
+        val builder = TimerangeBuilder()
         builder.build()
-        timeRange = builder.createTimeRanges()
+        timerange = builder.createTimerange()
     }
 
     internal fun createPanel(): Panel {
@@ -74,7 +74,7 @@ class SingleStatPanelBuilder(private val title: String) : PanelBuilder {
                 ),
                 valueMappings = valueMappings,
                 repeat = repeat,
-                timeRange = timeRange
+                timerange = timerange
             ),
             propertiesSetter
         )

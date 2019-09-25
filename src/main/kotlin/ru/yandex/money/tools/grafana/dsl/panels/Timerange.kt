@@ -10,7 +10,7 @@ import ru.yandex.money.tools.grafana.dsl.time.Duration
  * @author Aleksey Antufev
  * @since 24.09.2019
  */
-class TimeRange(
+class Timerange(
     private val lastTime: Duration? = null,
     private val timeShift: Duration? = null,
     private val hideTimeOverrideInfo: Boolean = false
