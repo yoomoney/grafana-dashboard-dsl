@@ -16,9 +16,12 @@ import ru.yandex.money.tools.grafana.dsl.metrics.functions.sortByTotal
 import ru.yandex.money.tools.grafana.dsl.panels.Color
 import ru.yandex.money.tools.grafana.dsl.panels.Legend
 import ru.yandex.money.tools.grafana.dsl.panels.NullValue
+import ru.yandex.money.tools.grafana.dsl.panels.ValueToTextType
 import ru.yandex.money.tools.grafana.dsl.panels.YAxis
 import ru.yandex.money.tools.grafana.dsl.panels.graphPanel
 import ru.yandex.money.tools.grafana.dsl.panels.metricPanel
+import ru.yandex.money.tools.grafana.dsl.panels.repeat.Horizontal
+import ru.yandex.money.tools.grafana.dsl.panels.singleStat
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
 import ru.yandex.money.tools.grafana.dsl.time.now
@@ -30,6 +33,7 @@ import ru.yandex.money.tools.grafana.dsl.time.off
  *
  * @author Dmitry Komarov
  * @author Dmitry Pavlov (dupavlov@yamoney.ru)
+ * @author Aleksey Antufev
  * @since 04.12.2018
  */
 dashboard(title = "Grafana Demo Layouts") {
@@ -154,6 +158,33 @@ dashboard(title = "Grafana Demo Layouts") {
                         StringMetric("apps.backend.\$hosts.counters.requests.count")
                     }
                 }
+            }
+        }
+
+        singleStat(hosts.asVariable()) { // Singlestat panel
+
+            repeat(hosts) { //apply singlestat panel for all values from variable
+                direction = Horizontal(2) // horizontal panels direction and 2 units between them
+            }
+
+            metrics<Zabbix> { // metric from datasource Zabbix
+                textQuery {// text query
+                    host = hosts.asVariable()
+                    application = "/App acquirer Ping General/"
+                    item = "/service version/"
+                    group = "/.*/"
+                }
+            }
+
+            valueMappings<ValueToTextType> { // set value mappings that shows in singlestat panel
+                valueToText {
+                    "null" to "N/A" // null value shows 'N/A'
+                }
+            }
+
+            timerange {
+                timeShift = 5.m // set 5 min shift for repeat
+                hideTimeOverrideInfo = true //dont show time override info on panel
             }
         }
     }
