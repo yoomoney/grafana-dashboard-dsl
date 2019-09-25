@@ -1,13 +1,27 @@
 package ru.yandex.money.tools.grafana.dsl.metrics
 
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
+import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
+import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 
 @DashboardElement
-class MetricsBuilder {
+class MetricsBuilder<DatasourceT : Datasource> {
 
-    internal val metrics = mutableListOf<ReferencedDashboardMetric>()
+    val metrics = mutableListOf<DashboardMetric>()
 
     fun metric(referenceId: String, hidden: Boolean = false, fn: () -> Metric) {
         metrics += ReferencedDashboardMetric(fn(), referenceId, hidden)
+    }
+
+    fun MetricsBuilder<Zabbix>.metricsQuery(build: ZabbixMetric.Builder.Metrics.() -> Unit = {}) {
+        val builder = ZabbixMetric.Builder.Metrics()
+        builder.build()
+        metrics += builder.createMetrics()
+    }
+
+    fun MetricsBuilder<Zabbix>.textQuery(build: ZabbixMetric.Builder.Text.() -> Unit = {}) {
+        val builder = ZabbixMetric.Builder.Text()
+        builder.build()
+        metrics += builder.createText()
     }
 }

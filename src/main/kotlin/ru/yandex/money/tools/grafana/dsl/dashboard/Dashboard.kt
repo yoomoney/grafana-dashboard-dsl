@@ -8,7 +8,7 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.panels.Panels
 import ru.yandex.money.tools.grafana.dsl.time.Refresh
-import ru.yandex.money.tools.grafana.dsl.time.TimeRange
+import ru.yandex.money.tools.grafana.dsl.time.Time
 import ru.yandex.money.tools.grafana.dsl.time.d
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
@@ -19,7 +19,7 @@ import ru.yandex.money.tools.grafana.dsl.variables.Variables
  * Dashboard. Represents root of JSON-document, used for importing into Grafana.
  *
  * @property title Display title
- * @property timeRange Metrics time range
+ * @property time Metrics time range
  * @property refresh Metrics refresh rate
  * @property tags Tags
  * @property variables Variables that should be reused for querying metrics
@@ -32,7 +32,7 @@ import ru.yandex.money.tools.grafana.dsl.variables.Variables
 class Dashboard(
     private val uid: String? = null,
     private val title: String,
-    private val timeRange: TimeRange,
+    private val time: Time,
     private val refresh: Refresh,
     private val tags: Tags,
     private val variables: Variables,
@@ -43,7 +43,7 @@ class Dashboard(
     override fun toJson() = jsonObject {
         "uid" to uid
         "title" to title
-        "time" to timeRange
+        "time" to time
         "refresh" to refresh.asRefreshPeriod()
         "tags" to tags
         "panels" to panels
