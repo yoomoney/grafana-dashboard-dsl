@@ -34,7 +34,7 @@ import ru.yandex.money.tools.grafana.dsl.time.off
  */
 dashboard(title = "Grafana Demo Layouts") {
 
-    timeRange = nowD..now // Set time interval for metrics: from midnight to current time
+    time = nowD..now // Set time interval for metrics: from midnight to current time
 
     refresh = off // Disable metrics refresh
 
@@ -96,7 +96,7 @@ dashboard(title = "Grafana Demo Layouts") {
             graphPanel(title = "Graph Metric") {
 
                 bounds = 24 to 18
-                type = "lines" // Use lines in chart
+                lines = true // Use lines in chart
                 stack = true // Metrics must not be stacked onto Ox axis, and should overlap each other
                 legend = Legend.EMPTY // Show only aliases for metrics
                 fill = 1 // Fill rate
