@@ -1,7 +1,7 @@
 {
   "collapsed": false,
   "panels": [],
-  "id": 5,
+  "id": 3,
   "title": "Test Row",
   "repeat": "values",
   "type": "row",
@@ -9,6 +9,6 @@
     "w": 24,
     "x": 0,
     "h": 1,
-    "y": 48
+    "y": 24
   }
 }

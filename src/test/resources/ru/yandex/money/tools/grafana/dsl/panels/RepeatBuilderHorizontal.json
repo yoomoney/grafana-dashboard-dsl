@@ -18,7 +18,7 @@
       "gridPos": {
         "x": 0,
         "h": 12,
-        "y": 24,
+        "y": 0,
         "w": 24
       },
       "valueMaps": [],
@@ -28,7 +28,7 @@
       "repeat": "hosts",
       "hideTimeOverride": false,
       "links": [],
-      "id": 3
+      "id": 1
     }
   ],
   "editable": false,

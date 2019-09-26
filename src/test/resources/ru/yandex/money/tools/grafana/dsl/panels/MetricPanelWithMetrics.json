@@ -3,7 +3,7 @@
   "editable": true,
   "nullPointMode": "null",
   "links": [],
-  "id": 1,
+  "id": 3,
   "title": "Test Panel",
   "targets": [
     {
@@ -21,6 +21,6 @@
     "w": 24,
     "x": 0,
     "h": 12,
-    "y": 0
+    "y": 24
   }
 }
