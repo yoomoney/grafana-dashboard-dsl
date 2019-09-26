@@ -76,7 +76,8 @@ class ZabbixMetric private constructor(
                 application = application,
                 host = host,
                 item = item,
-                showDisabledItems = showDisabledItems
+                showDisabledItems = showDisabledItems,
+                useCaptureGroups = useCaptureGroups
             )
         }
     }

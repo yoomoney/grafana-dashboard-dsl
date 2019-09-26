@@ -19,7 +19,7 @@
           "item": {
             "filter": "/service version/"
           },
-          "useCaptureGroups": false,
+          "useCaptureGroups": true,
           "application": {
             "filter": "/App acquirer Ping General/"
           },
