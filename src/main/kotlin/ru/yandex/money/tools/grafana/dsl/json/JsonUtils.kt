@@ -10,24 +10,10 @@ operator fun JSONObject.set(key: String, value: Any?) {
 
 class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapOf()) {
 
-    infix fun String.to(value: String?) {
-        properties[this] = value
-    }
-
-    infix fun String.to(value: Boolean) {
-        properties[this] = value
-    }
-
-    infix fun String.to(value: Int) {
-        properties[this] = value
-    }
-
-    infix fun String.to(value: Long) {
-        properties[this] = value
-    }
-
-    infix fun String.to(duration: Duration) {
-        properties[this] = duration.toString()
+    infix fun String.to(duration: Duration?) {
+        if (duration != null) {
+            properties[this] = duration.toString()
+        }
     }
 
     infix fun String.to(value: Json<*>?) {
@@ -36,8 +22,8 @@ class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapO
         }
     }
 
-    infix fun String.to(obj: JSONObject) {
-        properties[this] = obj
+    infix fun String.to(value: JSONObject) {
+        properties[this] = value
     }
 
     infix fun String.to(array: JSONArray) {
@@ -46,6 +32,12 @@ class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapO
 
     infix fun String.to(value: Any?) {
         properties[this] = value
+    }
+
+    fun embed(value: Json<JSONObject>) {
+        value.toJson().toMap().forEach { (k, v) ->
+            properties[k] = v
+        }
     }
 
     internal fun toJson() = JSONObject(properties)

@@ -21,8 +21,8 @@ class MetricPanelBuilder(private val title: String) : PanelBuilder {
         this.propertiesSetter = propertiesSetter
     }
 
-    fun metrics(build: MetricsBuilder.() -> Unit) {
-        val builder = MetricsBuilder()
+    fun metrics(build: MetricsBuilder<Graphite>.() -> Unit) {
+        val builder = MetricsBuilder<Graphite>()
         builder.build()
         metrics += builder.metrics
     }

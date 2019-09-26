@@ -66,8 +66,8 @@ class GraphPanelBuilder(private val title: String) : PanelBuilder {
         aliasColors = builder.aliasColors
     }
 
-    fun metrics(build: MetricsBuilder.() -> Unit) {
-        val builder = MetricsBuilder()
+    fun metrics(build: MetricsBuilder<Graphite>.() -> Unit) {
+        val builder = MetricsBuilder<Graphite>()
         builder.build()
         metrics += builder.metrics
     }
