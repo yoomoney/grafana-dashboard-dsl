@@ -22,8 +22,8 @@ class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapO
         }
     }
 
-    infix fun String.to(obj: JSONObject) {
-        properties[this] = obj
+    infix fun String.to(value: JSONObject) {
+        properties[this] = value
     }
 
     infix fun String.to(array: JSONArray) {
@@ -34,8 +34,8 @@ class JsonBuilder(private val properties: MutableMap<String, Any?> = mutableMapO
         properties[this] = value
     }
 
-    fun embed(obj: Json<JSONObject>) {
-        obj.toJson().toMap().forEach { (k, v) ->
+    fun embed(value: Json<JSONObject>) {
+        value.toJson().toMap().forEach { (k, v) ->
             properties[k] = v
         }
     }
