@@ -6,7 +6,7 @@ class ReferenceMetricsHolder {
 
     operator fun get(id: String) = metrics
         .filterIsInstance<ReferencedDashboardMetric>()
-        .find { it.id == id }!!
+        .first { it.id == id }
 
     internal operator fun plusAssign(metrics: Collection<DashboardMetric>) {
         this.metrics += metrics
