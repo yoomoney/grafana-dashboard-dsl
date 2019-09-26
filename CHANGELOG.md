@@ -1,10 +1,10 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.3.0]() (26-09-2019)
+
 * `Singlestat` panel are now supported.
 The panel can be configured with metrics from `Zabbix` with `Metrics` and `Text` query modes.
 Can also be customized `Value Mappings` and`Time Range` tabs and
 `Reapeat` function that can apply panel for all values from variable.
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.2.0]() (23-09-2019)
 
 * Added ability to set a selected index in a custom variable
