@@ -43,7 +43,7 @@ class ZabbixMetric private constructor(
     @DashboardElement
     class Builder {
 
-        open class Metrics {
+        open class Metric {
             open var group = ""
 
             open var application = ""
@@ -54,7 +54,7 @@ class ZabbixMetric private constructor(
 
             open var showDisabledItems = false
 
-            internal fun createMetrics() = ZabbixMetric(
+            internal fun createMetric() = ZabbixMetric(
                 mode = Mode.METRICS,
                 group = group,
                 application = application,
@@ -64,7 +64,7 @@ class ZabbixMetric private constructor(
             )
         }
 
-        class Text : Metrics() {
+        class Text : Metric() {
             var useCaptureGroups = false
 
             internal fun createText() = ZabbixMetric(

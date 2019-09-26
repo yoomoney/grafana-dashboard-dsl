@@ -13,10 +13,10 @@ class MetricsBuilder<DatasourceT : Datasource> {
         metrics += ReferencedDashboardMetric(fn(), referenceId, hidden)
     }
 
-    fun MetricsBuilder<Zabbix>.metricsQuery(build: ZabbixMetric.Builder.Metrics.() -> Unit = {}) {
-        val builder = ZabbixMetric.Builder.Metrics()
+    fun MetricsBuilder<Zabbix>.metricsQuery(build: ZabbixMetric.Builder.Metric.() -> Unit = {}) {
+        val builder = ZabbixMetric.Builder.Metric()
         builder.build()
-        metrics += builder.createMetrics()
+        metrics += builder.createMetric()
     }
 
     fun MetricsBuilder<Zabbix>.textQuery(build: ZabbixMetric.Builder.Text.() -> Unit = {}) {

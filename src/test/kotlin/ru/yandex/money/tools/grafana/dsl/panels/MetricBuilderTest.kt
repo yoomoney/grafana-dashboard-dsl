@@ -6,7 +6,7 @@ import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.jsonFile
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 
-class MetricsBuilderTest {
+class MetricBuilderTest {
 
     @Test
     fun `should create zabbix text query`() {
