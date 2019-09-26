@@ -43,16 +43,19 @@ class ZabbixMetric private constructor(
     @DashboardElement
     class Builder {
 
-        open class Metric {
-            open var group = ""
+        abstract class QueryMode {
+            var group = ""
 
-            open var application = ""
+            var application = ""
 
-            open var host = ""
+            var host = ""
 
-            open var item = ""
+            var item = ""
 
-            open var showDisabledItems = false
+            var showDisabledItems = false
+        }
+
+        class Metric : QueryMode() {
 
             internal fun createMetric() = ZabbixMetric(
                 mode = Mode.METRICS,
@@ -64,7 +67,7 @@ class ZabbixMetric private constructor(
             )
         }
 
-        class Text : Metric() {
+        class Text : QueryMode() {
             var useCaptureGroups = false
 
             internal fun createText() = ZabbixMetric(
