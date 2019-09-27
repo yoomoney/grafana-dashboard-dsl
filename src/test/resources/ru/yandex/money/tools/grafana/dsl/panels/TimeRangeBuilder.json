@@ -15,9 +15,9 @@
       "type": "singlestat",
       "targets": [],
       "gridPos": {
-        "x": 6,
+        "x": 0,
         "h": 12,
-        "y": 6,
+        "y": 0,
         "w": 24
       },
       "valueMaps": [],
@@ -27,7 +27,7 @@
       "mappingType": 1,
       "hideTimeOverride": true,
       "links": [],
-      "id": 3
+      "id": 1
     }
   ],
   "editable": false,

@@ -1,5 +1,6 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import ru.yandex.money.tools.grafana.dsl.dashboard
 import ru.yandex.money.tools.grafana.dsl.jsonFile
@@ -8,6 +9,13 @@ import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
 
 class TimerangeBuilderTest {
+
+    @BeforeMethod
+    fun beforeMethod() {
+        idGenerator = 1
+        x = 0
+        y = 0
+    }
 
     @Test
     fun `should create time range`() {

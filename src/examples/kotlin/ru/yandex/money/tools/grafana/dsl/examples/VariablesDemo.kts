@@ -5,6 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
 import ru.yandex.money.tools.grafana.dsl.variables.HidingMode
+import ru.yandex.money.tools.grafana.dsl.variables.VariableValue
 
 @Suppress("UNUSED_VARIABLE")
 dashboard(title = "Grafana Variables Demo") {
@@ -22,6 +23,17 @@ dashboard(title = "Grafana Variables Demo") {
         multiValuesAllowed = true
         includeAllValue = true
         allValue = "42"
+    }
+
+    /* Custom variable with named options
+     * Index of selected value can be changed bu `selectedIndex` property
+     */
+    val customWithNamedOptions by variables.custom(VariableValue("1", "First"), VariableValue("2", "Second")) {
+        displayName = "Custom variable with named options"
+        multiValuesAllowed = true
+        includeAllValue = true
+        allValue = "42"
+        selectedIndex = 1
     }
 
     /* Interval variable that will be hidden from dashboard */

@@ -4,16 +4,21 @@ import ru.yandex.money.tools.grafana.dsl.dashboard
 import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.json.set
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.ConsolidationFunction.MAX
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.ConsolidationFunction.SUM
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.StringMetric
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.alias
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.asPercent
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.averageSeries
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.consolidateBy
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.groupByNode
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.groupByNodes
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.movingMedian
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.perSecond
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.sortByTotal
 import ru.yandex.money.tools.grafana.dsl.panels.Color
+import ru.yandex.money.tools.grafana.dsl.panels.ContentMode
 import ru.yandex.money.tools.grafana.dsl.panels.Legend
 import ru.yandex.money.tools.grafana.dsl.panels.NullValue
 import ru.yandex.money.tools.grafana.dsl.panels.ValueToTextType
@@ -22,6 +27,7 @@ import ru.yandex.money.tools.grafana.dsl.panels.graphPanel
 import ru.yandex.money.tools.grafana.dsl.panels.metricPanel
 import ru.yandex.money.tools.grafana.dsl.panels.repeat.Horizontal
 import ru.yandex.money.tools.grafana.dsl.panels.singleStat
+import ru.yandex.money.tools.grafana.dsl.panels.textPanel
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
 import ru.yandex.money.tools.grafana.dsl.time.now
@@ -126,6 +132,7 @@ dashboard(title = "Grafana Demo Layouts") {
                     metric("B") {
                         "*.another.metric.mean"
                             .groupByNodes(0)
+                            .consolidateBy(MAX)
                             .averageSeries() // show average value for metric
                             .alias("another metric") // define alias
                             .perSecond() // show metric on value per second
@@ -139,6 +146,15 @@ dashboard(title = "Grafana Demo Layouts") {
                     metric("D") {
                         // represents the ratio of metric to metric variable 'refMetric' as a percentage
                         "apps.backend.*.counters.responses.count" aliasByNode 1 asPercent refMetric
+                    }
+                    // When a graph is drawn where width of the graph size in pixels is smaller than
+                    // the number of datapoints to be graphed,
+                    // Graphite consolidates the values to to prevent line overlap. The consolidateBy()
+                    // function changes the consolidation function from the default of ‘average’ to one of
+                    // ‘sum’, ‘max’, ‘min’, ‘first’, or ‘last’. This is especially useful in sales graphs,
+                    // where fractional values make no sense and a ‘sum’ of consolidated values is appropriate.
+                    metric("E") {
+                        "apps.backend.*.counters.responses.process_time.upper_90" groupByNode 0 consolidateBy SUM
                     }
                 }
             }
@@ -191,6 +207,12 @@ dashboard(title = "Grafana Demo Layouts") {
                 timeShift = 5.m // set 5 min shift for repeat
                 hideTimeOverrideInfo = true // dont show time override info on panel
             }
+        }
+
+        // Using the text panel to display the dashboard description
+        textPanel("Description") {
+            mode = ContentMode.MARKDOWN
+            content = "### Text Panel with MD content"
         }
     }
 }

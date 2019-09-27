@@ -17,14 +17,14 @@
       "gridPos": {
         "x": 0,
         "h": 12,
-        "y": 18,
+        "y": 0,
         "w": 24
       },
       "datasource": "Zabbix",
       "mappingType": 2,
       "hideTimeOverride": false,
       "links": [],
-      "id": 4,
+      "id": 1,
       "rangeMaps": [
         {
           "from": "0",
