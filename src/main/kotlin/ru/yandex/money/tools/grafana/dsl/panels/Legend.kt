@@ -23,7 +23,8 @@ class Legend(
     private val sort: Sort? = Sort.AVG,
     private val sortDesc: Boolean = true,
     private val total: Boolean = true,
-    private val values: Boolean = true
+    private val values: Boolean = true,
+    private val sideWidth: Int? = null
 ) : Json<JSONObject> {
 
     companion object Factory {
@@ -33,19 +34,20 @@ class Legend(
          * Metrics will be displayed as table with columns:  "name", "min", "max", "avg", "current", "total"
          */
         val DEFAULT = Legend(
-                alignAsTable = true,
-                avg = true,
-                current = true,
-                hideEmpty = true,
-                hideZero = true,
-                max = true,
-                min = true,
-                rightSide = false,
-                show = true,
-                sort = Sort.AVG,
-                sortDesc = true,
-                total = true,
-                values = true
+            alignAsTable = true,
+            avg = true,
+            current = true,
+            hideEmpty = true,
+            hideZero = true,
+            max = true,
+            min = true,
+            rightSide = false,
+            sideWidth = null,
+            show = true,
+            sort = Sort.AVG,
+            sortDesc = true,
+            total = true,
+            values = true
         )
 
         /**
@@ -53,19 +55,20 @@ class Legend(
          * Only metrics names will be displayed in a flat list
          */
         val EMPTY = Legend(
-                alignAsTable = false,
-                avg = false,
-                current = false,
-                hideEmpty = false,
-                hideZero = false,
-                max = false,
-                min = false,
-                rightSide = false,
-                show = true,
-                sort = null,
-                sortDesc = false,
-                total = false,
-                values = false
+            alignAsTable = false,
+            avg = false,
+            current = false,
+            hideEmpty = false,
+            hideZero = false,
+            max = false,
+            min = false,
+            rightSide = false,
+            sideWidth = null,
+            show = true,
+            sort = null,
+            sortDesc = false,
+            total = false,
+            values = false
         )
     }
 
@@ -78,6 +81,7 @@ class Legend(
         "max" to max
         "min" to min
         "rightSide" to rightSide
+        "sideWidth" to sideWidth
         "show" to show
         "sort" to sort?.value
         "sortDesc" to sortDesc

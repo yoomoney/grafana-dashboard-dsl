@@ -1,0 +1,15 @@
+{
+  "content": "<span>Hello</span>",
+  "gridPos": {
+    "h": 12,
+    "w": 24,
+    "x": 0,
+    "y": 0
+  },
+  "id": 1,
+  "links": [],
+  "mode": "markdown",
+  "title": "Test Panel HTML",
+  "transparent": false,
+  "type": "text"
+}
