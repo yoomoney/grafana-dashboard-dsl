@@ -3,8 +3,6 @@ package ru.yandex.money.tools.grafana.dsl.panels
 import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.Json
 
-var idGenerator = 1L
-
 /**
  * Panel on dashboard.
  *

@@ -1,8 +1,12 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
 import org.json.JSONObject
+import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
 
-class BasePanelBuilder(private val title: String) : PanelBuilder {
+class BasePanelBuilder(
+    private val title: String,
+    private val panelLayoutGenerator: PanelLayoutGenerator
+) : PanelBuilder {
 
     private var propertiesSetter: (JSONObject) -> Unit = {}
 
@@ -13,7 +17,11 @@ class BasePanelBuilder(private val title: String) : PanelBuilder {
     }
 
     internal fun createPanel() = AdditionalPropertiesPanel(
-            BasePanel(id = idGenerator++, title = title, position = nextPosition(bounds.first, bounds.second)),
+            BasePanel(
+                id = panelLayoutGenerator.nextId(),
+                title = title,
+                position = panelLayoutGenerator.nextPosition(bounds.first, bounds.second)
+            ),
             propertiesSetter
     )
 }

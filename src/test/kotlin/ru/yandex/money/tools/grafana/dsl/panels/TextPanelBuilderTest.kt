@@ -1,19 +1,11 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
 import org.amshove.kluent.shouldBe
-import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import ru.yandex.money.tools.grafana.dsl.jsonFile
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 
 class TextPanelBuilderTest : AbstractPanelTest() {
-
-    @BeforeMethod
-    fun beforeMethod() {
-        idGenerator = 1
-        x = 0
-        y = 0
-    }
 
     @Test
     fun `should create empty text panel with MD mode `() {

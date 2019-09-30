@@ -3,6 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.panels
 import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
+import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
 import ru.yandex.money.tools.grafana.dsl.metrics.DashboardMetric
 import ru.yandex.money.tools.grafana.dsl.metrics.Metrics
 import ru.yandex.money.tools.grafana.dsl.metrics.MetricsBuilder
@@ -15,7 +16,10 @@ import ru.yandex.money.tools.grafana.dsl.variables.Variable
  * @author Aleksey Antufev
  * @since 24.09.2019
  */
-class SingleStatPanelBuilder(private val title: String) : PanelBuilder {
+class SingleStatPanelBuilder(
+    private val title: String,
+    private val panelLayoutGenerator: PanelLayoutGenerator
+) : PanelBuilder {
 
     private var propertiesSetter: (JSONObject) -> Unit = {}
 
@@ -65,9 +69,9 @@ class SingleStatPanelBuilder(private val title: String) : PanelBuilder {
             SingleStatPanel(
                 MetricPanel(
                     BasePanel(
-                        id = idGenerator++,
+                        id = panelLayoutGenerator.nextId(),
                         title = title,
-                        position = nextPosition(bounds.first, bounds.second)
+                        position = panelLayoutGenerator.nextPosition(bounds.first, bounds.second)
                     ),
                     datasource = datasource,
                     metrics = Metrics(metrics)
@@ -82,7 +86,7 @@ class SingleStatPanelBuilder(private val title: String) : PanelBuilder {
 }
 
 fun PanelContainerBuilder.singleStat(title: String, build: SingleStatPanelBuilder.() -> Unit) {
-    val builder = SingleStatPanelBuilder(title)
+    val builder = SingleStatPanelBuilder(title, panelLayoutGenerator)
     builder.build()
     panels += builder.createPanel()
 }

@@ -36,9 +36,9 @@
         }
       ],
       "gridPos": {
-        "x": 3,
+        "x": 0,
         "h": 3,
-        "y": 3,
+        "y": 0,
         "w": 3
       },
       "valueMaps": [
@@ -52,7 +52,7 @@
       "mappingType": 1,
       "hideTimeOverride": true,
       "links": [],
-      "id": 2
+      "id": 1
     }
   ],
   "editable": false,

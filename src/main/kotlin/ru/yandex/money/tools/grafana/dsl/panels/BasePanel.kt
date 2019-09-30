@@ -18,7 +18,7 @@ class BasePanel(private val id: Long, private val title: String, private val pos
 }
 
 fun PanelContainerBuilder.panel(title: String, build: BasePanelBuilder.() -> Unit) {
-    val builder = BasePanelBuilder(title)
+    val builder = BasePanelBuilder(title, panelLayoutGenerator)
     builder.build()
     panels += builder.createPanel()
 }

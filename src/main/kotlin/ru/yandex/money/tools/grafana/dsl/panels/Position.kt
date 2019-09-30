@@ -11,8 +11,8 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  * @since 7/21/18
  */
 class Position(
-    private val x: Int,
-    private val y: Int,
+    internal val x: Int,
+    internal val y: Int,
     private val width: Int,
     private val height: Int
 ) : Json<JSONObject> {

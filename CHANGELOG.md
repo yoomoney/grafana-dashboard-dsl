@@ -1,5 +1,9 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=PATCH
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Fix the generation of the `id` and `position` fields for the panels for each dashboard:
+1. Generator now resets an id to 1 for new panels
+2. Generator now resets an position to x=0 y=0 for new panels
+* Now you can use `override` function in the metrics builder
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.4.0]() (30-09-2019)
 
@@ -11,7 +15,7 @@ text panel lets you make information and description panels etc. for your dashbo
 dashboard(title = "Dashboard with Text Panel") {
 panels {
 textPanel("Description") {
-mode = ContentMode.MD
+mode = ContentMode.MARKDOWN
 content = "### Text Panel with MD content"
 }
 }

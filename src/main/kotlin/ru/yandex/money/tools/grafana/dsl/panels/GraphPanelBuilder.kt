@@ -3,6 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.panels
 import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 import ru.yandex.money.tools.grafana.dsl.datasource.Graphite
+import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
 import ru.yandex.money.tools.grafana.dsl.metrics.Metrics
 import ru.yandex.money.tools.grafana.dsl.metrics.MetricsBuilder
 import ru.yandex.money.tools.grafana.dsl.metrics.ReferenceMetricsHolder
@@ -12,7 +13,10 @@ import ru.yandex.money.tools.grafana.dsl.panels.graph.display.seriesoverrides.Se
 import ru.yandex.money.tools.grafana.dsl.panels.graph.display.seriesoverrides.SeriesOverrideBuilder
 import ru.yandex.money.tools.grafana.dsl.time.Duration
 
-class GraphPanelBuilder(private val title: String) : PanelBuilder {
+class GraphPanelBuilder(
+    private val title: String,
+    private val panelLayoutGenerator: PanelLayoutGenerator
+) : PanelBuilder {
 
     private val propertiesSetters = mutableListOf<(JSONObject) -> Unit>()
 
@@ -70,6 +74,7 @@ class GraphPanelBuilder(private val title: String) : PanelBuilder {
         val builder = MetricsBuilder<Graphite>()
         builder.build()
         metrics += builder.metrics
+        seriesOverrides += builder.seriesOverrides
     }
 
     infix fun Alias.override(build: SeriesOverrideBuilder.() -> Unit): Alias {
@@ -83,9 +88,9 @@ class GraphPanelBuilder(private val title: String) : PanelBuilder {
             GraphPanel(
                     MetricPanel(
                             BasePanel(
-                                    id = idGenerator++,
+                                    id = panelLayoutGenerator.nextId(),
                                     title = title,
-                                    position = nextPosition(bounds.first, bounds.second)
+                                    position = panelLayoutGenerator.nextPosition(bounds.first, bounds.second)
                             ),
                             datasource = datasource,
                             metrics = Metrics(metrics.metrics)
@@ -112,7 +117,7 @@ class GraphPanelBuilder(private val title: String) : PanelBuilder {
 }
 
 fun PanelContainerBuilder.graphPanel(title: String, build: GraphPanelBuilder.() -> Unit) {
-    val builder = GraphPanelBuilder(title)
+    val builder = GraphPanelBuilder(title, panelLayoutGenerator)
     builder.build()
     panels += builder.createPanel()
 }

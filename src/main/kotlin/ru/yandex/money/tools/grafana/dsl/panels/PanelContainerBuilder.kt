@@ -1,19 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
-
-var x = 0
-var y = 0
-
-fun nextPosition(width: Int, height: Int): Position {
-    val pos = Position(x, y, width, height)
-    x += width
-    if (x >= 24) {
-        x = 0
-    }
-    y += height
-    return pos
-}
+import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
 
 /**
  * Builder for panels containers, for example: strings.
@@ -25,4 +13,5 @@ fun nextPosition(width: Int, height: Int): Position {
 interface PanelContainerBuilder {
 
     val panels: MutableList<Panel>
+    val panelLayoutGenerator: PanelLayoutGenerator
 }
