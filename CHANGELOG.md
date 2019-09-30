@@ -1,26 +1,26 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.4.0]() (30-09-2019)
+
 * Add `TextPanel` class and builder.
-  text panel lets you make information and description panels etc. for your dashboards.
-  - `mode` - Here you can choose between markdown, HTML or text.
-  - `content` - Here you write your content.
-  ```kotlin
-  dashboard(title = "Dashboard with Text Panel") {
-      panels {
-          textPanel("Description") {
-              mode = ContentMode.MD
-              content = "### Text Panel with MD content"
-          }
-      }
-  }
-  ``` 
+text panel lets you make information and description panels etc. for your dashboards.
+- `mode` - Here you can choose between markdown, HTML or text.
+- `content` - Here you write your content.
+```kotlin
+dashboard(title = "Dashboard with Text Panel") {
+panels {
+textPanel("Description") {
+mode = ContentMode.MD
+content = "### Text Panel with MD content"
+}
+}
+}
+```
 * Update `Legend.kt` class:
-  - Added new field `sideWidth` Available when _To the right_ is checked. Value to control the minimum width for the legend (default 0)
+- Added new field `sideWidth` Available when _To the right_ is checked. Value to control the minimum width for the legend (default 0)
 * Added `ConsolidateBy` graphite function and corresponding `consolidateBy()` extension functions for `Metric`
-  ```kotlin
-  val metric = "*.*.*.requests.incoming.*.*.process_time.*.count" consolidateBy MAX
-  ``` 
-### NEXT_VERSION_DESCRIPTION_END
+```kotlin
+val metric = "*.*.*.requests.incoming.*.*.process_time.*.count" consolidateBy MAX
+```
+
 ## [2.3.0]() (26-09-2019)
 
 * `Singlestat` panel are now supported.
