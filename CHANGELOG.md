@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [2.4.1]() (01-10-2019)
 
 * Fix the generation of the `id` and `position` fields for the panels for each dashboard:
