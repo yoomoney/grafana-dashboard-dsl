@@ -541,4 +541,28 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithSeriesOverrides.json")
     }
+
+    @Test
+    fun `should create graph panel with series overrides 2`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            metrics {
+                "*.*.oil-gate.requests.incoming.*.*.process_time.*.count" alias "total" override {
+                    bars = false
+                    lines = true
+                    lineWidth = 2
+                    stack = false
+                }
+            }
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithSeriesOverrides.json")
+    }
 }

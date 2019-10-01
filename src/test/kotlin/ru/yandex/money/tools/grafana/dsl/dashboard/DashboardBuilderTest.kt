@@ -1,14 +1,10 @@
 package ru.yandex.money.tools.grafana.dsl.dashboard
 
-import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import ru.yandex.money.tools.grafana.dsl.dashboard
 import ru.yandex.money.tools.grafana.dsl.json.set
 import ru.yandex.money.tools.grafana.dsl.jsonFile
-import ru.yandex.money.tools.grafana.dsl.panels.idGenerator
 import ru.yandex.money.tools.grafana.dsl.panels.panel
-import ru.yandex.money.tools.grafana.dsl.panels.x
-import ru.yandex.money.tools.grafana.dsl.panels.y
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
@@ -16,13 +12,6 @@ import ru.yandex.money.tools.grafana.dsl.time.now
 import ru.yandex.money.tools.grafana.dsl.time.off
 
 class DashboardBuilderTest {
-
-    @BeforeMethod
-    fun beforeMethod() {
-        idGenerator = 1
-        x = 0
-        y = 0
-    }
 
     @Test
     fun `should correct create minimal example`() {

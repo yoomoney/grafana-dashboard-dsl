@@ -1,19 +1,18 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
 import org.json.JSONObject
+import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
 
 /**
  * Builder for a text panel.
  * @author Aleksandr Korkin
  * @since 27.09.2019
  */
-
-class TextPanelBuilder(private val title: String) : PanelBuilder {
+class TextPanelBuilder(private val title: String, private val generator: PanelLayoutGenerator) : PanelBuilder {
 
     private val propertiesSetters = mutableListOf<(JSONObject) -> Unit>()
 
     override var bounds = PanelBuilder.DEFAULT_BOUNDS
-
     var mode: ContentMode = ContentMode.MARKDOWN
 
     var content: String = ""
@@ -27,9 +26,9 @@ class TextPanelBuilder(private val title: String) : PanelBuilder {
     internal fun createPanel() = AdditionalPropertiesPanel(
         TextPanel(
             BasePanel(
-                id = idGenerator++,
+                id = generator.nextId(),
                 title = title,
-                position = nextPosition(bounds.first, bounds.second)
+                position = generator.nextPosition(bounds.first, bounds.second)
             ),
             content = content,
             transparent = transparent,
@@ -39,7 +38,7 @@ class TextPanelBuilder(private val title: String) : PanelBuilder {
 }
 
 fun PanelContainerBuilder.textPanel(title: String, build: TextPanelBuilder.() -> Unit) {
-    val builder = TextPanelBuilder(title)
+    val builder = TextPanelBuilder(title, panelLayoutGenerator)
     builder.build()
     panels += builder.createPanel()
 }

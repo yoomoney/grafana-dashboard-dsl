@@ -3,6 +3,8 @@ package ru.yandex.money.tools.grafana.dsl.dashboard
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
 import ru.yandex.money.tools.grafana.dsl.annotations.Annotations
 import ru.yandex.money.tools.grafana.dsl.annotations.AnnotationsBuilder
+import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
+import ru.yandex.money.tools.grafana.dsl.generators.SimplePanelLayoutGenerator
 import ru.yandex.money.tools.grafana.dsl.panels.Panel
 import ru.yandex.money.tools.grafana.dsl.panels.Panels
 import ru.yandex.money.tools.grafana.dsl.panels.PanelsBuilder
@@ -38,8 +40,10 @@ class DashboardBuilder(private val title: String) {
 
     private val annotations = AnnotationsBuilder()
 
+    private val panelLayoutGenerator: PanelLayoutGenerator = SimplePanelLayoutGenerator()
+
     fun panels(build: PanelsBuilder.() -> Unit) {
-        val builder = PanelsBuilder()
+        val builder = PanelsBuilder(panelLayoutGenerator)
         builder.build()
         panels += builder.panels
     }

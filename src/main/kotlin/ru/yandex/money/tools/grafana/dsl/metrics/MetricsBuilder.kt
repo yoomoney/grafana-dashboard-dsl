@@ -3,11 +3,16 @@ package ru.yandex.money.tools.grafana.dsl.metrics
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
 import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.Alias
+import ru.yandex.money.tools.grafana.dsl.panels.graph.display.seriesoverrides.SeriesOverride
+import ru.yandex.money.tools.grafana.dsl.panels.graph.display.seriesoverrides.SeriesOverrideBuilder
 
 @DashboardElement
 class MetricsBuilder<DatasourceT : Datasource> {
 
     val metrics = mutableListOf<DashboardMetric>()
+
+    internal val seriesOverrides: MutableList<SeriesOverride> = mutableListOf()
 
     fun metric(referenceId: String, hidden: Boolean = false, fn: () -> Metric) {
         metrics += ReferencedDashboardMetric(fn(), referenceId, hidden)
@@ -23,5 +28,12 @@ class MetricsBuilder<DatasourceT : Datasource> {
         val builder = ZabbixMetric.Builder.Text()
         builder.build()
         metrics += builder.createText()
+    }
+
+    infix fun Alias.override(build: SeriesOverrideBuilder.() -> Unit): Alias {
+        val builder = SeriesOverrideBuilder(this.aliasName)
+        builder.build()
+        seriesOverrides += builder.createSeriesOverride()
+        return this
     }
 }
