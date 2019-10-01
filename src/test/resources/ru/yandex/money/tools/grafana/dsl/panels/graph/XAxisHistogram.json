@@ -1,0 +1,6 @@
+{
+  "mode": "histogram",
+  "show": true,
+  "buckets": 10,
+  "values": []
+}

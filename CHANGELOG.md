@@ -1,5 +1,61 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add the ability to change the x-axis mode. 
+  
+  You can select one of the 3 modes: time, series, histogram by specifying the required properties for each of them.
+  ```kotlin
+    dashboard(title = "My dashboard") {
+      panels {
+        graphPanel(title = "Graph with Time X-Axis") {
+          xAxis = XAxis()
+        }      
+        graphPanel(title = "Graph Histogram") {
+          val xAxis = XAxis(mode = Histogram(buckets = 10))
+        }
+        graphPanel(title = "Graph Series") {
+          val xAxis = XAxis(show = false, mode = Series(value = Series.ValueType.COUNT))
+        }
+      }
+    }
+  ```
+* Add repeating Graph panels
+
+  Template variables can be very useful to dynamically change your queries across a whole dashboard. 
+  If you want Grafana to dynamically create new panels or rows based on what values you have selected you can use the Repeat feature.
+  If you have a variable with Multi-value or Include all value options enabled you can choose one panel and have Grafana 
+  repeat that panel for every selected value.
+  ```kotlin
+    dashboard(title = "My dashboard") {
+      panels {
+        val graphiteHosts by variables.query(datasource = Graphite, query = "*.*")
+        graphPanel(title = "Graph by ${graphiteHosts.asVariable()}") {
+           repeat(graphiteHosts) {
+               direction = Horizontal(6)
+           }
+           metrics {
+               metric("A") {
+                   "*.another.metric.mean" groupByNodes 0
+               }
+           }
+        }     
+      }
+    }
+  ```
+* Add the panel description, displayed on hover of info icon in the upper left corner of the panel.
+  ```kotlin
+      dashboard(title = "My dashboard") {
+        panels {
+          graphPanel(title = "Graph") {
+             description = "Panel description"
+             metrics {
+                 metric("A") {
+                     "*.another.metric.mean" groupByNodes 0
+                 }
+             }
+          }     
+        }
+      }
+    ```
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.4.1]() (01-10-2019)
 

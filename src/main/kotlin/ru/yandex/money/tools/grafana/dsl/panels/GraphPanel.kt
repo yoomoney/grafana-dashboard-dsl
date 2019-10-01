@@ -6,6 +6,7 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.panels.graph.display.drawoptions.HoverTooltip
 import ru.yandex.money.tools.grafana.dsl.panels.graph.display.seriesoverrides.SeriesOverride
+import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
 import ru.yandex.money.tools.grafana.dsl.time.Duration
 
 /**
@@ -32,7 +33,9 @@ class GraphPanel(
     private val aliasColors: AliasColors? = null,
     private val leftYAxis: YAxis? = null,
     private val rightYAxis: YAxis? = null,
-    private val seriesOverrides: List<SeriesOverride> = emptyList()
+    private val xAxis: XAxis = XAxis(),
+    private val seriesOverrides: List<SeriesOverride> = emptyList(),
+    private val repeat: Repeat? = null
 ) : Panel {
 
     override fun toJson() = jsonObject(basePanel.toJson()) {
@@ -58,14 +61,13 @@ class GraphPanel(
         "nullPointMode" to nullValue.value
         "aliasColors" to aliasColors
         "tooltip" to hoverTooltip
-        "xaxis" to jsonObject {
-            "mode" to "time"
-            "show" to true
-            "values" to emptyJsonArray()
-        }
+        "xaxis" to xAxis
         "yaxis" to jsonObject {
             "align" to false
         }
         "yaxes" to jsonArray[leftYAxis ?: YAxis(), rightYAxis ?: YAxis()]
+        if (repeat != null) {
+            embed(repeat)
+        }
     }
 }

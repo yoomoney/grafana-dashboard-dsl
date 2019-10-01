@@ -8,12 +8,17 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  * @author Dmitry Komarov
  * @since 25.07.2018
  */
-class BasePanel(private val id: Long, private val title: String, private val position: Position) : Panel {
-
+class BasePanel(
+    private val id: Long,
+    private val title: String,
+    private val position: Position,
+    private val description: String? = null
+) : Panel {
     override fun toJson() = jsonObject {
         "id" to id
         "title" to title
         "gridPos" to position
+        "description" to description
     }
 }
 

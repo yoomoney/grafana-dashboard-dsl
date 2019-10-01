@@ -1,6 +1,7 @@
 package ru.yandex.money.tools.grafana.dsl.examples
 
 import ru.yandex.money.tools.grafana.dsl.dashboard
+import ru.yandex.money.tools.grafana.dsl.datasource.Graphite
 import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.json.set
@@ -19,9 +20,12 @@ import ru.yandex.money.tools.grafana.dsl.metrics.functions.perSecond
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.sortByTotal
 import ru.yandex.money.tools.grafana.dsl.panels.Color
 import ru.yandex.money.tools.grafana.dsl.panels.ContentMode
+import ru.yandex.money.tools.grafana.dsl.panels.Histogram
 import ru.yandex.money.tools.grafana.dsl.panels.Legend
 import ru.yandex.money.tools.grafana.dsl.panels.NullValue
+import ru.yandex.money.tools.grafana.dsl.panels.Series
 import ru.yandex.money.tools.grafana.dsl.panels.ValueToTextType
+import ru.yandex.money.tools.grafana.dsl.panels.XAxis
 import ru.yandex.money.tools.grafana.dsl.panels.YAxis
 import ru.yandex.money.tools.grafana.dsl.panels.graphPanel
 import ru.yandex.money.tools.grafana.dsl.panels.metricPanel
@@ -53,6 +57,8 @@ dashboard(title = "Grafana Demo Layouts") {
     val hosts by variables.query(datasource = Zabbix, query = "Service Hosts*.") {
         regex = ".*demo-service.*" // Set of applications' hosts. It can be used for repeat row for each value
     }
+
+    val graphiteHosts by variables.query(datasource = Graphite, query = "*.*")
 
     panels {
         row(title = "Single Stat Metrics") {
@@ -213,6 +219,81 @@ dashboard(title = "Grafana Demo Layouts") {
         textPanel("Description") {
             mode = ContentMode.MARKDOWN
             content = "### Text Panel with MD content"
+        }
+
+        row(title = "Graphs") {
+
+            graphPanel(title = "Graph Metric in histogram mode") {
+                bounds = 24 to 18
+                fill = 1 // Fill rate
+                staircase = true // enable staircase line vizualization
+                decimals = 2 // set decimal precision
+                nullValue = NullValue.NULL // How to show null values
+                xAxis = XAxis(mode = Histogram(buckets = 10))
+                metrics {
+                    metric("A") {
+                        "*.another.metric.mean"
+                            .groupByNodes(0)
+                            .consolidateBy(MAX)
+                            .alias("another metric") // define alias
+                    }
+                }
+            }
+
+            graphPanel(title = "Graph Metric in series mode") {
+                bounds = 24 to 18
+                fill = 1 // Fill rate
+                staircase = true // enable staircase line vizualization
+                decimals = 2 // set decimal precision
+                nullValue = NullValue.NULL // How to show null values
+                xAxis = XAxis(mode = Series(Series.ValueType.COUNT))
+                metrics {
+                    metric("A") {
+                        "*.another.metric.mean"
+                            .groupByNodes(0)
+                            .consolidateBy(MAX)
+                            .alias("another metric") // define alias
+                    }
+                }
+            }
+        }
+
+        row(title = "Repeating panels") {
+
+            graphPanel(title = "Graph Metric in histogram mode") {
+                bounds = 24 to 18
+                fill = 1 // Fill rate
+                staircase = true // enable staircase line vizualization
+                decimals = 2 // set decimal precision
+                nullValue = NullValue.NULL // How to show null values
+                xAxis = XAxis(mode = Histogram(buckets = 10))
+                repeat(graphiteHosts) {
+                    direction = Horizontal(6)
+                }
+                metrics {
+                    metric("A") {
+                        "*.another.metric.mean"
+                            .groupByNodes(0)
+                            .consolidateBy(MAX)
+                            .alias("another metric") // define alias
+                    }
+                }
+            }
+        }
+
+        row(title = "Graph panel with description") {
+
+            graphPanel(title = "Graph") {
+                description = "Graph description"
+                metrics {
+                    metric("A") {
+                        "*.another.metric.mean"
+                            .groupByNodes(0)
+                            .consolidateBy(MAX)
+                            .alias("another metric") // define alias
+                    }
+                }
+            }
         }
     }
 }
