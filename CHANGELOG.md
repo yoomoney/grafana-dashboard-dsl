@@ -1,10 +1,10 @@
-### NEXT_VERSION_TYPE=PATCH
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.4.1]() (01-10-2019)
+
 * Fix the generation of the `id` and `position` fields for the panels for each dashboard:
 1. Generator now resets an id to 1 for new panels
 2. Generator now resets an position to x=0 y=0 for new panels
 * Now you can use `override` function in the metrics builder
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.4.0]() (30-09-2019)
 
 * Add `TextPanel` class and builder.
