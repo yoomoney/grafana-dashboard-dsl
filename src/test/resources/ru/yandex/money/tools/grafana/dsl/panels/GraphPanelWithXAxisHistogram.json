@@ -1,0 +1,72 @@
+{
+  "stack": false,
+  "renderer": "flot",
+  "legend": {
+    "alignAsTable": true,
+    "max": true,
+    "values": true,
+    "show": true,
+    "sortDesc": true,
+    "rightSide": false,
+    "sort": "avg",
+    "hideZero": true,
+    "current": true,
+    "total": true,
+    "avg": true,
+    "min": true,
+    "hideEmpty": true
+  },
+  "yaxes": [
+    {
+      "format": "short",
+      "logBase": 1,
+      "show": true
+    },
+    {
+      "format": "short",
+      "logBase": 1,
+      "show": true
+    }
+  ],
+  "title": "Histogram Panel",
+  "type": "graph",
+  "targets": [],
+  "seriesOverrides": [],
+  "yaxis": {
+    "align": false
+  },
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  },
+  "points": false,
+  "xaxis": {
+    "mode": "histogram",
+    "show": true,
+    "buckets": 10,
+    "values": []
+  },
+  "percentage": false,
+  "dashLength": 10,
+  "links": [],
+  "id": 1,
+  "lines": true,
+  "spaceLength": 10,
+  "editable": true,
+  "nullPointMode": "null",
+  "steppedLine": false,
+  "fill": 1,
+  "linewidth": 1,
+  "bars": false,
+  "dashes": false,
+  "thresholds": [],
+  "datasource": "Graphite",
+  "pointradius": 5,
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  }
+}

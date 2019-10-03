@@ -3,12 +3,14 @@ package ru.yandex.money.tools.grafana.dsl.panels
 import org.amshove.kluent.shouldBe
 import org.json.JSONObject
 import org.testng.annotations.Test
+import ru.yandex.money.tools.grafana.dsl.dashboard
 import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.json.set
 import ru.yandex.money.tools.grafana.dsl.jsonFile
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.alias
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
 import ru.yandex.money.tools.grafana.dsl.panels.graph.display.drawoptions.HoverTooltip
+import ru.yandex.money.tools.grafana.dsl.panels.repeat.Horizontal
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 import ru.yandex.money.tools.grafana.dsl.time.h
 
@@ -564,5 +566,41 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithSeriesOverrides.json")
+    }
+
+    @Test
+    fun `should create graph panel with histogram xAxis`() {
+
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Histogram Panel") {
+            xAxis = XAxis(mode = Histogram(buckets = 10))
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithXAxisHistogram.json")
+    }
+
+    @Test
+    fun `should create repeating graph panel`() {
+
+        val expectedDashboard = dashboard("repeat horizontal") {
+
+            val hosts by variables.custom("host1", "host2")
+            panels {
+                graphPanel(title = "Histogram Panel") {
+                    description = "description panel"
+                    repeat(hosts) {
+                        direction = Horizontal(6)
+                    }
+                    xAxis = XAxis(mode = Histogram(buckets = 10))
+                }
+            }
+        }
+        expectedDashboard shouldEqualToJson jsonFile("RepeatingGraphPanel.json")
     }
 }
