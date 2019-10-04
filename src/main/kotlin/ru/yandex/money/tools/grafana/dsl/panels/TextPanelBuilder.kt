@@ -37,7 +37,7 @@ class TextPanelBuilder(private val title: String, private val generator: PanelLa
     ) { json -> propertiesSetters.forEach { it(json) } }
 }
 
-fun PanelContainerBuilder.textPanel(title: String, build: TextPanelBuilder.() -> Unit) {
+fun PanelContainerBuilder.textPanel(title: String = "", build: TextPanelBuilder.() -> Unit) {
     val builder = TextPanelBuilder(title, panelLayoutGenerator)
     builder.build()
     panels += builder.createPanel()

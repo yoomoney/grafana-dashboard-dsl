@@ -68,4 +68,18 @@ class TextPanelBuilderTest : AbstractPanelTest() {
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("text/TransparentTextPanel.json")
     }
+
+    @Test
+    fun `should create text panel with empty title`() {
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.textPanel() {}
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("text/TextPanelWithEmptyTitle.json")
+    }
 }
