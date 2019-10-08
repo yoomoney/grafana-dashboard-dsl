@@ -295,5 +295,12 @@ dashboard(title = "Grafana Demo Layouts") {
                 }
             }
         }
+
+        row(title = "Collapsed row", collapsed = true) {
+            textPanel("Description") {
+                mode = ContentMode.MARKDOWN
+                content = "### Text Panel with MD content"
+            }
+        }
     }
 }

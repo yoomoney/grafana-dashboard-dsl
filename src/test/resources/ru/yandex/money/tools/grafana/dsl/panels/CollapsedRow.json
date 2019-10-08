@@ -1,0 +1,24 @@
+{
+  "id": 1,
+  "title": "Collapsed row",
+  "type": "row",
+  "collapsed": true,
+  "panels": [
+    {
+      "title": "Test panel",
+      "gridPos": {
+        "x": 0,
+        "h": 12,
+        "y": 1,
+        "w": 24
+      },
+      "id": 2
+    }
+  ],
+  "gridPos": {
+    "x": 0,
+    "h": 1,
+    "y": 0,
+    "w": 24
+  }
+}
