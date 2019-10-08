@@ -1,12 +1,12 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.6.0]() (08-10-2019)
+
 * Add the ability to make rows collapsed
-  ```kotlin
-  row("Collapsed row", collapsed = true) {
-      panel("Test panel") {}
-  }
-  ```
-### NEXT_VERSION_DESCRIPTION_END
+```kotlin
+row("Collapsed row", collapsed = true) {
+panel("Test panel") {}
+}
+```
+
 ## [2.5.1]() (04-10-2019)
 
 * Make the text panel title optional
