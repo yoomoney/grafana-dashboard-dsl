@@ -1,6 +1,5 @@
 package ru.yandex.money.tools.grafana.dsl.panels
 
-import ru.yandex.money.tools.grafana.dsl.json.emptyJsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 
 /**
@@ -11,13 +10,15 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  */
 class Row(
     private val basePanel: Panel,
-    private val repeat: String?
+    private val repeat: String?,
+    private val collapsed: Boolean? = false
 ) : Panel {
+    var panels: Panels = Panels(mutableListOf())
 
     override fun toJson() = jsonObject(basePanel.toJson()) {
         "type" to "row"
         "repeat" to repeat
-        "collapsed" to false
-        "panels" to emptyJsonArray()
+        "collapsed" to collapsed
+        "panels" to panels
     }
 }

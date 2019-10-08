@@ -23,10 +23,23 @@ class RowBuilderTest : AbstractPanelTest() {
         panelsBuilder.row("Test Row", repeatFor = values) {
             panel("Test Panel") {}
         }
-
         // then
         val panels = panelsBuilder.panels
         panels.size shouldBe 2
         panels[0].toJson().toString() shouldEqualToJson jsonFile("Row.json")
+    }
+
+    @Test
+    fun `should create collapsed row with 1 panel`() {
+        // given
+        val panelsBuilder = PanelsBuilder(SimplePanelLayoutGenerator())
+
+        panelsBuilder.row("Collapsed row", collapsed = true) {
+            panel("Test panel") {}
+        }
+        // then
+        val panels = panelsBuilder.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("CollapsedRow.json")
     }
 }

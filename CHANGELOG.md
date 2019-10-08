@@ -1,5 +1,11 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add the ability to make rows collapsed
+  ```kotlin
+  row("Collapsed row", collapsed = true) {
+      panel("Test panel") {}
+  }
+  ```
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.5.1]() (04-10-2019)
 

@@ -17,11 +17,11 @@ class PanelsBuilder(override val panelLayoutGenerator: PanelLayoutGenerator) : P
      * This method is used to support backward compatibility.
      */
     fun row(title: String, build: RowBuilder.() -> Unit) {
-        row(title, null, build)
+        row(title, null, false, build)
     }
 
-    fun row(title: String, repeatFor: Variable? = null, build: RowBuilder.() -> Unit) {
-        val builder = RowBuilder(title, repeatFor?.name, panelLayoutGenerator)
+    fun row(title: String, repeatFor: Variable? = null, collapsed: Boolean = false, build: RowBuilder.() -> Unit) {
+        val builder = RowBuilder(title, repeatFor?.name, panelLayoutGenerator, collapsed)
         builder.build()
         panels += builder.createRow()
     }
