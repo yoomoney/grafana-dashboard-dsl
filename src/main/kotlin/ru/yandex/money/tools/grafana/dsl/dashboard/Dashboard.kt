@@ -42,6 +42,12 @@ class Dashboard(
     private val annotations: Annotations = Annotations(emptyList())
 ) : Json<JSONObject> {
 
+    init {
+        if (uid != null && uid.length > 40) {
+            throw IllegalArgumentException("uid must be between 0 and 40")
+        }
+    }
+
     override fun toJson() = jsonObject {
         "uid" to uid
         "title" to title
