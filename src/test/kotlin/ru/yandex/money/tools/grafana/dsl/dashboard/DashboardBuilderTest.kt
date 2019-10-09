@@ -94,4 +94,22 @@ class DashboardBuilderTest {
         // that
         dashboard shouldEqualToJson jsonFile("DashboardWithVariable.json")
     }
+
+    @Test
+    fun `should create an editable dashboard`() {
+        // expect
+        val dashboard = dashboard("Editable dashboard") {
+            editable = true
+            panels {
+                panel(title = "Test Panel") {
+                    properties {
+                        it["type"] = "graph"
+                    }
+                }
+            }
+        }
+
+        // that
+        dashboard shouldEqualToJson jsonFile("EditableDashboard.json")
+    }
 }

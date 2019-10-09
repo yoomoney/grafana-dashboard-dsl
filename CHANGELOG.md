@@ -1,5 +1,21 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+
+* Add the ability to make the dashboard editable
+  
+    Dashboards will be created editable by default
+```kotlin
+    dashboard(title = "Editable dashboard") {
+        editable = true
+        panels {
+            panel(title = "Test Panel") {
+                properties {
+                    it["type"] = "graph"
+                }
+            }
+        }
+    }
+```
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.6.0]() (08-10-2019)
 

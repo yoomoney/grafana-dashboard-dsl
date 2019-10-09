@@ -24,6 +24,7 @@ import ru.yandex.money.tools.grafana.dsl.variables.Variables
  * @property tags Tags
  * @property variables Variables that should be reused for querying metrics
  * @property panels Panels
+ * @property editable Ability to edit the dashboard
  * @property annotations Annotations that displayed on graphs. Has default value for backward compatibility.
  *
  * @author Dmitry Komarov (komarovdmitry@yamoney.ru)
@@ -37,6 +38,7 @@ class Dashboard(
     private val tags: Tags,
     private val variables: Variables,
     private val panels: Panels,
+    private val editable: Boolean,
     private val annotations: Annotations = Annotations(emptyList())
 ) : Json<JSONObject> {
 
@@ -53,7 +55,7 @@ class Dashboard(
         "annotations" to jsonObject {
             "list" to annotations
         }
-        "editable" to false
+        "editable" to editable
         "graphTooltip" to 0
         "links" to JSONArray()
         "schemaVersion" to 16

@@ -58,7 +58,7 @@
       "id": 1
     }
   ],
-  "editable": false,
+  "editable": true,
   "timezone": "browser",
   "refresh": "30s",
   "annotations": {

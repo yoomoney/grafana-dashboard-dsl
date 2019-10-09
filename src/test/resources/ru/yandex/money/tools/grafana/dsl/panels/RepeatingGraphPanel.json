@@ -79,7 +79,7 @@
       "pointradius": 5
     }
   ],
-  "editable": false,
+  "editable": true,
   "timezone": "browser",
   "refresh": "30s",
   "annotations": {
