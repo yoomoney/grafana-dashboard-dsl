@@ -4,7 +4,7 @@
   "panels": [
 
   ],
-  "editable": false,
+  "editable": true,
   "timezone": "browser",
   "refresh": false,
   "annotations": {
