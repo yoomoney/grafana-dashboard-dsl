@@ -1,22 +1,21 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.7.0]() (09-10-2019)
 
 * Add the ability to make the dashboard editable
-  
-    Dashboards will be created editable by default
+
+Dashboards will be created editable by default
 ```kotlin
-    dashboard(title = "Editable dashboard") {
-        editable = true
-        panels {
-            panel(title = "Test Panel") {
-                properties {
-                    it["type"] = "graph"
-                }
-            }
-        }
-    }
+dashboard(title = "Editable dashboard") {
+editable = true
+panels {
+panel(title = "Test Panel") {
+properties {
+it["type"] = "graph"
+}
+}
+}
+}
 ```
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.6.0]() (08-10-2019)
 
 * Add the ability to make rows collapsed
