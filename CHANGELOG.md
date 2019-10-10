@@ -1,8 +1,8 @@
-### NEXT_VERSION_TYPE=PATCH
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.7.1]() (10-10-2019)
+
 * The validation for Dashboard#uid field has been added.
 It can contain no more than 40 characters now, according to the Grafana API. Otherwise exception will be thrown.
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.7.0]() (09-10-2019)
 
 * Add the ability to make the dashboard editable
