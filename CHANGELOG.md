@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.8.0]() (17-10-2019)
+
 *  Some changes in Yandex.Money internal build cycle. No new functionality was added.
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.7.1]() (10-10-2019)
 
 * The validation for Dashboard#uid field has been added.
