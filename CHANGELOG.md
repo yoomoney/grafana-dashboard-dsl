@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+*  Some changes in Yandex.Money internal build cycle. No new functionality was added.
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.7.1]() (10-10-2019)
 
