@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [2.8.0]() (17-10-2019)
 
 *  Some changes in Yandex.Money internal build cycle. No new functionality was added.
