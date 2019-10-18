@@ -1,5 +1,12 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* [Grafana dashboard links](https://grafana.com/docs/guides/whats-new-in-v2-1/#dashboard-links-and-navigation) are now supported. 
+
+There are two types of links: 
+- `LinkToUrl` a link implementation that points to an arbitrary resource.
+- `LinkToDashboards` a link implementation that dynamically forms links to other dashboards by their tags  
+ 
+ See usage examples in `LinksDemo.kts`
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.8.0]() (17-10-2019)
 
