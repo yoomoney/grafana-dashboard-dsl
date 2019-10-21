@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [2.9.0]() (21-10-2019)
 
 * [Grafana dashboard links](https://grafana.com/docs/guides/whats-new-in-v2-1/#dashboard-links-and-navigation) are now supported.
