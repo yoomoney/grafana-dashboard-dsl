@@ -1,8 +1,8 @@
 package ru.yandex.money.tools.grafana.dsl.dashboard
 
-import org.json.JSONArray
 import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.annotations.Annotations
+import ru.yandex.money.tools.grafana.dsl.dashboard.link.DashboardLinks
 import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
@@ -39,7 +39,8 @@ class Dashboard(
     private val variables: Variables,
     private val panels: Panels,
     private val editable: Boolean,
-    private val annotations: Annotations = Annotations(emptyList())
+    private val annotations: Annotations = Annotations(emptyList()),
+    private val links: DashboardLinks = DashboardLinks(emptyList())
 ) : Json<JSONObject> {
 
     init {
@@ -63,7 +64,7 @@ class Dashboard(
         }
         "editable" to editable
         "graphTooltip" to 0
-        "links" to JSONArray()
+        "links" to links
         "schemaVersion" to 16
         "style" to "dark"
         "timepicker" to jsonObject {

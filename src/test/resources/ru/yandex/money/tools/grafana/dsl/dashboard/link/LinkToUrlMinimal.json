@@ -1,0 +1,10 @@
+{
+  "targetBlank": false,
+  "includeVars": false,
+  "icon": "external link",
+  "tooltip": "",
+  "type": "link",
+  "title": "Test link",
+  "keepTime": false,
+  "url": "http://test.url"
+}

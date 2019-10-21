@@ -1,0 +1,12 @@
+{
+  "targetBlank": false,
+  "includeVars": false,
+  "asDropdown": false,
+  "type": "dashboards",
+  "title": "Test link",
+  "keepTime": false,
+  "tags": [
+    "tag1",
+    "tag2"
+  ]
+}
