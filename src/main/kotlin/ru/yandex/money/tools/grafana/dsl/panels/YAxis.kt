@@ -24,6 +24,7 @@ class YAxis(
         BYTES("bytes"),
         DECIMAL_BYTES("decbytes"),
         MILLISECONDS("ms"),
+        MICROSECONDS("µs"),
         PERCENT_0_100("percent"),
         NONE("none"),
     }
