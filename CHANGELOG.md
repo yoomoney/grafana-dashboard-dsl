@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.10.0]() (22-11-2019)
+
 * Add `MICROSECONDS` Unit for YAxis
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.9.0]() (21-10-2019)
 
 * [Grafana dashboard links](https://grafana.com/docs/guides/whats-new-in-v2-1/#dashboard-links-and-navigation) are now supported.
