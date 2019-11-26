@@ -26,6 +26,7 @@ class YAxis(
         MILLISECONDS("ms"),
         MICROSECONDS("µs"),
         PERCENT_0_100("percent"),
+        BYTES_PER_SECOND("Bps"),
         NONE("none"),
     }
 

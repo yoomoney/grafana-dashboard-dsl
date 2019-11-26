@@ -64,7 +64,8 @@ class VariablesBuilder {
                 sortOrder = builder.sortOrder,
                 multiValuesAllowed = builder.multiValuesAllowed,
                 includeAllValue = builder.includeAllValue,
-                allValue = builder.allValue
+                allValue = builder.allValue,
+                tags = builder.tags
             )
         }
     }

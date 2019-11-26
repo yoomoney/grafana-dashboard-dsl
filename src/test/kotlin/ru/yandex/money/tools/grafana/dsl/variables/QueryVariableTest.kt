@@ -39,4 +39,19 @@ class QueryVariableTest {
         // then
         variable.toJson().toString() shouldEqualToJson jsonFile("QueryVariableWithMinProps.json")
     }
+
+    @Test
+    fun `should create variable with tags`() {
+        // given
+        val builder = VariablesBuilder()
+
+        // when
+        val variable by builder.query(datasource = Zabbix, query = "App version") {
+            tags = VariableTags("*.*", "*.\$tag")
+        }
+
+        println(variable.toJson().toString())
+        // then
+        variable.toJson().toString() shouldEqualToJson jsonFile("QueryVariableWithTags.json")
+    }
 }
