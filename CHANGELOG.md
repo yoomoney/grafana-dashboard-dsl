@@ -1,14 +1,13 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.11.0]() (27-11-2019)
 
 * Add `BYTES_PER_SECOND` Unit for YAxis
 * Add the ability to group the values of query variable into selectable tags
 ```kotlin
-    val variable by builder.query(datasource = Zabbix, query = "App version") {
-        tags = VariableTags("*.*", "*.\$tag")
-    }
+val variable by builder.query(datasource = Zabbix, query = "App version") {
+tags = VariableTags("*.*", "*.\$tag")
+}
 ```
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.10.0]() (22-11-2019)
 
 * Add `MICROSECONDS` Unit for YAxis
