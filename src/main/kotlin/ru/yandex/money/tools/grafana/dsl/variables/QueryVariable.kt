@@ -18,7 +18,8 @@ class QueryVariable private constructor(
     private val sortOrder: SortOrder,
     private val multiValuesAllowed: Boolean,
     private val includeAllValue: Boolean,
-    private val allValue: String?
+    private val allValue: String?,
+    private val tags: VariableTags?
 ) : Variable by delegate {
 
     /**
@@ -39,6 +40,7 @@ class QueryVariable private constructor(
      * @param includeAllValue when **true** the *All* option is available to select
      * @param allValue optional value that will be used when *All* option is selected. Ignored by Grafana
      * when [includeAllValue] is false
+     * @param tags used to group the values into selectable tags
      */
     constructor(
         name: String,
@@ -51,7 +53,8 @@ class QueryVariable private constructor(
         sortOrder: SortOrder,
         multiValuesAllowed: Boolean,
         includeAllValue: Boolean,
-        allValue: String?
+        allValue: String?,
+        tags: VariableTags?
     ) : this(
         delegate = VariableWithQuery(
             delegate = BaseVariable(
@@ -68,7 +71,8 @@ class QueryVariable private constructor(
         sortOrder = sortOrder,
         multiValuesAllowed = multiValuesAllowed,
         includeAllValue = includeAllValue,
-        allValue = allValue
+        allValue = allValue,
+        tags = tags
     )
 
     override fun toJson() = jsonObject(delegate.toJson()) {
@@ -80,6 +84,9 @@ class QueryVariable private constructor(
         "includeAll" to includeAllValue
         if (includeAllValue) {
             "allValue" to allValue
+        }
+        if (tags != null) {
+            embed(tags)
         }
     }
 
@@ -104,5 +111,7 @@ class QueryVariable private constructor(
         var includeAllValue: Boolean = false
 
         var allValue: String? = null
+
+        var tags: VariableTags? = null
     }
 }

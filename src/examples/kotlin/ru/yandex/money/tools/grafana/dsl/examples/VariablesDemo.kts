@@ -5,6 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
 import ru.yandex.money.tools.grafana.dsl.variables.HidingMode
+import ru.yandex.money.tools.grafana.dsl.variables.VariableTags
 import ru.yandex.money.tools.grafana.dsl.variables.VariableValue
 
 @Suppress("UNUSED_VARIABLE")
@@ -48,4 +49,9 @@ dashboard(title = "Grafana Variables Demo") {
 
     /* Text box with predefined value [grafana] */
     val textBox by variables.textBox(defaultValue = "grafana")
+
+    /* Query variable with grouped values by tags */
+    val variable by variables.query(datasource = Zabbix, query = "App version") {
+        tags = VariableTags("*.*", "*.\$tag")
+    }
 }
