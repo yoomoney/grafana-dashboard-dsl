@@ -88,10 +88,10 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         // when
         testContainer.graphPanel(title = "Test Panel") {
             metrics {
-                metric("A") {
+                metric {
                     "*.*.oil-gate.requests.incoming.*.*.process_time.*.count" aliasByNode 0
                 }
-                metric("B") {
+                metric {
                     "*.*.oil-gate.requests.incoming.*.*.process_time.*.count" aliasByNode 1
                 }
             }
@@ -316,6 +316,7 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         // when
         testContainer.graphPanel(title = "Test Panel") {
             fill = 1
+            fillGradient = 1
         }
 
         // then

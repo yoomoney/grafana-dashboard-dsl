@@ -66,6 +66,7 @@
   "nullPointMode": "null",
   "steppedLine": false,
   "fill": 1,
+  "fillGradient": 0,
   "linewidth": 1,
   "bars": false,
   "dashes": false,

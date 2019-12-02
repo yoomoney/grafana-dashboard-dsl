@@ -3,6 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.examples
 import ru.yandex.money.tools.grafana.dsl.dashboard
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.ConsolidationFunction
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.alias
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByMetric
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.asPercent
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.averageSeries
@@ -59,6 +60,13 @@ dashboard(title = "Grafana Functions Demo") {
                     // where fractional values make no sense and a ‘sum’ of consolidated values is appropriate.
                     metric("D") {
                         "apps.backend.*.counters.responses.process_time.upper_90" groupByNode 0 consolidateBy ConsolidationFunction.SUM
+                    }
+
+                    // 1. If you don't refer to a metric you can omit explicit definition of 'referenceId'.
+                    // 2. Usualy it is useful to combine functions 'groupByNode' and 'aliasByMetric' when you use metrics with wildcards.
+                    // In this example values which match to the wildcards will be printed in graph legend.
+                    metric { // referenceId is not defined
+                        "apps.backend.*.counters.requests.count".groupByNode(2).aliasByMetric()
                     }
                 }
             }
