@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.12.0]() (03-12-2019)
+
 * Added `current` field of type `CurrentVariableValue` in class `QueryVariable` used to set default value for this variable type
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.11.0]() (27-11-2019)
 
 * Add `BYTES_PER_SECOND` Unit for YAxis
