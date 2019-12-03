@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [2.12.0]() (03-12-2019)
 
 * Added `current` field of type `CurrentVariableValue` in class `QueryVariable` used to set default value for this variable type
