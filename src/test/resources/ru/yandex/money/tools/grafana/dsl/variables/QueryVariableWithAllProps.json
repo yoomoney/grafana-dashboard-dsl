@@ -1,4 +1,8 @@
 {
+  "current": {
+    "text": "test",
+    "value": "test"
+  },
   "hide": 0,
   "regex": ".*test.*",
   "datasource": "Zabbix",

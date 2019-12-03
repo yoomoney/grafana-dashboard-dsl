@@ -22,6 +22,7 @@ class QueryVariableTest {
             refreshMode = RefreshMode.NEVER
             sortOrder = SortOrder.DISABLED
             allValue = "test"
+            current = CurrentVariableValue("test")
         }
 
         // then
