@@ -42,22 +42,22 @@ class QueryVariable private constructor(
      * @param allValue optional value that will be used when *All* option is selected. Ignored by Grafana
      * when [includeAllValue] is false
      * @param tags used to group the values into selectable tags
-     * @param currentVariableValue the default value for variable
+     * @param current the default value for variable
      */
     constructor(
-            name: String,
-            displayName: String?,
-            hidingMode: HidingMode,
-            query: String,
-            datasource: Datasource,
-            refreshMode: RefreshMode,
-            regex: String?,
-            sortOrder: SortOrder,
-            multiValuesAllowed: Boolean,
-            includeAllValue: Boolean,
-            allValue: String?,
-            tags: VariableTags?,
-            current: CurrentVariableValue?
+        name: String,
+        displayName: String?,
+        hidingMode: HidingMode,
+        query: String,
+        datasource: Datasource,
+        refreshMode: RefreshMode,
+        regex: String?,
+        sortOrder: SortOrder,
+        multiValuesAllowed: Boolean,
+        includeAllValue: Boolean,
+        allValue: String?,
+        tags: VariableTags?,
+        current: CurrentVariableValue?
     ) : this(
         delegate = VariableWithQuery(
             delegate = BaseVariable(
