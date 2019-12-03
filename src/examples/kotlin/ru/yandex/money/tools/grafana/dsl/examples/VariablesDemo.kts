@@ -5,6 +5,7 @@ import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
 import ru.yandex.money.tools.grafana.dsl.variables.HidingMode
+import ru.yandex.money.tools.grafana.dsl.variables.CurrentVariableValue
 import ru.yandex.money.tools.grafana.dsl.variables.VariableTags
 import ru.yandex.money.tools.grafana.dsl.variables.VariableValue
 
@@ -53,5 +54,10 @@ dashboard(title = "Grafana Variables Demo") {
     /* Query variable with grouped values by tags */
     val variable by variables.query(datasource = Zabbix, query = "App version") {
         tags = VariableTags("*.*", "*.\$tag")
+    }
+
+    /* Query variable with default value */
+    val branch by variables.query(datasource = Zabbix, query = "*.*.jenkins.gradle.bitbucket.backend.component.*") {
+        current = CurrentVariableValue("dev")
     }
 }

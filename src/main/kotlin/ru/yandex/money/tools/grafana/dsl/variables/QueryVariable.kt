@@ -19,7 +19,8 @@ class QueryVariable private constructor(
     private val multiValuesAllowed: Boolean,
     private val includeAllValue: Boolean,
     private val allValue: String?,
-    private val tags: VariableTags?
+    private val tags: VariableTags?,
+    private val current: CurrentVariableValue?
 ) : Variable by delegate {
 
     /**
@@ -41,20 +42,22 @@ class QueryVariable private constructor(
      * @param allValue optional value that will be used when *All* option is selected. Ignored by Grafana
      * when [includeAllValue] is false
      * @param tags used to group the values into selectable tags
+     * @param currentVariableValue the default value for variable
      */
     constructor(
-        name: String,
-        displayName: String?,
-        hidingMode: HidingMode,
-        query: String,
-        datasource: Datasource,
-        refreshMode: RefreshMode,
-        regex: String?,
-        sortOrder: SortOrder,
-        multiValuesAllowed: Boolean,
-        includeAllValue: Boolean,
-        allValue: String?,
-        tags: VariableTags?
+            name: String,
+            displayName: String?,
+            hidingMode: HidingMode,
+            query: String,
+            datasource: Datasource,
+            refreshMode: RefreshMode,
+            regex: String?,
+            sortOrder: SortOrder,
+            multiValuesAllowed: Boolean,
+            includeAllValue: Boolean,
+            allValue: String?,
+            tags: VariableTags?,
+            current: CurrentVariableValue?
     ) : this(
         delegate = VariableWithQuery(
             delegate = BaseVariable(
@@ -72,7 +75,8 @@ class QueryVariable private constructor(
         multiValuesAllowed = multiValuesAllowed,
         includeAllValue = includeAllValue,
         allValue = allValue,
-        tags = tags
+        tags = tags,
+        current = current
     )
 
     override fun toJson() = jsonObject(delegate.toJson()) {
@@ -87,6 +91,9 @@ class QueryVariable private constructor(
         }
         if (tags != null) {
             embed(tags)
+        }
+        if (current != null) {
+            "current" to current
         }
     }
 
@@ -113,5 +120,7 @@ class QueryVariable private constructor(
         var allValue: String? = null
 
         var tags: VariableTags? = null
+
+        var current: CurrentVariableValue? = null
     }
 }

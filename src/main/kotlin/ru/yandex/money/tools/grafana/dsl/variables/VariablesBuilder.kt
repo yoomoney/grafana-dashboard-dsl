@@ -65,7 +65,8 @@ class VariablesBuilder {
                 multiValuesAllowed = builder.multiValuesAllowed,
                 includeAllValue = builder.includeAllValue,
                 allValue = builder.allValue,
-                tags = builder.tags
+                tags = builder.tags,
+                current = builder.current
             )
         }
     }
