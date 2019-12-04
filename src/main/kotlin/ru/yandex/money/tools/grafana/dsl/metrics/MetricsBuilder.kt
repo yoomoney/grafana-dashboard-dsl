@@ -1,6 +1,5 @@
 package ru.yandex.money.tools.grafana.dsl.metrics
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 import ru.yandex.money.tools.grafana.dsl.DashboardElement
 import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
 import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
@@ -19,7 +18,6 @@ class MetricsBuilder<DatasourceT : Datasource> {
         metrics += ReferencedDashboardMetric(fn(), referenceId ?: generateMetricId(), hidden)
     }
 
-    @SuppressFBWarnings("BC_BAD_CAST_TO_ABSTRACT_COLLECTION", "RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE")
     private fun generateMetricId(): String {
         var generatedId: String
         do {
