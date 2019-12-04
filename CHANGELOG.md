@@ -1,5 +1,8 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add graphite functions: `AliasByMetric`, `Derivative`, `NonNegativeDerivative`
+* Add `fillGradient` field to `GraphPanelBuilder`
+* Make `referenceId` param optional in `MetricsBuilder#metric` by auto generation (sequence 'A'..'Z') 
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.12.0]() (03-12-2019)
 

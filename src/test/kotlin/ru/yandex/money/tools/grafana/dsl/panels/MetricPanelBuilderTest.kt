@@ -84,8 +84,8 @@ class MetricPanelBuilderTest : AbstractPanelTest() {
         // when
         testContainer.metricPanel(title = "Test Panel") {
             metrics {
-                metric("A") { "*.*.oil-gate.requests.incoming.*.*.process_time.*.count" aliasByNode 0 }
-                metric("B") { "*.*.oil-gate.requests.incoming.*.*.process_time.*.count" aliasByNode 1 }
+                metric { "*.*.oil-gate.requests.incoming.*.*.process_time.*.count" aliasByNode 0 }
+                metric { "*.*.oil-gate.requests.incoming.*.*.process_time.*.count" aliasByNode 1 }
             }
         }
 
@@ -104,7 +104,7 @@ class MetricPanelBuilderTest : AbstractPanelTest() {
         testContainer.metricPanel(title = "Test Panel") {
             metrics {
                 val refMetric = "*.*.oil-gate.requests.incoming.*.*.process_time.*.count1" aliasByNode 0
-                metric("A") {
+                metric {
                     "*.*.oil-gate.requests.incoming.*.*.process_time.*.count2" aliasByNode 1 asPercent refMetric
                 }
             }

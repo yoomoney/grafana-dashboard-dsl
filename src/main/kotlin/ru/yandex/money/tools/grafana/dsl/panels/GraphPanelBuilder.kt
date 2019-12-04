@@ -49,6 +49,8 @@ class GraphPanelBuilder(
 
     var fill = 1
 
+    var fillGradient = 0
+
     var lineWidth = 1
 
     var staircase = false
@@ -121,6 +123,7 @@ class GraphPanelBuilder(
             pointradius = pointradius,
             nullValue = nullValue,
             fill = fill,
+            fillGradient = fillGradient,
             lineWidth = lineWidth,
             staircase = staircase,
             hoverTooltip = hoverTooltip,

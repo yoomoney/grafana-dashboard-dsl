@@ -27,6 +27,7 @@ class GraphPanel(
     private val pointradius: Int = 5,
     private val nullValue: NullValue = NullValue.NULL,
     private val fill: Int = 1,
+    private val fillGradient: Int = 0,
     private val lineWidth: Int = 1,
     private val staircase: Boolean = false,
     private val hoverTooltip: HoverTooltip = HoverTooltip(),
@@ -55,6 +56,7 @@ class GraphPanel(
         "percentage" to false
         "renderer" to "flot"
         "fill" to fill
+        "fillGradient" to fillGradient
         "seriesOverrides" to JsonArray(seriesOverrides)
         "thresholds" to emptyJsonArray()
         "timeShift" to timeShift?.toString()
