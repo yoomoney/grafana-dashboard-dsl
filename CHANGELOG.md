@@ -1,9 +1,9 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.13.0]() (04-12-2019)
+
 * Add graphite functions: `AliasByMetric`, `Derivative`, `NonNegativeDerivative`
 * Add `fillGradient` field to `GraphPanelBuilder`
-* Make `referenceId` param optional in `MetricsBuilder#metric` by auto generation (sequence 'A'..'Z') 
-### NEXT_VERSION_DESCRIPTION_END
+* Make `referenceId` param optional in `MetricsBuilder#metric` by auto generation (sequence 'A'..'Z')
+
 ## [2.12.0]() (03-12-2019)
 
 * Added `current` field of type `CurrentVariableValue` in class `QueryVariable` used to set default value for this variable type
