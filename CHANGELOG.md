@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=PATCH
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.13.1]() (04-12-2019)
+
 * Replace static code analyzer from `spotbugs` to `detekt`
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.13.0]() (04-12-2019)
 
 * Add graphite functions: `AliasByMetric`, `Derivative`, `NonNegativeDerivative`
