@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=PATCH
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Replace static code analyzer from `spotbugs` to `detekt`
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.13.0]() (04-12-2019)
 
