@@ -258,7 +258,7 @@ dashboard(title = "Grafana Demo Layouts") {
             }
         }
 
-        row(title = "Repeating panels") {
+        row(title = "Repeating panels/ Grafana 5.4 and leter") {
 
             graphPanel(title = "Graph Metric in histogram mode") {
                 bounds = 24 to 18
@@ -269,6 +269,29 @@ dashboard(title = "Grafana Demo Layouts") {
                 xAxis = XAxis(mode = Histogram(buckets = 10))
                 repeat(graphiteHosts) {
                     direction = Horizontal(6)
+                }
+                metrics {
+                    metric("A") {
+                        "*.another.metric.mean"
+                            .groupByNodes(0)
+                            .consolidateBy(MAX)
+                            .alias("another metric") // define alias
+                    }
+                }
+            }
+        }
+
+        row(title = "Repeating panels / Grafana 6.0 and newer") {
+
+            graphPanel(title = "Graph Metric in histogram mode") {
+                bounds = 24 to 18
+                fill = 1 // Fill rate
+                staircase = true // enable staircase line vizualization
+                decimals = 2 // set decimal precision
+                nullValue = NullValue.NULL // How to show null values
+                xAxis = XAxis(mode = Histogram(buckets = 10))
+                repeat(graphiteHosts) {
+                    direction = Horizontal(maxPerRow = 6)
                 }
                 metrics {
                     metric("A") {
