@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [2.14.0]() (12-12-2019)
 
 * Update repeating panels. Grafana 6.0 and newer `minSpan` replaced by property `maxPerRow`.
