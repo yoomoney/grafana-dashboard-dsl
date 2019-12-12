@@ -1,8 +1,8 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
-* Update repeating panels. Grafana 6.0 and newer `minSpan` replaced by property `maxPerRow`. 
-  Set `maxPerRow` to tell grafana how many panels per row you want at most.
-### NEXT_VERSION_DESCRIPTION_END
+## [2.14.0]() (12-12-2019)
+
+* Update repeating panels. Grafana 6.0 and newer `minSpan` replaced by property `maxPerRow`.
+Set `maxPerRow` to tell grafana how many panels per row you want at most.
+
 ## [2.13.1]() (04-12-2019)
 
 * Replace static code analyzer from `spotbugs` to `detekt`
