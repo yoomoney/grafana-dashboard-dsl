@@ -604,4 +604,23 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
         }
         expectedDashboard shouldEqualToJson jsonFile("RepeatingGraphPanel.json")
     }
+
+    @Test
+    fun `should create repeating graph panel for grafana 6_0 and newer`() {
+
+        val expectedDashboard = dashboard("repeat horizontal") {
+
+            val hosts by variables.custom("host1", "host2")
+            panels {
+                graphPanel(title = "Histogram Panel") {
+                    description = "description panel"
+                    repeat(hosts) {
+                        direction = Horizontal(maxPerRow = 4)
+                    }
+                    xAxis = XAxis(mode = Histogram(buckets = 10))
+                }
+            }
+        }
+        expectedDashboard shouldEqualToJson jsonFile("RepeatingGraphPanelWithMaxPerRow.json")
+    }
 }
