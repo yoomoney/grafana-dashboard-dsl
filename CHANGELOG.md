@@ -1,5 +1,13 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add an `alignTo` attribute to the `summarize` function 
+* Add graphite function `Group`. Takes an arbitrary number of seriesLists and adds them to a single seriesList.
+* Add `TablePanel` class and builder.
+  The table panel is very flexible, supporting both multiple modes for time series as well as for table, 
+  annotation and raw JSON data. 
+  It also provides date formatting and value formatting and coloring options.  
+  See usage examples in `GrafanaDemoLayouts.kts`
+
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.14.0]() (12-12-2019)
 

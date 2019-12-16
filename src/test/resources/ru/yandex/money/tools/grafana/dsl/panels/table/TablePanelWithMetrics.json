@@ -1,0 +1,36 @@
+{
+  "editable": true,
+  "columns": [],
+  "nullPointMode": "null",
+  "title": "Test Panel",
+  "type": "table",
+  "targets": [
+    {
+      "hide": true,
+      "refId": "A",
+      "target": "aliasByNode(summarize(groupByNodes(*.*.service.processes.system.session-query.*.*.unknown_session.succeeded.count, 'sum', 7), '24h', 'sum'), 0)"
+    },
+    {
+      "hide": true,
+      "refId": "B",
+      "target": "aliasByNode(summarize(groupByNodes(*.*.service.processes.system.session-query.*.*.*.succeeded.count, 'sum', 7), '24h', 'sum'), 0)"
+    },
+    {
+      "hide": false,
+      "refId": "C",
+      "target": "groupByNode(group(scale(#A, 100.0),#B), 0, 'divideSeries')"
+    }
+  ],
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  },
+  "transform": "timeseries_aggregations",
+  "datasource": "Graphite",
+  "links": [],
+  "fontSize": "100%",
+  "styles": [],
+  "id": 1
+}

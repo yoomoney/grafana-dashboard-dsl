@@ -1,0 +1,55 @@
+{
+  "editable": true,
+  "columns": [
+    {
+      "text": "Current",
+      "value": "current"
+    }
+  ],
+  "nullPointMode": "null",
+  "title": "Test Panel",
+  "type": "table",
+  "targets": [
+    {
+      "hide": true,
+      "refId": "A",
+      "target": "aliasByNode(summarize(groupByNodes(*.*.service.processes.system.session-query.*.*.unknown_session.succeeded.count, 'sum', 7), '24h', 'sum'), 0)"
+    },
+    {
+      "hide": true,
+      "refId": "B",
+      "target": "aliasByNode(summarize(groupByNodes(*.*.service.processes.system.session-query.*.*.*.succeeded.count, 'sum', 7), '24h', 'sum'), 0)"
+    },
+    {
+      "hide": false,
+      "refId": "C",
+      "target": "groupByNode(group(scale(#A, 100.0),#B), 0, 'divideSeries')"
+    }
+  ],
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  },
+  "timeFrom": "1h",
+  "transform": "timeseries_aggregations",
+  "datasource": "Graphite",
+  "links": [],
+  "fontSize": "100%",
+  "styles": [
+    {
+      "pattern": "Current",
+      "unit": "percent",
+      "type": "number",
+      "decimals": 2
+    },
+    {
+      "pattern": "/.*/",
+      "unit": "short",
+      "type": "number",
+      "decimals": 2
+    }
+  ],
+  "id": 1
+}

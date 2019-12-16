@@ -44,6 +44,15 @@ class SummarizeTest {
         metric.asString() shouldEqual "summarize(*.*.oil-gate.requests.incoming.*.*.process_time.*.count, '$${FakeVariable.name}', 'sum')"
     }
 
+    @Test
+    fun `should create metric from variable and function with alignTo`() {
+        // given
+        val metric = "*.*.oil-gate.requests.incoming.*.*.process_time.*.count".summarize(FakeVariable, "avg", true)
+
+        // then
+        metric.asString() shouldEqual "summarize(*.*.oil-gate.requests.incoming.*.*.process_time.*.count, '$${FakeVariable.name}', 'avg', true)"
+    }
+
     private object FakeVariable : Variable {
 
         override fun toJson(): JSONObject {
