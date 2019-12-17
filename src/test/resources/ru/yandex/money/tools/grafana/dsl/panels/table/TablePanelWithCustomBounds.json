@@ -1,0 +1,20 @@
+{
+  "editable": true,
+  "columns": [],
+  "nullPointMode": "null",
+  "title": "Test Panel",
+  "type": "table",
+  "targets": [],
+  "gridPos": {
+    "x": 0,
+    "h": 8,
+    "y": 0,
+    "w": 12
+  },
+  "transform": "timeseries_aggregations",
+  "datasource": "Graphite",
+  "links": [],
+  "fontSize": "100%",
+  "styles": [],
+  "id": 1
+}

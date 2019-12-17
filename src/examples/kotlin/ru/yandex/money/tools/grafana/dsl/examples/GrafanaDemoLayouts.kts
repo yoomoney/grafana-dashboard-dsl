@@ -13,11 +13,14 @@ import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.asPercent
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.averageSeries
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.consolidateBy
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.group
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.groupByNode
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.groupByNodes
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.movingMedian
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.perSecond
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.scale
 import ru.yandex.money.tools.grafana.dsl.metrics.functions.sortByTotal
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.summarize
 import ru.yandex.money.tools.grafana.dsl.panels.Color
 import ru.yandex.money.tools.grafana.dsl.panels.ContentMode
 import ru.yandex.money.tools.grafana.dsl.panels.Histogram
@@ -31,6 +34,7 @@ import ru.yandex.money.tools.grafana.dsl.panels.graphPanel
 import ru.yandex.money.tools.grafana.dsl.panels.metricPanel
 import ru.yandex.money.tools.grafana.dsl.panels.repeat.Horizontal
 import ru.yandex.money.tools.grafana.dsl.panels.singleStat
+import ru.yandex.money.tools.grafana.dsl.panels.tablePanel
 import ru.yandex.money.tools.grafana.dsl.panels.textPanel
 import ru.yandex.money.tools.grafana.dsl.time.h
 import ru.yandex.money.tools.grafana.dsl.time.m
@@ -323,6 +327,40 @@ dashboard(title = "Grafana Demo Layouts") {
             textPanel("Description") {
                 mode = ContentMode.MARKDOWN
                 content = "### Text Panel with MD content"
+            }
+        }
+
+        row(title = "Table Panel") {
+            tablePanel(title = "Test Panel") {
+                timeFrom = 1.h
+
+                metrics {
+                    metric("A", hidden = true) {
+                        "*.*.service.processes.system.session-query.*.*.unknown_session.succeeded.count"
+                            .groupByNodes("sum", 7).summarize(24.h, "sum").aliasByNode(0)
+                    }
+                    metric("B", hidden = true) {
+                        "*.*.service.processes.system.session-query.*.*.*.succeeded.count"
+                            .groupByNodes("sum", 7).summarize(24.h, "sum").aliasByNode(0)
+                    }
+                    metric {
+                        ("#A" scale 100.0).group("#B").groupByNode(0, "divideSeries")
+                    }
+                }
+
+                columns {
+                    "current" to "Current"
+                }
+
+                styles {
+                    style("Current") {
+                        unit = YAxis.Unit.PERCENT_0_100
+                        decimals = 2
+                    }
+                    style("/.*/") {
+                        decimals = 2
+                    }
+                }
             }
         }
     }
