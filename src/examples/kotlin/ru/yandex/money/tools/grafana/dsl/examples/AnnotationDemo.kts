@@ -1,7 +1,9 @@
 package ru.yandex.money.tools.grafana.dsl.examples
 
+import ru.yandex.money.tools.grafana.dsl.annotations.graphite
 import ru.yandex.money.tools.grafana.dsl.annotations.zabbix
 import ru.yandex.money.tools.grafana.dsl.dashboard
+import ru.yandex.money.tools.grafana.dsl.metrics.functions.aliasByNode
 import ru.yandex.money.tools.grafana.dsl.panels.Color
 
 dashboard(title = "Grafana Annotations Demo") {
@@ -43,6 +45,13 @@ dashboard(title = "Grafana Annotations Demo") {
                 trigger = "/release-fail/"
 
                 showHostName = true // Show host name in annotation mark's tooltip
+            }
+        }
+
+        // Graphite annotation
+        annotation(name = "Basic graphite annotation") {
+            graphite {
+                targetQuery = "*.*.some_event".aliasByNode(2, 3)
             }
         }
     }

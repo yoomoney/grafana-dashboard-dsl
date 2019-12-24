@@ -1,0 +1,8 @@
+{
+  "datasource": "Graphite",
+  "name": "test graphite",
+  "iconColor": "rgba(191,27,0,1)",
+  "enable": true,
+  "hide": false,
+  "target": "aliasByNode(*.*.some_event, 2, 3)"
+}

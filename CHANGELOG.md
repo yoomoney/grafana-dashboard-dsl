@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add the ability to configure dashboard annotation with Graphite datasource. See `AnnotationDemo.kts`
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.15.0]() (17-12-2019)
 
