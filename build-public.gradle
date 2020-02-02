@@ -1,5 +1,5 @@
 buildscript {
-    System.setProperty('kotlinVersion', '1.2.50')
+    System.setProperty('kotlinVersion', '1.3.50')
     repositories {
         jcenter()
         dependencies {
@@ -17,11 +17,11 @@ repositories {
     jcenter()
 }
 
-task wrapper(type: Wrapper) {
+wrapper {
     distributionType = Wrapper.DistributionType.ALL
     jarFile = "${project.projectDir}/gradle-public/wrapper/gradle-wrapper.jar"
     scriptFile = "${project.projectDir}/gradlew-public"
-    gradleVersion = '4.10.2'
+    gradleVersion = '6.0.1'
 }
 
 apply plugin: 'maven'
