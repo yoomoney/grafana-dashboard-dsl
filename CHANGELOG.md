@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.17.0]() (03-02-2020)
+
 * Update gradle version 4.10.2 -> 6.0.1
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.16.0]() (24-12-2019)
 
 * Add the ability to configure dashboard annotation with Graphite datasource. See `AnnotationDemo.kts`
