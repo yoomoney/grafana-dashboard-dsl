@@ -10,3 +10,7 @@ artifactID = "yamoney-grafana-dashboard-dsl"
 
 apply from: 'dependencies.gradle'
 apply from: 'examples.gradle'
+
+releaseSettings {
+    addPullRequestLinkToChangelog = false
+}
