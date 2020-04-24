@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.19.0]() (24-04-2020)
+
 * Add `keepLastValue` graphite function implementation
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.18.1]() (27-02-2020)
 
 * Don't add bibucket pull request link into changelog.md on release
