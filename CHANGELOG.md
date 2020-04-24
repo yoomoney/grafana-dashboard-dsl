@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add `keepLastValue` graphite function implementation
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.18.1]() (27-02-2020)
 
