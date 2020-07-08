@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.20.0]() (08-07-2020)
+
 * Обновлена версия gradle 6.0.1 -> 6.4.1.
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.19.0]() (24-04-2020)
 
 * Add `keepLastValue` graphite function implementation
