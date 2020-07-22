@@ -18,11 +18,11 @@
         {
           "mode": 2,
           "item": {
-            "filter": "/service version/"
+            "filter": "Application dynamic config version"
           },
           "useCaptureGroups": false,
           "application": {
-            "filter": "/App acquirer Ping General/"
+            "filter": "Application data"
           },
           "functions": [],
           "host": {
@@ -33,7 +33,8 @@
           },
           "group": {
             "filter": "/.*/"
-          }
+          },
+          "textFilter": ".{11}"
         }
       ],
       "gridPos": {
