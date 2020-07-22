@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [2.21.0]() (22-07-2020)
 
 * `Zabbix` datasource metric with `Text` query mode now support parameter `textFilter`.
