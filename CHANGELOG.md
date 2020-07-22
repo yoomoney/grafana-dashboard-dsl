@@ -1,9 +1,10 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* `Zabbix` datasource metric with `Text` query mode now support parameter `textFilter`.
 ### NEXT_VERSION_DESCRIPTION_END
 ## [2.20.0]() (08-07-2020)
 
-* Обновлена версия gradle 6.0.1 -> 6.4.1.
+* Update gradle version 6.0.1 -> 6.4.1.
 
 ## [2.19.0]() (24-04-2020)
 
@@ -15,7 +16,7 @@
 
 ## [2.18.0]() (07-02-2020)
 
-* Сборка на java 11
+* Added java 11 support
 
 ## [2.17.0]() (03-02-2020)
 
