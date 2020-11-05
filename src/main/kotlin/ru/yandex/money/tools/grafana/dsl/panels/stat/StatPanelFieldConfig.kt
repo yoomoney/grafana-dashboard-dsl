@@ -11,9 +11,10 @@ import ru.yandex.money.tools.grafana.dsl.panels.NullValue
  * @author Aleksey Matveev
  * @since 02.10.2020
  */
-class StatPanelFieldConfig(private val thresholds: Thresholds = Thresholds(),
-                           private val mappings: List<Mapping> = emptyList(),
-                           private val nullValueMode: NullValue = NullValue.NULL
+class StatPanelFieldConfig(
+    private val thresholds: Thresholds = Thresholds(),
+    private val mappings: List<Mapping> = emptyList(),
+    private val nullValueMode: NullValue = NullValue.NULL
 ) : Json<JSONObject> {
     override fun toJson(): JSONObject = jsonObject {
         "defaults" to jsonObject {

@@ -9,11 +9,13 @@ import ru.yandex.money.tools.grafana.dsl.json.jsonObject
  * @author Aleksey Matveev
  * @since 02.10.2020
  */
-class StatPanelDisplayOptions(private val colorMode: ColorMode = ColorMode.VALUE,
-                              private val orientation: Orientation = Orientation.HORIZONTAL,
-                              private val textMode: TextMode = TextMode.AUTO,
-                              private val graphMode: GraphMode = GraphMode.NONE,
-                              private val justifyMode: JustifyMode = JustifyMode.AUTO) : Json<JSONObject> {
+class StatPanelDisplayOptions(
+    private val colorMode: ColorMode = ColorMode.VALUE,
+    private val orientation: Orientation = Orientation.HORIZONTAL,
+    private val textMode: TextMode = TextMode.AUTO,
+    private val graphMode: GraphMode = GraphMode.NONE,
+    private val justifyMode: JustifyMode = JustifyMode.AUTO
+) : Json<JSONObject> {
     override fun toJson(): JSONObject = jsonObject {
         "reduceOptions" to StatPanelReduceOptions()
         "orientation" to orientation.value
