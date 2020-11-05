@@ -89,7 +89,7 @@ class SingleStatPanelBuilder(
     }
 }
 
-@Deprecated("")
+@Deprecated("Single stat deprecated in Grafana 7.0")
 fun PanelContainerBuilder.singleStat(title: String, build: SingleStatPanelBuilder.() -> Unit) {
     val builder = SingleStatPanelBuilder(title, panelLayoutGenerator)
     builder.build()

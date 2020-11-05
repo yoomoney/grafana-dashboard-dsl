@@ -34,7 +34,11 @@ class StatPanelFieldConfigBuilder(private val nullValueMode: NullValue = NullVal
     var thresholds: Thresholds = Thresholds()
     var mappings: List<Mapping> = emptyList()
 
-    internal fun createStatPanelFieldConfig(): StatPanelFieldConfig = StatPanelFieldConfig(thresholds, mappings, nullValueMode)
+    internal fun createStatPanelFieldConfig(): StatPanelFieldConfig = StatPanelFieldConfig(
+        thresholds,
+        mappings,
+        nullValueMode
+    )
 
     fun thresholds(mode: ThresholdMode = ThresholdMode.ABSOLUTE, build: ThresholdsBuilder.() -> Unit) {
         val builder = ThresholdsBuilder(mode)

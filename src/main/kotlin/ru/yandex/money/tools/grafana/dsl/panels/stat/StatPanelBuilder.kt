@@ -7,7 +7,14 @@ import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
 import ru.yandex.money.tools.grafana.dsl.metrics.DashboardMetric
 import ru.yandex.money.tools.grafana.dsl.metrics.Metrics
 import ru.yandex.money.tools.grafana.dsl.metrics.MetricsBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.*
+import ru.yandex.money.tools.grafana.dsl.panels.AdditionalPropertiesPanel
+import ru.yandex.money.tools.grafana.dsl.panels.Panel
+import ru.yandex.money.tools.grafana.dsl.panels.PanelBuilder
+import ru.yandex.money.tools.grafana.dsl.panels.TimerangeBuilder
+import ru.yandex.money.tools.grafana.dsl.panels.Timerange
+import ru.yandex.money.tools.grafana.dsl.panels.MetricPanel
+import ru.yandex.money.tools.grafana.dsl.panels.BasePanel
+import ru.yandex.money.tools.grafana.dsl.panels.PanelContainerBuilder
 import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
 import ru.yandex.money.tools.grafana.dsl.panels.repeat.RepeatBuilder
 import ru.yandex.money.tools.grafana.dsl.variables.Variable
