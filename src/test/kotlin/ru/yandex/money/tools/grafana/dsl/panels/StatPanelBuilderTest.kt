@@ -56,7 +56,7 @@ class StatPanelBuilderTest {
                     fieldConfig {
                         thresholds(ThresholdMode.ABSOLUTE) {
                             steps {
-                                "null" to Color.RED
+                                0 to Color.RED
                             }
                         }
                         mappings {
@@ -108,7 +108,7 @@ class StatPanelBuilderTest {
                     fieldConfig {
                         thresholds(ThresholdMode.ABSOLUTE) {
                             steps {
-                                "null" to Color.RED
+                                0 to Color.RED
                             }
                         }
                         mappings {
