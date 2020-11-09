@@ -33,7 +33,7 @@ class ThresholdsBuilder(private val mode: ThresholdMode = ThresholdMode.ABSOLUTE
     fun createThresholds() = Thresholds(mode, steps)
 }
 
-class ThresholdsStep(private val value: Int = 0, private val color: Color = Color.GREEN) : Json<JSONObject> {
+class ThresholdsStep(private val value: String = "null", private val color: Color = Color.GREEN) : Json<JSONObject> {
 
     override fun toJson(): JSONObject = jsonObject {
         "value" to value
@@ -44,7 +44,7 @@ class ThresholdsStep(private val value: Int = 0, private val color: Color = Colo
 class ThresholdsStepBuilder {
     val steps = mutableListOf<ThresholdsStep>()
 
-    infix fun Int.to(color: Color) {
+    infix fun String.to(color: Color) {
         steps += ThresholdsStep(this, color)
     }
 }
