@@ -1,10 +1,9 @@
-package ru.yandex.money.tools.grafana.dsl.panels.stat
+package ru.yandex.money.tools.grafana.dsl.panels
 
 import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.JsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
-import ru.yandex.money.tools.grafana.dsl.panels.Color
 
 /**
  * Thresholds set the color of either the value text or the background depending on conditions that you define

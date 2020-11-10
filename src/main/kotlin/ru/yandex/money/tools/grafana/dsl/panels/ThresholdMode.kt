@@ -1,4 +1,4 @@
-package ru.yandex.money.tools.grafana.dsl.panels.stat
+package ru.yandex.money.tools.grafana.dsl.panels
 
 /**
  * Thresholds mode

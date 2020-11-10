@@ -3,6 +3,7 @@ package ru.yandex.money.tools.grafana.dsl.panels.stat
 import org.json.JSONObject
 import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
+import ru.yandex.money.tools.grafana.dsl.panels.Orientation
 
 /**
  * Options to refine visualization

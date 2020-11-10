@@ -7,6 +7,7 @@ import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
 
 /**
  * Stat panel presents text from defined metric
+ * https://grafana.com/docs/grafana/latest/panels/visualizations/stat-panel/
  * @author Aleksey Matveev
  * @since 29.10.2020
  */

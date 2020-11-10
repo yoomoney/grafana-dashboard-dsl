@@ -6,7 +6,6 @@ import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
 import ru.yandex.money.tools.grafana.dsl.jsonFile
 import ru.yandex.money.tools.grafana.dsl.panels.repeat.Horizontal
 import ru.yandex.money.tools.grafana.dsl.panels.stat.ColorMode
-import ru.yandex.money.tools.grafana.dsl.panels.stat.ThresholdMode
 import ru.yandex.money.tools.grafana.dsl.panels.stat.statPanel
 import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
 import ru.yandex.money.tools.grafana.dsl.variables.RefreshMode

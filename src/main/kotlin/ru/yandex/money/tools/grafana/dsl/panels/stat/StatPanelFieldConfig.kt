@@ -5,6 +5,9 @@ import ru.yandex.money.tools.grafana.dsl.json.Json
 import ru.yandex.money.tools.grafana.dsl.json.JsonArray
 import ru.yandex.money.tools.grafana.dsl.json.jsonObject
 import ru.yandex.money.tools.grafana.dsl.panels.NullValue
+import ru.yandex.money.tools.grafana.dsl.panels.ThresholdMode
+import ru.yandex.money.tools.grafana.dsl.panels.Thresholds
+import ru.yandex.money.tools.grafana.dsl.panels.ThresholdsBuilder
 
 /**
  * Used to change how the data is displayed in visualizations
