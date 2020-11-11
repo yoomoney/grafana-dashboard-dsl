@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.22.0]() (11-11-2020)
+
 * Added new Stat panel. Single stat now deprecated
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.21.0]() (22-07-2020)
 
 * `Zabbix` datasource metric with `Text` query mode now support parameter `textFilter`.
