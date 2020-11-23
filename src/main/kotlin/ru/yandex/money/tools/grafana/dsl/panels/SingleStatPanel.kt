@@ -8,6 +8,7 @@ import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
  * @author Aleksey Antufev
  * @since 24.09.2019
  */
+@Deprecated("Deprecated in Grafana 7.0")
 class SingleStatPanel(
     private val basePanel: Panel,
     private val valueMappings: ValueMappings = ValueMappings(ValueToTextType),
