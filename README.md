@@ -1,10 +1,8 @@
-[![Build Status](https://travis-ci.org/yandex-money-tech/grafana-dashboard-dsl.svg?branch=master)](https://travis-ci.org/yandex-money-tech/grafana-dashboard-dsl)
-[![Build status](https://ci.appveyor.com/api/projects/status/rm9w6w0jt994vyys?svg=true)](https://ci.appveyor.com/project/f0y/grafana-dashboard-dsl)
-[![codecov](https://codecov.io/gh/yandex-money-tech/grafana-dashboard-dsl/branch/master/graph/badge.svg)](https://codecov.io/gh/yandex-money-tech/grafana-dashboard-dsl)
-[![codebeat badge](https://codebeat.co/badges/8bb6412b-cef6-4808-962e-9f9bfa5a13ec)](https://codebeat.co/projects/github-com-yandex-money-tech-grafana-dashboard-dsl-master)
+[![Build Status](https://travis-ci.org/yoomoney-tech/grafana-dashboard-dsl.svg?branch=master)](https://travis-ci.org/yoomoney-tech/grafana-dashboard-dsl)
+[![codecov](https://codecov.io/gh/yoomoney-tech/grafana-dashboard-dsl/branch/master/graph/badge.svg)](https://codecov.io/gh/yoomoney-tech/grafana-dashboard-dsl)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Javadoc](https://img.shields.io/badge/javadoc-latest-blue.svg)](https://yandex-money-tech.github.io/grafana-dashboard-dsl/)
-[![Download](https://api.bintray.com/packages/yandex-money-tech/maven/grafana-dashboard-dsl/images/download.svg) ](https://bintray.com/yandex-money-tech/maven/grafana-dashboard-dsl/_latestVersion)
+[![Javadoc](https://img.shields.io/badge/javadoc-latest-blue.svg)](https://yoomoney-tech.github.io/grafana-dashboard-dsl/)
+[![Download](https://api.bintray.com/packages/yoomoney-tech/maven/grafana-dashboard-dsl/images/download.svg) ](https://bintray.com/yoomoney-tech/maven/grafana-dashboard-dsl/_latestVersion)
 
 # Grafana Dashboard DSL
 
@@ -22,7 +20,7 @@ Kotlin DSL for generating Grafana dashboards.
 
 ## Usage with gradle plugin
 
-See documentation at [Grafana Dashboard Plugin](https://github.com/yandex-money-tech/grafana-dashboard-plugin)
+See documentation at [Grafana Dashboard Plugin](https://github.com/yoomoney-tech/grafana-dashboard-plugin)
 
 ## Manual usage
 
@@ -36,14 +34,14 @@ sourceSets {
 }
 
 dependencies {
-    grafanaCompile 'com.yandex.money.tech:grafana-dashboard-dsl:1.8.0'    
+    grafanaCompile 'ru.yoomoney.tech:grafana-dashboard-dsl:1.8.0'    
 }
 ```
 
 Code for dashboards generation must be placed in `${projectDir}/src/grafana/kotlin/`. Generation performed manually:
 
 ```kotlin
-import ru.yandex.money.tools.grafana.dsl.dashboard
+import ru.yoomoney.tech. grafana.dsl.dashboard
 
 fun main(args: Array<String>) {
     println(dashboard(title = "My custom dashboard") {
@@ -54,19 +52,15 @@ fun main(args: Array<String>) {
 }
 ```
 
-## JSON Import
-
-![Import](https://raw.githubusercontent.com/yandex-money-tech/grafana-dashboard-dsl/master/import_optimized.gif)
-
 ## Examples
 
-Examples are in `./src/examples/kotlin/ru/yandex/money/tools/grafana/dsl/examples`
+Examples are in `./src/examples/kotlin/ru/yoomoney/tech/grafana/dsl/examples`
 
 ## Development
 
 To create new dashboards, panels, metrics, and others, create a class (usually with postfix `*Configuration` or`*Builder`),
-mark it with annotation `ru.yandex.money.tools.grafana.dsl.DashboardElement`, and create data-class for it's contents,
-that's implements `ru.yandex.money.tools.grafana.dsl.json.Json`
+mark it with annotation `ru.yoomoney.tech.grafana.dsl.DashboardElement`, and create data-class for it's contents,
+that's implements `ru.yoomoney.tech.grafana.dsl.json.Json`
 
 For example see `DashboardBuilder` and `Dashboard` classes
 
@@ -75,26 +69,3 @@ For example see `DashboardBuilder` and `Dashboard` classes
 Just fork the repo and send us a pull request.
 
 Make sure your branch builds without any warnings/issues.
-
-# How to build?
-
-See configuration for Travis (`.travis.yml`) or AppVeyor (`appveyor.yml`).
-There are two gradle projects in this repository:
-
-* Files `build.gradle`, `gradlew`, `gradle/wrapper` is for internal use in Yandex.Money infrastructure
-* Files `build-public.gradle`, `gradlew-public`, `gradle-public/wrapper` are for public use
-
-# Importing into IntelliJ IDEA
-
-Unfortunately, at this moment, intellij does not support this build configuration, so you have to change some files before importing:
-
-* Move `gradle-public/wrapper/gradle-wrapper.properties` into `gradle/wrapper/gradle-wrapper.properties`
-* Move `build-public.gradle` into `build.gradle`
-
-Vote for this issue [IDEA-199116](https://youtrack.jetbrains.net/issue/IDEA-199116), to make intellij support these types of configuration.
-
-# Contributors
-
-* Dmitriy Komarov (komarovdmitry@yamoney.ru)
-* Vasiliy Sozykin (vsozykin@yamoney.ru)
-* Dmitriy Pavlov (dupavlov@yamoney.ru)

@@ -76,7 +76,7 @@ See usage examples in `LinksDemo.kts`
 
 ## [2.8.0]() (17-10-2019)
 
-*  Some changes in Yandex.Money internal build cycle. No new functionality was added.
+*  Some changes in YooMoney internal build cycle. No new functionality was added.
 
 ## [2.7.1]() (10-10-2019)
 
@@ -264,7 +264,7 @@ Can also be customized `Value Mappings` and`Time Range` tabs and
 
 ## [1.9.0]() (15-05-2019)
 
-* Build configuration moved to `yamoney-kotlin-module-plugin`
+* Build configuration moved to `yoomoney-kotlin-module-plugin`
 
 ## [1.8.1]() (14-05-2019)
 

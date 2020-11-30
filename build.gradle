@@ -1,16 +1,166 @@
 buildscript {
-    apply from: 'project.gradle', to: buildscript
+    System.setProperty('kotlinVersion', '1.3.50')
+    repositories {
+        jcenter()
+        dependencies {
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${System.getProperty('kotlinVersion')}"
+        }
+    }
 }
-apply plugin: 'yamoney-library-project-plugin'
-apply plugin: 'yamoney-kotlin-module-plugin'
-/////////////////////////////////////////////
 
-groupIdSuffix = "tools"
-artifactID = "yamoney-grafana-dashboard-dsl"
+plugins {
+    id "com.jfrog.bintray" version "1.8.4"
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+    jarFile = "${project.projectDir}/gradle-public/wrapper/gradle-wrapper.jar"
+    scriptFile = "${project.projectDir}/gradlew-public"
+    gradleVersion = '6.0.1'
+}
+
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+apply plugin: 'kotlin'
 
 apply from: 'dependencies.gradle'
 apply from: 'examples.gradle'
 
-releaseSettings {
-    addPullRequestLinkToChangelog = false
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:${System.getProperty('kotlinVersion')}"
+    implementation "org.jetbrains.kotlin:kotlin-script-runtime:1.3.50"
+}
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Version': "$project.version",
+                'Implementation-Title': "$project.name",
+                'Built-By': java.lang.System.getProperty('user.name'),
+                'Built-Date': new Date().format('yyyy-MM-dd'),
+                'Copyright': '2020 NBCO YooMoney LLC',
+                'License': 'MIT'
+        )
+    }
+
+    from(projectDir.absolutePath) {
+        include "CHANGELOG.md", "README.md"
+        into "META-INF"
+    }
+}
+
+apply plugin: 'idea'
+idea {
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
+        vcs = 'Git'
+    }
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+test {
+    useTestNG()
+    systemProperty "file.encoding", "UTF-8"
+    testLogging {
+        events "skipped", "failed"
+        exceptionFormat "full"
+        showExceptions true
+        showCauses true
+        showStackTraces true
+    }
+}
+
+apply plugin: "jacoco"
+
+jacoco {
+    toolVersion = "0.8.2"
+}
+
+jacocoTestReport {
+    reports {
+        html.enabled = true
+        xml.enabled = true
+    }
+}
+check.dependsOn jacocoTestReport
+
+javadoc {
+    options {
+        docEncoding = 'UTF-8'
+        charSet = 'UTF-8'
+        encoding = 'UTF-8'
+        failOnError = true
+    }
+}
+
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar, javadocJar
+}
+
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            from components.java
+            groupId 'ru.yoomoney.tech'
+            artifactId 'grafana-dashboard-dsl'
+            version project.version
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
+
+bintrayUpload.onlyIf { !project.version.endsWith("-SNAPSHOT") }
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_API_KEY')
+    publications = ['MyPublication']
+
+    dryRun = false
+    publish = true
+    pkg {
+        name = 'grafana-dashboard-dsl'
+        repo = 'maven'
+        userOrg = 'yoomoney-tech'
+        desc = 'DSL in kotlin language for generating Grafana dashboards'
+        websiteUrl = 'https://github.com/yoomoney-tech/grafana-dashboard-dsl'
+        issueTrackerUrl = 'https://github.com/yoomoney-tech/grafana-dashboard-dsl/issues'
+        vcsUrl = 'https://github.com/yoomoney-tech/grafana-dashboard-dsl.git'
+        licenses = ['MIT']
+        labels = ['grafana', 'kotlin', 'dsl']
+        publicDownloadNumbers = true
+        githubRepo = 'yoomoney-tech/grafana-dashboard-dsl'
+        githubReleaseNotesFile = 'CHANGELOG.md'
+        version {
+            name = project.version
+            released = new Date()
+            vcsTag = project.version
+        }
+    }
 }
