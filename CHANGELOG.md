@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.23.0]() (01-12-2020)
+
 * Add `movingMax` graphite function implementation
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.22.0]() (11-11-2020)
 
 * Added new Stat panel. Single stat now deprecated
