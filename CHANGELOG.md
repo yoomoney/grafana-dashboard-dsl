@@ -1,8 +1,8 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.24.0]() (08-12-2020)
+
 * Add `removeAbovePercentile` graphite function implementation
 * Add `max` alert condition
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.23.0]() (01-12-2020)
 
 * Add `movingMax` graphite function implementation
