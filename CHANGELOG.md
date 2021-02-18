@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [2.25.0]() (18-02-2021)
+
 * Переименование yamoney-kotlin-module-plugin в ru.yoomoney.gradle.plugins.kotlin-plugin
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.24.0]() (08-12-2020)
 
 * Add `removeAbovePercentile` graphite function implementation
