@@ -1,4 +1,4 @@
-System.setProperty("platformLibraryProjectVersion", "5.+")
+System.setProperty("platformLibraryProjectVersion", "6.+")
 
 repositories {
     maven { url 'https://nexus.yamoney.ru/repository/gradle-plugins/' }
