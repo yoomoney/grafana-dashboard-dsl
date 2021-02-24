@@ -16,7 +16,8 @@ class ZabbixMetric private constructor(
     private val host: String = "",
     private val item: String = "",
     private val showDisabledItems: Boolean = false,
-    private val useCaptureGroups: Boolean = false
+    private val useCaptureGroups: Boolean = false,
+    private val textFilter: String? = null
 ) : DashboardMetric {
 
     override fun toJson() = jsonObject {
@@ -38,6 +39,9 @@ class ZabbixMetric private constructor(
             "showDisabledItems" to showDisabledItems
         }
         "useCaptureGroups" to useCaptureGroups
+        if (textFilter != null) {
+            "textFilter" to textFilter
+        }
     }
 
     @DashboardElement
@@ -53,6 +57,8 @@ class ZabbixMetric private constructor(
             var item = ""
 
             var showDisabledItems = false
+
+            var textFilter: String? = null
         }
 
         class Metric : QueryMode() {
@@ -77,7 +83,8 @@ class ZabbixMetric private constructor(
                 host = host,
                 item = item,
                 showDisabledItems = showDisabledItems,
-                useCaptureGroups = useCaptureGroups
+                useCaptureGroups = useCaptureGroups,
+                textFilter = textFilter
             )
         }
     }

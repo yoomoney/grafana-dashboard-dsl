@@ -33,9 +33,10 @@ class SingleStatPanelBuilderTest {
                     metrics<Zabbix> {
                         textQuery {
                             host = hosts.asVariable()
-                            application = "/App acquirer Ping General/"
-                            item = "/service version/"
+                            application = "Application data"
+                            item = "Application dynamic config version"
                             group = "/.*/"
+                            textFilter = ".{11}"
                         }
                     }
 
