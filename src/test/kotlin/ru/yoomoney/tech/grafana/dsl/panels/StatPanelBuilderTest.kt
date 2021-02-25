@@ -1,14 +1,14 @@
-package ru.yandex.money.tools.grafana.dsl.panels
+package ru.yoomoney.tech.grafana.dsl.panels
 
 import org.testng.annotations.Test
-import ru.yandex.money.tools.grafana.dsl.dashboard
-import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
-import ru.yandex.money.tools.grafana.dsl.jsonFile
-import ru.yandex.money.tools.grafana.dsl.panels.repeat.Horizontal
-import ru.yandex.money.tools.grafana.dsl.panels.stat.ColorMode
-import ru.yandex.money.tools.grafana.dsl.panels.stat.statPanel
-import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
-import ru.yandex.money.tools.grafana.dsl.variables.RefreshMode
+import ru.yoomoney.tech.grafana.dsl.dashboard
+import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
+import ru.yoomoney.tech.grafana.dsl.jsonFile
+import ru.yoomoney.tech.grafana.dsl.panels.repeat.Horizontal
+import ru.yoomoney.tech.grafana.dsl.panels.stat.ColorMode
+import ru.yoomoney.tech.grafana.dsl.panels.stat.statPanel
+import ru.yoomoney.tech.grafana.dsl.shouldEqualToJson
+import ru.yoomoney.tech.grafana.dsl.variables.RefreshMode
 
 /**
  * @author Aleksey Matveev

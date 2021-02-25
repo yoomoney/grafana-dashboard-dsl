@@ -1,16 +1,16 @@
-package ru.yandex.money.tools.grafana.dsl.panels
+package ru.yoomoney.tech.grafana.dsl.panels
 
 import org.json.JSONObject
-import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
-import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
-import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
-import ru.yandex.money.tools.grafana.dsl.metrics.DashboardMetric
-import ru.yandex.money.tools.grafana.dsl.metrics.Metrics
-import ru.yandex.money.tools.grafana.dsl.metrics.MetricsBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
-import ru.yandex.money.tools.grafana.dsl.panels.repeat.RepeatBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.stat.StatPanelDisplayOptions
-import ru.yandex.money.tools.grafana.dsl.variables.Variable
+import ru.yoomoney.tech.grafana.dsl.datasource.Datasource
+import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
+import ru.yoomoney.tech.grafana.dsl.generators.PanelLayoutGenerator
+import ru.yoomoney.tech.grafana.dsl.metrics.DashboardMetric
+import ru.yoomoney.tech.grafana.dsl.metrics.Metrics
+import ru.yoomoney.tech.grafana.dsl.metrics.MetricsBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.repeat.Repeat
+import ru.yoomoney.tech.grafana.dsl.panels.repeat.RepeatBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.stat.StatPanelDisplayOptions
+import ru.yoomoney.tech.grafana.dsl.variables.Variable
 
 /**
  * Builder for Singlestat tab

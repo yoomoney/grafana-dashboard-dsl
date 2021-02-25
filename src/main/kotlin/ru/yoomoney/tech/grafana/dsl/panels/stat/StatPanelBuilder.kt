@@ -1,23 +1,23 @@
-package ru.yandex.money.tools.grafana.dsl.panels.stat
+package ru.yoomoney.tech.grafana.dsl.panels.stat
 
 import org.json.JSONObject
-import ru.yandex.money.tools.grafana.dsl.datasource.Datasource
-import ru.yandex.money.tools.grafana.dsl.datasource.Zabbix
-import ru.yandex.money.tools.grafana.dsl.generators.PanelLayoutGenerator
-import ru.yandex.money.tools.grafana.dsl.metrics.DashboardMetric
-import ru.yandex.money.tools.grafana.dsl.metrics.Metrics
-import ru.yandex.money.tools.grafana.dsl.metrics.MetricsBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.AdditionalPropertiesPanel
-import ru.yandex.money.tools.grafana.dsl.panels.Panel
-import ru.yandex.money.tools.grafana.dsl.panels.PanelBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.TimerangeBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.Timerange
-import ru.yandex.money.tools.grafana.dsl.panels.MetricPanel
-import ru.yandex.money.tools.grafana.dsl.panels.BasePanel
-import ru.yandex.money.tools.grafana.dsl.panels.PanelContainerBuilder
-import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
-import ru.yandex.money.tools.grafana.dsl.panels.repeat.RepeatBuilder
-import ru.yandex.money.tools.grafana.dsl.variables.Variable
+import ru.yoomoney.tech.grafana.dsl.datasource.Datasource
+import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
+import ru.yoomoney.tech.grafana.dsl.generators.PanelLayoutGenerator
+import ru.yoomoney.tech.grafana.dsl.metrics.DashboardMetric
+import ru.yoomoney.tech.grafana.dsl.metrics.Metrics
+import ru.yoomoney.tech.grafana.dsl.metrics.MetricsBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.AdditionalPropertiesPanel
+import ru.yoomoney.tech.grafana.dsl.panels.Panel
+import ru.yoomoney.tech.grafana.dsl.panels.PanelBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.TimerangeBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.Timerange
+import ru.yoomoney.tech.grafana.dsl.panels.MetricPanel
+import ru.yoomoney.tech.grafana.dsl.panels.BasePanel
+import ru.yoomoney.tech.grafana.dsl.panels.PanelContainerBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.repeat.Repeat
+import ru.yoomoney.tech.grafana.dsl.panels.repeat.RepeatBuilder
+import ru.yoomoney.tech.grafana.dsl.variables.Variable
 
 /**
  * Builder for Stat tab

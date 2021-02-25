@@ -1,4 +1,4 @@
-package ru.yandex.money.tools.grafana.dsl.panels
+package ru.yoomoney.tech.grafana.dsl.panels
 
 /**
  * A stacking direction

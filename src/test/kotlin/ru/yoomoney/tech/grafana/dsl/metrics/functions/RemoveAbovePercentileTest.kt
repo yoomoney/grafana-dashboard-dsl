@@ -1,10 +1,10 @@
-package ru.yandex.money.tools.grafana.dsl.metrics.functions
+package ru.yoomoney.tech.grafana.dsl.metrics.functions
 
 import org.amshove.kluent.shouldEqual
 import org.testng.annotations.Test
 
 /**
- * Test for [ru.yandex.money.tools.grafana.dsl.metrics.functions.RemoveAbovePercentile]
+ * Test for [ru.yoomoney.tech.grafana.dsl.metrics.functions.RemoveAbovePercentile]
  * @author abramovgerman
  * @since 02.12.2020
  */

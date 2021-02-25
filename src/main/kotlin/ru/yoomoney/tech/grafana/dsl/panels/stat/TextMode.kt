@@ -1,4 +1,4 @@
-package ru.yandex.money.tools.grafana.dsl.panels.stat
+package ru.yoomoney.tech.grafana.dsl.panels.stat
 
 /**
  * Used to control what text the panel renders

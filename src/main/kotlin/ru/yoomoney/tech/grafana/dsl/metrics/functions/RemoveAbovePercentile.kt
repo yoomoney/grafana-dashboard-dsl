@@ -1,6 +1,6 @@
-package ru.yandex.money.tools.grafana.dsl.metrics.functions
+package ru.yoomoney.tech.grafana.dsl.metrics.functions
 
-import ru.yandex.money.tools.grafana.dsl.metrics.Metric
+import ru.yoomoney.tech.grafana.dsl.metrics.Metric
 
 /**
  * Generator for removeAbovePercentile function for graphite.

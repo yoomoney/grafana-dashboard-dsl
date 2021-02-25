@@ -1,13 +1,13 @@
-package ru.yandex.money.tools.grafana.dsl.panels.alerting
+package ru.yoomoney.tech.grafana.dsl.panels.alerting
 
 import org.testng.annotations.Test
-import ru.yandex.money.tools.grafana.dsl.jsonFile
-import ru.yandex.money.tools.grafana.dsl.metrics.ReferencedDashboardMetric
-import ru.yandex.money.tools.grafana.dsl.metrics.functions.sumSeries
-import ru.yandex.money.tools.grafana.dsl.shouldEqualToJson
+import ru.yoomoney.tech.grafana.dsl.jsonFile
+import ru.yoomoney.tech.grafana.dsl.metrics.ReferencedDashboardMetric
+import ru.yoomoney.tech.grafana.dsl.metrics.functions.sumSeries
+import ru.yoomoney.tech.grafana.dsl.shouldEqualToJson
 
 /**
- * Тест для [ru.yandex.money.tools.grafana.dsl.panels.alerting.MaxCondition]
+ * Тест для [ru.yoomoney.tech.grafana.dsl.panels.alerting.MaxCondition]
  * @author abramovgerman
  * @since 02.12.2020
  */

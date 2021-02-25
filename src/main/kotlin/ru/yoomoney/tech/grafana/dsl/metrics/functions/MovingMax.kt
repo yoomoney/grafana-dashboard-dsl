@@ -1,8 +1,9 @@
-package ru.yandex.money.tools.grafana.dsl.metrics.functions
+package ru.yoomoney.tech.grafana.dsl.metrics.functions
 
-import ru.yandex.money.tools.grafana.dsl.metrics.Metric
-import ru.yandex.money.tools.grafana.dsl.time.Duration
-import ru.yandex.money.tools.grafana.dsl.variables.Variable
+import ru.yoomoney.tech.grafana.dsl.metrics.Metric
+import ru.yoomoney.tech.grafana.dsl.metrics.functions.StringMetric
+import ru.yoomoney.tech.grafana.dsl.time.Duration
+import ru.yoomoney.tech.grafana.dsl.variables.Variable
 
 /**
  * Generator for movingMax function for graphite. movingMax accepts metrics and

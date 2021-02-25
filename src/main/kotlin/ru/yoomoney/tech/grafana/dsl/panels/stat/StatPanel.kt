@@ -1,9 +1,9 @@
-package ru.yandex.money.tools.grafana.dsl.panels.stat
+package ru.yoomoney.tech.grafana.dsl.panels.stat
 
-import ru.yandex.money.tools.grafana.dsl.json.jsonObject
-import ru.yandex.money.tools.grafana.dsl.panels.Panel
-import ru.yandex.money.tools.grafana.dsl.panels.Timerange
-import ru.yandex.money.tools.grafana.dsl.panels.repeat.Repeat
+import ru.yoomoney.tech.grafana.dsl.json.jsonObject
+import ru.yoomoney.tech.grafana.dsl.panels.Panel
+import ru.yoomoney.tech.grafana.dsl.panels.Timerange
+import ru.yoomoney.tech.grafana.dsl.panels.repeat.Repeat
 
 /**
  * Stat panel presents text from defined metric

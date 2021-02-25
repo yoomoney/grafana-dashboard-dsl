@@ -1,8 +1,8 @@
-package ru.yandex.money.tools.grafana.dsl.panels.stat
+package ru.yoomoney.tech.grafana.dsl.panels.stat
 
 import org.json.JSONObject
-import ru.yandex.money.tools.grafana.dsl.json.Json
-import ru.yandex.money.tools.grafana.dsl.json.jsonObject
+import ru.yoomoney.tech.grafana.dsl.json.Json
+import ru.yoomoney.tech.grafana.dsl.json.jsonObject
 
 /**
  * Value mapping interface

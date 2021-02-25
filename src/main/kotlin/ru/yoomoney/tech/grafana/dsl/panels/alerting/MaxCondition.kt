@@ -1,7 +1,7 @@
-package ru.yandex.money.tools.grafana.dsl.panels.alerting
+package ru.yoomoney.tech.grafana.dsl.panels.alerting
 
 import org.json.JSONObject
-import ru.yandex.money.tools.grafana.dsl.json.set
+import ru.yoomoney.tech.grafana.dsl.json.set
 
 /**
  * Generator for max alert condition.

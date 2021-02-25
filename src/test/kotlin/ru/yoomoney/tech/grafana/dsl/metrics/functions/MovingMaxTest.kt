@@ -1,8 +1,8 @@
-package ru.yandex.money.tools.grafana.dsl.metrics.functions
+package ru.yoomoney.tech.grafana.dsl.metrics.functions
 
 import org.amshove.kluent.shouldEqual
 import org.testng.annotations.Test
-import ru.yandex.money.tools.grafana.dsl.time.m
+import ru.yoomoney.tech.grafana.dsl.time.m
 
 /**
  * @author Aleksey Matveev
