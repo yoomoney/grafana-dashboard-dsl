@@ -7,3 +7,11 @@ object Alerting : AlertingState {
 object Ok : AlertingState {
     override fun asState() = "ok"
 }
+
+object KeepLastState : AlertingState {
+    override fun asState() = "keep_state"
+}
+
+object NoData : AlertingState {
+    override fun asState() = "no_data"
+}
