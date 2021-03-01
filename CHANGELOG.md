@@ -1,9 +1,9 @@
-### NEXT_VERSION_TYPE=MAJOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.0.0]() (01-03-2021)
+
 * Move changes from private version
 * Build and publication via artifact-release-plugin
 * **breaking-changes** everything has been moved from package `ru.yandex.money.tools` to `ru.yoomoney.tech`
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [2.25.0]() (18-02-2021)
 
 * Change yamoney-kotlin-module-plugin to ru.yoomoney.gradle.plugins.kotlin-plugin
