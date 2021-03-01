@@ -10,6 +10,7 @@ class AlertBuilder(private val name: String) {
     var message = ""
     var handler = 1
     var frequency = 1.m
+    var pendingFor = 0.m
     var onNoData = Ok
     var onExecutionError = Alerting
 
@@ -39,7 +40,8 @@ class AlertBuilder(private val name: String) {
                     onNoData = onNoData,
                     onExecutionError = onExecutionError,
                     notificationIds = notificationIds,
-                    conditions = AlertingConditions(conditions)
+                    conditions = AlertingConditions(conditions),
+                    pendingFor = pendingFor
             ),
             thresholds = Thresholds(thresholds)
     )

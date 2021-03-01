@@ -15,7 +15,8 @@ class Alert(
     private val onNoData: AlertingState = Ok,
     private val onExecutionError: AlertingState = Alerting,
     private val notificationIds: List<Long> = emptyList(),
-    private val conditions: AlertingConditions
+    private val conditions: AlertingConditions,
+    private val pendingFor: Duration = 0.m
 ) : Json<JSONObject> {
 
     override fun toJson(): JSONObject {
@@ -29,6 +30,7 @@ class Alert(
         json["executionErrorState"] = onExecutionError.asState()
         json["notifications"] = JSONArray(notificationIds.map { JSONObject().put("id", it) })
         json["conditions"] = conditions.toJson()
+        json["for"] = pendingFor.toString()
 
         return json
     }

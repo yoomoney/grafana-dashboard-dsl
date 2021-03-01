@@ -1,0 +1,52 @@
+{
+  "thresholds": [
+    {
+      "op": "gt",
+      "line": true,
+      "colorMode": "critical",
+      "fill": true,
+      "value": 3000
+    }
+  ],
+  "alert": {
+    "handler": 1,
+    "executionErrorState": "alerting",
+    "name": "Alert name",
+    "for": "10m",
+    "noDataState": "ok",
+    "message": "Alert message",
+    "conditions": [
+      {
+        "query": {
+          "datasourceId": 1,
+          "model": {
+            "hide": false,
+            "target": "*",
+            "refId": "A"
+          },
+          "params": [
+            "A",
+            "15m",
+            "now"
+          ]
+        },
+        "type": "query",
+        "evaluator": {
+          "type": "gt",
+          "params": [
+            3000
+          ]
+        }
+      }
+    ],
+    "notifications": [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      }
+    ],
+    "frequency": "5m"
+  }
+}
