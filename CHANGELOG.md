@@ -1,8 +1,8 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.1.0](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/2) (01-03-2021)
+
 * Add `for` alert property
 * Add `No data` and `Keep last state` alerting states
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [3.0.0]() (01-03-2021)
 
 * Move changes from private version
