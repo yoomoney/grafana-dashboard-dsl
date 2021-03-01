@@ -1,5 +1,7 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add `for` alert property
+* Add `No data` and `Keep last state` alerting states
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.0.0]() (01-03-2021)
 
