@@ -1,6 +1,34 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MAJOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Move changes from private version
+* Build and publication via artifact-release-plugin
+* **breaking-changes** everything has been moved from package `ru.yandex.money.tools` to `ru.yoomoney.tech`
 ### NEXT_VERSION_DESCRIPTION_END
+## [2.25.0]() (18-02-2021)
+
+* Change yamoney-kotlin-module-plugin to ru.yoomoney.gradle.plugins.kotlin-plugin
+
+## [2.24.0]() (08-12-2020)
+
+* Add `removeAbovePercentile` graphite function implementation
+* Add `max` alert condition
+
+## [2.23.0]() (01-12-2020)
+
+* Add `movingMax` graphite function implementation
+
+## [2.22.0]() (11-11-2020)
+
+* Added new Stat panel. Single stat now deprecated
+
+## [2.21.0]() (22-07-2020)
+
+* `Zabbix` datasource metric with `Text` query mode now support parameter `textFilter`.
+
+## [2.20.0]() (08-07-2020)
+
+* Update gradle version 6.0.1 -> 6.4.1.
+
 ## [2.19.0]() (24-04-2020)
 
 * Add `keepLastValue` graphite function implementation
@@ -11,7 +39,7 @@
 
 ## [2.18.0]() (07-02-2020)
 
-* Сборка на java 11
+* Added java 11 support
 
 ## [2.17.0]() (03-02-2020)
 

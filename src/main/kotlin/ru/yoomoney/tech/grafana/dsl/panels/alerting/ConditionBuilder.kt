@@ -19,6 +19,8 @@ class ConditionBuilder {
 
     fun sum(condition: AlertingCondition) = SumCondition(condition)
 
+    fun max(condition: AlertingCondition) = MaxCondition(condition)
+
     infix fun AlertingCondition.and(condition: AlertingCondition): AlertingCondition {
         conditions += this
         return AndCondition(condition)

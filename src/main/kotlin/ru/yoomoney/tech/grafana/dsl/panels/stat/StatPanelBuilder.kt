@@ -1,4 +1,4 @@
-package ru.yoomoney.tech.grafana.dsl.panels
+package ru.yoomoney.tech.grafana.dsl.panels.stat
 
 import org.json.JSONObject
 import ru.yoomoney.tech.grafana.dsl.datasource.Datasource
@@ -7,40 +7,57 @@ import ru.yoomoney.tech.grafana.dsl.generators.PanelLayoutGenerator
 import ru.yoomoney.tech.grafana.dsl.metrics.DashboardMetric
 import ru.yoomoney.tech.grafana.dsl.metrics.Metrics
 import ru.yoomoney.tech.grafana.dsl.metrics.MetricsBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.AdditionalPropertiesPanel
+import ru.yoomoney.tech.grafana.dsl.panels.Panel
+import ru.yoomoney.tech.grafana.dsl.panels.PanelBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.TimerangeBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.Timerange
+import ru.yoomoney.tech.grafana.dsl.panels.MetricPanel
+import ru.yoomoney.tech.grafana.dsl.panels.BasePanel
+import ru.yoomoney.tech.grafana.dsl.panels.PanelContainerBuilder
 import ru.yoomoney.tech.grafana.dsl.panels.repeat.Repeat
 import ru.yoomoney.tech.grafana.dsl.panels.repeat.RepeatBuilder
-import ru.yoomoney.tech.grafana.dsl.panels.stat.StatPanelDisplayOptions
 import ru.yoomoney.tech.grafana.dsl.variables.Variable
 
 /**
- * Builder for Singlestat tab
- * @author Aleksey Antufev
- * @since 24.09.2019
+ * Builder for Stat tab
+ * @author Aleksey Matveev
+ * @since 29.10.2020
  */
-@Deprecated("Single stat deprecated in Grafana 7.0")
-class SingleStatPanelBuilder(
+class StatPanelBuilder(
     private val title: String,
     private val panelLayoutGenerator: PanelLayoutGenerator
 ) : PanelBuilder {
+    override var bounds: Pair<Int, Int> = PanelBuilder.DEFAULT_BOUNDS
 
     private var propertiesSetter: (JSONObject) -> Unit = {}
 
-    override var bounds = PanelBuilder.DEFAULT_BOUNDS
+    private var timerange = Timerange()
 
     private var repeat: Repeat? = null
 
-    private var timerange = Timerange()
-
     var metrics: List<DashboardMetric> = mutableListOf()
-
-    var valueMappings: ValueMappings = ValueMappings(ValueToTextType)
 
     var datasource: Datasource = Zabbix
 
     var options: StatPanelDisplayOptions = StatPanelDisplayOptions()
 
+    var fieldConfig: StatPanelFieldConfig = StatPanelFieldConfig()
+
     override fun properties(propertiesSetter: (JSONObject) -> Unit) {
         this.propertiesSetter = propertiesSetter
+    }
+
+    fun options(build: StatPanelDisplayOptionsBuilder.() -> Unit) {
+        val builder = StatPanelDisplayOptionsBuilder()
+        builder.build()
+        options = builder.createStatPanelDisplayOptions()
+    }
+
+    fun fieldConfig(build: StatPanelFieldConfigBuilder.() -> Unit) {
+        val builder = StatPanelFieldConfigBuilder()
+        builder.build()
+        fieldConfig = builder.createStatPanelFieldConfig()
     }
 
     fun repeat(variable: Variable, build: RepeatBuilder.() -> Unit) {
@@ -56,12 +73,6 @@ class SingleStatPanelBuilder(
         metrics = builder.metrics
     }
 
-    inline fun <reified T : ValueMappingType> valueMappings(build: ValueMappingsBuilder<T>.() -> Unit) {
-        val builder = ValueMappingsBuilder<T>()
-        builder.build()
-        valueMappings = builder.createValueMappings<T>()
-    }
-
     fun timerange(build: TimerangeBuilder.() -> Unit) {
         val builder = TimerangeBuilder()
         builder.build()
@@ -70,7 +81,7 @@ class SingleStatPanelBuilder(
 
     internal fun createPanel(): Panel {
         return AdditionalPropertiesPanel(
-            SingleStatPanel(
+            StatPanel(
                 MetricPanel(
                     BasePanel(
                         id = panelLayoutGenerator.nextId(),
@@ -80,18 +91,18 @@ class SingleStatPanelBuilder(
                     datasource = datasource,
                     metrics = Metrics(metrics)
                 ),
-                valueMappings = valueMappings,
                 repeat = repeat,
-                timerange = timerange
+                timerange = timerange,
+                options = options,
+                fieldConfig = fieldConfig
             ),
             propertiesSetter
         )
     }
 }
 
-@Deprecated("Single stat deprecated in Grafana 7.0")
-fun PanelContainerBuilder.singleStat(title: String, build: SingleStatPanelBuilder.() -> Unit) {
-    val builder = SingleStatPanelBuilder(title, panelLayoutGenerator)
+fun PanelContainerBuilder.statPanel(title: String, build: StatPanelBuilder.() -> Unit) {
+    val builder = StatPanelBuilder(title, panelLayoutGenerator)
     builder.build()
     panels += builder.createPanel()
 }

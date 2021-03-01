@@ -34,7 +34,7 @@ sourceSets {
 }
 
 dependencies {
-    grafanaCompile 'ru.yoomoney.tech:grafana-dashboard-dsl:1.8.0'    
+    grafanaCompile 'ru.yoomoney.tech:grafana-dashboard-dsl:3.0.0'    
 }
 ```
 

@@ -3,20 +3,37 @@
   "schemaVersion": 16,
   "panels": [
     {
-      "repeatDirection": "h",
       "editable": true,
       "nullPointMode": "null",
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        }
-      ],
       "title": "$hosts",
-      "type": "singlestat",
+      "type": "stat",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#bf1b00",
+                "value": "0"
+              }
+            ]
+          },
+          "mappings": [
+            {
+              "op": "=",
+              "type": 1,
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "null"
+        }
+      },
       "targets": [
         {
           "mode": 2,
+          "textFilter": ".{11}",
           "item": {
             "filter": "Application dynamic config version"
           },
@@ -33,8 +50,7 @@
           },
           "group": {
             "filter": "/.*/"
-          },
-          "textFilter": ".{11}"
+          }
         }
       ],
       "gridPos": {
@@ -43,18 +59,22 @@
         "y": 0,
         "w": 3
       },
-      "valueMaps": [
-        {
-          "op": "=",
-          "value": "null",
-          "text": "N/A"
-        }
-      ],
-      "minSpan": 2,
       "datasource": "Zabbix",
-      "mappingType": 1,
-      "repeat": "hosts",
       "hideTimeOverride": true,
+      "options": {
+        "justifyMode": "auto",
+        "colorMode": "background",
+        "graphMode": "none",
+        "reduceOptions": {
+          "fields": "",
+          "calcs": [
+            "lastNotNull"
+          ],
+          "values": false
+        },
+        "orientation": "horizontal",
+        "textMode": "auto"
+      },
       "links": [],
       "id": 1
     }
