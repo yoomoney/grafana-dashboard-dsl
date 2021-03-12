@@ -15,10 +15,11 @@ class StatPanelDisplayOptions(
     private val orientation: Orientation = Orientation.HORIZONTAL,
     private val textMode: TextMode = TextMode.AUTO,
     private val graphMode: GraphMode = GraphMode.NONE,
-    private val justifyMode: JustifyMode = JustifyMode.AUTO
+    private val justifyMode: JustifyMode = JustifyMode.AUTO,
+    private val reduceOptions: StatPanelReduceOptions = StatPanelReduceOptions()
 ) : Json<JSONObject> {
     override fun toJson(): JSONObject = jsonObject {
-        "reduceOptions" to StatPanelReduceOptions()
+        "reduceOptions" to reduceOptions
         "orientation" to orientation.value
         "textMode" to textMode.value
         "colorMode" to colorMode.value
@@ -34,18 +35,34 @@ class StatPanelDisplayOptions(
  */
 class StatPanelDisplayOptionsBuilder {
     var colorMode: ColorMode = ColorMode.VALUE
+    private var reduceOptions: StatPanelReduceOptions = StatPanelReduceOptions()
+    fun reduceOptions(build: StatPanelReduceOptionsBuilder.() -> Unit) {
+        val builder = StatPanelReduceOptionsBuilder()
+        builder.build()
+        reduceOptions = builder.createReduceOptions()
+    }
 
-    fun createStatPanelDisplayOptions() = StatPanelDisplayOptions(colorMode)
+    fun createStatPanelDisplayOptions() = StatPanelDisplayOptions(colorMode, reduceOptions = reduceOptions)
 }
 
 /**
  * @author Aleksey Matveev
  * @since 02.10.2020
  */
-class StatPanelReduceOptions : Json<JSONObject> {
+class StatPanelReduceOptions(
+    private val fields: String = ""
+) : Json<JSONObject> {
     override fun toJson(): JSONObject = jsonObject {
         "values" to false
         "calcs" to listOf("lastNotNull")
-        "fields" to ""
+        "fields" to fields
     }
 }
+
+class StatPanelReduceOptionsBuilder() {
+    var fields: String = ""
+    fun createReduceOptions(): StatPanelReduceOptions {
+        return StatPanelReduceOptions(fields = fields)
+    }
+}
+

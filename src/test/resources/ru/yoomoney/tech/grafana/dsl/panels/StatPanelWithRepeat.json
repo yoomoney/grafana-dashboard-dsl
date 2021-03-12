@@ -69,7 +69,7 @@
         "colorMode": "background",
         "graphMode": "none",
         "reduceOptions": {
-          "fields": "",
+          "fields": "Application data",
           "calcs": [
             "lastNotNull"
           ],

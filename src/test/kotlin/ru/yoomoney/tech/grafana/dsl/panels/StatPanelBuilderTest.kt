@@ -50,6 +50,9 @@ class StatPanelBuilderTest {
 
                     options {
                         colorMode = ColorMode.BACKGROUND
+                        reduceOptions {
+                            fields = "Application data"
+                        }
                     }
 
                     fieldConfig {
