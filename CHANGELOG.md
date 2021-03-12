@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=PATCH
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.2.1](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/6) (12-03-2021)
+
 * Fix tests
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [3.2.0](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/5) (12-03-2021)
 
 *  Add the ability to configure `fields` parameter in class `StatPanelReduceOptions` used to set select the fields that should be included in the panel
