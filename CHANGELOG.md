@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+*  Add the ability to configure `fields` parameter in class `StatPanelReduceOptions` used to set select the fields that should be included in the panel
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.1.0](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/2) (01-03-2021)
 
