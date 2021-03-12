@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=PATCH
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Fix tests
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.2.0](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/5) (12-03-2021)
 

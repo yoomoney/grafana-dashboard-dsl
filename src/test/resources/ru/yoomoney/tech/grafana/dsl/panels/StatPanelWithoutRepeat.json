@@ -39,7 +39,7 @@
           },
           "useCaptureGroups": false,
           "application": {
-            "filter": ""
+            "filter": "Application data"
           },
           "functions": [],
           "host": {
@@ -66,7 +66,7 @@
         "colorMode": "background",
         "graphMode": "none",
         "reduceOptions": {
-          "fields": "Application data",
+          "fields": "",
           "calcs": [
             "lastNotNull"
           ],
