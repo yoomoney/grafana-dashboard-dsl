@@ -7,5 +7,5 @@ dependencies {
     testCompile 'org.testng:testng:6.10',
             'commons-io:commons-io:2.4',
             'org.skyscreamer:jsonassert:1.5.0',
-            'org.amshove.kluent:kluent:1.34'
+            'org.amshove.kluent:kluent:1.59'
 }
