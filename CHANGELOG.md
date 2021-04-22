@@ -1,5 +1,8 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=PATCH
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+
+* Сборка проекта переведена на library-project-plugin.
+
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.2.1](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/6) (12-03-2021)
 
