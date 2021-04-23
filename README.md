@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/yoomoney-tech/grafana-dashboard-dsl/branch/master/graph/badge.svg)](https://codecov.io/gh/yoomoney-tech/grafana-dashboard-dsl)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Javadoc](https://img.shields.io/badge/javadoc-latest-blue.svg)](https://yoomoney-tech.github.io/grafana-dashboard-dsl/)
-[![Download](https://api.bintray.com/packages/yoomoney-tech/maven/grafana-dashboard-dsl/images/download.svg) ](https://bintray.com/yoomoney-tech/maven/grafana-dashboard-dsl/_latestVersion)
+[![Download](https://img.shields.io/badge/Download-latest-green.svg) ](https://search.maven.org/artifact/ru.yoomoney.tech/grafana-dashboard-dsl)
 
 # Grafana Dashboard DSL
 
