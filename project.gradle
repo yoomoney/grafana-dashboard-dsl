@@ -4,6 +4,6 @@ repositories {
 
     dependencies {
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.50'
-        classpath 'ru.yoomoney.gradle.plugins:library-project-plugin:7.+'
+        classpath 'ru.yoomoney.gradle.plugins:library-project-plugin:7.1.2'
     }
 }
