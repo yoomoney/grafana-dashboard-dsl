@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=PATCH
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Change version library-project-plugin 7.1.2 -> 7.+
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.2.2](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/10) (20-05-2021)
 
