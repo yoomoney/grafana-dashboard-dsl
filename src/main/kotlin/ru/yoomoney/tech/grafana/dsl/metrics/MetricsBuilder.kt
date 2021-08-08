@@ -18,6 +18,10 @@ class MetricsBuilder<DatasourceT : Datasource> {
         metrics += ReferencedDashboardMetric(fn(), referenceId ?: generateMetricId(), hidden)
     }
 
+    fun promQlMetric(format: String? = null, fn: () -> Metric) {
+        metrics += PromQlMetric(fn(), format)
+    }
+
     private fun generateMetricId(): String {
         var generatedId: String
         do {

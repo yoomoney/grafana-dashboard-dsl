@@ -1,0 +1,28 @@
+{
+  "datasource": "PromQL",
+  "editable": true,
+  "nullPointMode": "null",
+  "options": {
+    "justifyMode": "center",
+    "graphMode": "none",
+    "orientation": "auto",
+    "textMode": "name"
+  },
+  "links": [],
+  "id": 1,
+  "title": "PromQl Panel",
+  "type": "stat",
+  "targets": [
+    {
+      "format": "time_series",
+      "legendFormat": "{{host}}:{{version}}",
+      "expr": "app_info{app_name=\"my_app\"}"
+    }
+  ],
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  }
+}
