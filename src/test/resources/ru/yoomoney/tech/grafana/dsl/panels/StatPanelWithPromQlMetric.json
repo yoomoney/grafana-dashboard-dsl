@@ -2,9 +2,18 @@
   "datasource": "PromQL",
   "editable": true,
   "nullPointMode": "null",
+  "hideTimeOverride": false,
   "options": {
     "justifyMode": "center",
+    "colorMode": "value",
     "graphMode": "none",
+    "reduceOptions": {
+      "fields": "",
+      "calcs": [
+        "lastNotNull"
+      ],
+      "values": false
+    },
     "orientation": "auto",
     "textMode": "name"
   },
@@ -12,6 +21,17 @@
   "id": 1,
   "title": "PromQl Panel",
   "type": "stat",
+  "fieldConfig": {
+    "defaults": {
+      "unit": "none",
+      "thresholds": {
+        "mode": "absolute",
+        "steps": []
+      },
+      "mappings": [],
+      "nullValueMode": "null"
+    }
+  },
   "targets": [
     {
       "format": "time_series",
