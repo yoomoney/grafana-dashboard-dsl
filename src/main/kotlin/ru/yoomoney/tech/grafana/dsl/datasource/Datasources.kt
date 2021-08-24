@@ -13,3 +13,10 @@ object Zabbix : Datasource {
 object Graphite : Datasource {
     override fun asDatasourceName() = "Graphite"
 }
+
+/**
+ * PromQL
+ */
+object PromQl : Datasource {
+    override fun asDatasourceName() = "PromQL"
+}

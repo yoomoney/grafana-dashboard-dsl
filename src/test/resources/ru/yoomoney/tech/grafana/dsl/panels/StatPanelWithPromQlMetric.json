@@ -1,0 +1,48 @@
+{
+  "datasource": "PromQL",
+  "editable": true,
+  "nullPointMode": "null",
+  "hideTimeOverride": false,
+  "options": {
+    "justifyMode": "center",
+    "colorMode": "value",
+    "graphMode": "none",
+    "reduceOptions": {
+      "fields": "",
+      "calcs": [
+        "lastNotNull"
+      ],
+      "values": false
+    },
+    "orientation": "auto",
+    "textMode": "name"
+  },
+  "links": [],
+  "id": 1,
+  "title": "PromQl Panel",
+  "type": "stat",
+  "fieldConfig": {
+    "defaults": {
+      "unit": "none",
+      "thresholds": {
+        "mode": "absolute",
+        "steps": []
+      },
+      "mappings": [],
+      "nullValueMode": "null"
+    }
+  },
+  "targets": [
+    {
+      "format": "time_series",
+      "legendFormat": "{{host}}:{{version}}",
+      "expr": "app_info{app_name=\"my_app\"}"
+    }
+  ],
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  }
+}
