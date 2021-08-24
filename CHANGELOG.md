@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* `instant` parameter was added for promQl metric
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.3.0]() (24-08-2021)
 
