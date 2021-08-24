@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.4.0]() (24-08-2021)
+
 * `instant` parameter was added for promQl metric
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [3.3.0]() (24-08-2021)
 
 * Datasource `Datasources.PromQl` was added
