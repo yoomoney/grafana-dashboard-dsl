@@ -10,13 +10,15 @@ import ru.yoomoney.tech.grafana.dsl.json.jsonObject
  */
 class PromQlMetric (
     val metric: Metric,
-    val format: String? = null
+    val format: String?,
+    val instant: Boolean
 ) : DashboardMetric {
 
     override fun toJson() = jsonObject {
         "expr" to metric.asString()
         "format" to "time_series"
         "legendFormat" to format
+        "instant" to instant
     }
 
 }

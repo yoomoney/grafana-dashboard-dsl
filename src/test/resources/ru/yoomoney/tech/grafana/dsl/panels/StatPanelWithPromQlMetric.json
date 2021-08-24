@@ -35,8 +35,9 @@
   "targets": [
     {
       "format": "time_series",
-      "legendFormat": "{{host}}:{{version}}",
-      "expr": "app_info{app_name=\"my_app\"}"
+      "legendFormat": "{{version}}",
+      "expr": "app_info{app_name=\"my_app\",instance=\"host\"}",
+      "instant": true
     }
   ],
   "gridPos": {

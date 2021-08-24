@@ -143,8 +143,8 @@ class StatPanelBuilderTest {
         testContainer.statPanel(title = "PromQl Panel") {
             datasource = PromQl
             metrics<PromQl> {
-                promQlMetric(format = "{{host}}:{{version}}") {
-                    StringMetric("app_info{app_name=\"my_app\"}")
+                promQlMetric(format = "{{version}}", instant = true) {
+                    StringMetric("app_info{app_name=\"my_app\",instance=\"host\"}")
                 }
             }
             options = StatPanelDisplayOptions(
