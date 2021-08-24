@@ -1,8 +1,8 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.3.0]() (24-08-2021)
+
 * Datasource `Datasources.PromQl` was added
 * Panel with type `stat` was added
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [3.2.3](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/11) (24-05-2021)
 
 * Change version library-project-plugin 7.1.2 -> 7.+
