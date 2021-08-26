@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/yoomoney-tech/grafana-dashboard-dsl.svg?branch=master)](https://travis-ci.org/yoomoney-tech/grafana-dashboard-dsl)
-[![codecov](https://codecov.io/gh/yoomoney-tech/grafana-dashboard-dsl/branch/master/graph/badge.svg)](https://codecov.io/gh/yoomoney-tech/grafana-dashboard-dsl)
+[![Build Status](https://travis-ci.org/yoomoney/grafana-dashboard-dsl.svg?branch=master)](https://travis-ci.org/yoomoney/grafana-dashboard-dsl)
+[![codecov](https://codecov.io/gh/yoomoney/grafana-dashboard-dsl/branch/master/graph/badge.svg)](https://codecov.io/gh/yoomoney/grafana-dashboard-dsl)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Javadoc](https://img.shields.io/badge/javadoc-latest-blue.svg)](https://yoomoney-tech.github.io/grafana-dashboard-dsl/)
+[![Javadoc](https://img.shields.io/badge/javadoc-latest-blue.svg)](https://yoomoney.github.io/grafana-dashboard-dsl/)
 [![Download](https://img.shields.io/badge/Download-latest-green.svg) ](https://search.maven.org/artifact/ru.yoomoney.tech/grafana-dashboard-dsl)
 
 # Grafana Dashboard DSL
@@ -20,7 +20,7 @@ Kotlin DSL for generating Grafana dashboards.
 
 ## Usage with gradle plugin
 
-See documentation at [Grafana Dashboard Plugin](https://github.com/yoomoney-tech/grafana-dashboard-plugin)
+See documentation at [Grafana Dashboard Plugin](https://github.com/yoomoney/grafana-dashboard-plugin)
 
 ## Manual usage
 
