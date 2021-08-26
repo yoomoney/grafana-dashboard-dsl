@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* The repository moved yoomoney-tech -> yoomoney
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.4.0]() (24-08-2021)
 
@@ -10,23 +11,23 @@
 * Datasource `Datasources.PromQl` was added
 * Panel with type `stat` was added
 
-## [3.2.3](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/11) (24-05-2021)
+## [3.2.3](https://github.com/yoomoney/grafana-dashboard-dsl/pull/11) (24-05-2021)
 
 * Change version library-project-plugin 7.1.2 -> 7.+
 
-## [3.2.2](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/10) (20-05-2021)
+## [3.2.2](https://github.com/yoomoney/grafana-dashboard-dsl/pull/10) (20-05-2021)
 
 * Сборка проекта переведена на library-project-plugin.
 
-## [3.2.1](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/6) (12-03-2021)
+## [3.2.1](https://github.com/yoomoney/grafana-dashboard-dsl/pull/6) (12-03-2021)
 
 * Fix tests
 
-## [3.2.0](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/5) (12-03-2021)
+## [3.2.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/5) (12-03-2021)
 
 *  Add the ability to configure `fields` parameter in class `StatPanelReduceOptions` used to set select the fields that should be included in the panel
 
-## [3.1.0](https://github.com/yoomoney-tech/grafana-dashboard-dsl/pull/2) (01-03-2021)
+## [3.1.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/2) (01-03-2021)
 
 * Add `for` alert property
 * Add `No data` and `Keep last state` alerting states
