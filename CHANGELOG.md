@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [3.5.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/15) (26-08-2021)
 
 * The repository moved yoomoney-tech -> yoomoney
