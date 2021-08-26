@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.5.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/15) (26-08-2021)
+
 * The repository moved yoomoney-tech -> yoomoney
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [3.4.0]() (24-08-2021)
 
 * `instant` parameter was added for promQl metric
