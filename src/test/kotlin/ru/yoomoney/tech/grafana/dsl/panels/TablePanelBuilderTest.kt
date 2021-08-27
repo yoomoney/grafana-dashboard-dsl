@@ -2,6 +2,7 @@ package ru.yoomoney.tech.grafana.dsl.panels
 
 import org.amshove.kluent.shouldBe
 import org.testng.annotations.Test
+import ru.yoomoney.tech.grafana.dsl.datasource.PromQl
 import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
 import ru.yoomoney.tech.grafana.dsl.jsonFile
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.aliasByNode
@@ -10,6 +11,9 @@ import ru.yoomoney.tech.grafana.dsl.metrics.functions.groupByNode
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.groupByNodes
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.scale
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.summarize
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.asInstantVector
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.operators.div
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.operators.min
 import ru.yoomoney.tech.grafana.dsl.shouldEqualToJson
 import ru.yoomoney.tech.grafana.dsl.time.h
 
@@ -167,5 +171,30 @@ class TablePanelBuilderTest : AbstractPanelTest() {
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("table/TablePanel.json")
+    }
+
+
+
+    @Test
+    fun `should create table panel for prometheus`() {
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.tablePanel(title = "Test Panel") {
+            val usedMemory = """jvm_memory_used_bytes{area="heap"}""".asInstantVector()
+            val maxMemory = """jvm_memory_max_bytes{area="heap"}""".asInstantVector()
+
+            metrics(PromQl) {
+                prometheusMetric("{{instance}}") {
+                    (usedMemory / maxMemory).min(by = listOf("instance"))
+                }
+            }
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("table/TablePanelWithPrometheusMetrics.json")
     }
 }

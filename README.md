@@ -18,6 +18,13 @@ Kotlin DSL for generating Grafana dashboards.
 * Easy to include in CI cycle: dashboard is a JSON-document
 * Power of Kotlin language
 
+
+## Supported data sources
+
+* Graphite
+* Prometheus
+* Zabbix
+
 ## Usage with gradle plugin
 
 See documentation at [Grafana Dashboard Plugin](https://github.com/yoomoney-tech/grafana-dashboard-plugin)

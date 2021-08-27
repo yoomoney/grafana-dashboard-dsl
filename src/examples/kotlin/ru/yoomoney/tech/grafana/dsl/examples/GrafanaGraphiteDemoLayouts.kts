@@ -93,7 +93,7 @@ dashboard(title = "Grafana Demo Layouts") {
                         it["colorValue"] = true
                     }
 
-                    metrics {
+                    metrics(Graphite) {
                         metric("A") {
                             // Define a metric referencing above one (referenceId must be uniq for panel)
                             StringMetric(metric)

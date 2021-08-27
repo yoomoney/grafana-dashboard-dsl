@@ -1,0 +1,27 @@
+{
+  "editable": true,
+  "columns": [],
+  "nullPointMode": "null",
+  "title": "Test Panel",
+  "type": "table",
+  "targets": [
+    {
+      "format": "time_series",
+      "legendFormat": "{{instance}}",
+      "expr": "min by (instance) (jvm_memory_used_bytes{area=\"heap\"} / jvm_memory_max_bytes{area=\"heap\"})",
+      "instant": false
+    }
+  ],
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  },
+  "transform": "timeseries_aggregations",
+  "datasource": "PromQL",
+  "links": [],
+  "fontSize": "100%",
+  "styles": [],
+  "id": 1
+}

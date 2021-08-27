@@ -8,13 +8,13 @@ import ru.yoomoney.tech.grafana.dsl.metrics.DashboardMetric
 import ru.yoomoney.tech.grafana.dsl.metrics.Metrics
 import ru.yoomoney.tech.grafana.dsl.metrics.MetricsBuilder
 import ru.yoomoney.tech.grafana.dsl.panels.AdditionalPropertiesPanel
+import ru.yoomoney.tech.grafana.dsl.panels.BasePanel
+import ru.yoomoney.tech.grafana.dsl.panels.MetricPanel
 import ru.yoomoney.tech.grafana.dsl.panels.Panel
 import ru.yoomoney.tech.grafana.dsl.panels.PanelBuilder
-import ru.yoomoney.tech.grafana.dsl.panels.TimerangeBuilder
-import ru.yoomoney.tech.grafana.dsl.panels.Timerange
-import ru.yoomoney.tech.grafana.dsl.panels.MetricPanel
-import ru.yoomoney.tech.grafana.dsl.panels.BasePanel
 import ru.yoomoney.tech.grafana.dsl.panels.PanelContainerBuilder
+import ru.yoomoney.tech.grafana.dsl.panels.Timerange
+import ru.yoomoney.tech.grafana.dsl.panels.TimerangeBuilder
 import ru.yoomoney.tech.grafana.dsl.panels.repeat.Repeat
 import ru.yoomoney.tech.grafana.dsl.panels.repeat.RepeatBuilder
 import ru.yoomoney.tech.grafana.dsl.variables.Variable
@@ -71,6 +71,13 @@ class StatPanelBuilder(
         val builder = MetricsBuilder<T>()
         builder.build()
         metrics = builder.metrics
+    }
+
+    fun <T : Datasource> metrics(datasource: T, build: MetricsBuilder<T>.() -> Unit) {
+        val builder = MetricsBuilder<T>()
+        builder.build()
+        this.metrics = builder.metrics
+        this.datasource = datasource
     }
 
     fun timerange(build: TimerangeBuilder.() -> Unit) {

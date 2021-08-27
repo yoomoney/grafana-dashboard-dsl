@@ -86,6 +86,15 @@ class GraphPanelBuilder(
         builder.build()
         metrics += builder.metrics
         seriesOverrides += builder.seriesOverrides
+        datasource = Graphite
+    }
+
+    fun <T : Datasource> metrics(datasource: T, build: MetricsBuilder<T>.() -> Unit) {
+        val builder = MetricsBuilder<T>()
+        builder.build()
+        metrics += builder.metrics
+        seriesOverrides += builder.seriesOverrides
+        this.datasource = datasource
     }
 
     infix fun Alias.override(build: SeriesOverrideBuilder.() -> Unit): Alias {

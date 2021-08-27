@@ -4,6 +4,8 @@ import ru.yoomoney.tech.grafana.dsl.DashboardElement
 import ru.yoomoney.tech.grafana.dsl.datasource.Datasource
 import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.Alias
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.PrometheusMetric
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.asPrometheusMetric
 import ru.yoomoney.tech.grafana.dsl.panels.graph.display.seriesoverrides.SeriesOverride
 import ru.yoomoney.tech.grafana.dsl.panels.graph.display.seriesoverrides.SeriesOverrideBuilder
 
@@ -18,8 +20,13 @@ class MetricsBuilder<DatasourceT : Datasource> {
         metrics += ReferencedDashboardMetric(fn(), referenceId ?: generateMetricId(), hidden)
     }
 
+    fun prometheusMetric(legendFormat: String? = null, instant: Boolean = false, fn: () -> PrometheusMetric) {
+        metrics += PromQlMetric(fn(), legendFormat, instant)
+    }
+
+    @Deprecated("Use function `prometheusMetric` instead. That supports DSL. Pay attention to `instant` default value")
     fun promQlMetric(format: String? = null, instant: Boolean = true, fn: () -> Metric) {
-        metrics += PromQlMetric(fn(), format, instant)
+        metrics += PromQlMetric(fn().asString().asPrometheusMetric(), format, instant)
     }
 
     private fun generateMetricId(): String {

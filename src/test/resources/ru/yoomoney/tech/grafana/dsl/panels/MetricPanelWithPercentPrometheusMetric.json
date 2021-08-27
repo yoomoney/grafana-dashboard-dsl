@@ -1,0 +1,22 @@
+{
+  "datasource": "PromQL",
+  "editable": true,
+  "nullPointMode": "null",
+  "links": [],
+  "id": 1,
+  "title": "Test Panel",
+  "targets": [
+    {
+      "format": "time_series",
+      "legendFormat": "instance",
+      "expr": "min by (instance) (jvm_memory_used_bytes{area=\"heap\"} / jvm_memory_max_bytes{area=\"heap\"})",
+      "instant": false
+    }
+  ],
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  }
+}
