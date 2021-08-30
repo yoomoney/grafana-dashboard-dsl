@@ -54,6 +54,29 @@ fun String.asPrometheusMetric(): PrometheusMetric = SimplePrometheusMetric(this)
 fun String.asInstantVector(): InstantVectorTypedMetric = SimpleInstantVectorTypedMetric(this)
 
 /**
+ * Create [InstantVectorTypedMetric]
+ *
+ * @param metricName metric name
+ * @param aliases aliases
+ */
+fun instantVector(metricName: String, aliases: Map<String, String>): InstantVectorTypedMetric {
+    val aliasesStr = aliases.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
+    return SimpleInstantVectorTypedMetric("$metricName{$aliasesStr}")
+}
+
+/**
  * Convert string into prometheus [RangeVectorTypedMetric]
  */
 fun String.asRangeVector(): RangeVectorTypedMetric = SimpleRangeVectorTypedMetric(this)
+
+/**
+ * Create [RangeVectorTypedMetric]
+ *
+ * @param metricName metric name
+ * @param aliases aliases
+ * @param interval range interval
+ */
+fun rangeVector(metricName: String, aliases: Map<String, String>, interval: String): RangeVectorTypedMetric {
+    val aliasesStr = aliases.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
+    return SimpleRangeVectorTypedMetric("$metricName{$aliasesStr}[$interval]")
+}
