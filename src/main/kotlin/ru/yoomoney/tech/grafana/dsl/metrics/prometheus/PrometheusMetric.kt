@@ -57,11 +57,11 @@ fun String.asInstantVector(): InstantVectorTypedMetric = SimpleInstantVectorType
  * Create [InstantVectorTypedMetric]
  *
  * @param metricName metric name
- * @param aliases aliases
+ * @param labels labels
  */
-fun instantVector(metricName: String, aliases: Map<String, String>): InstantVectorTypedMetric {
-    val aliasesStr = aliases.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
-    return SimpleInstantVectorTypedMetric("$metricName{$aliasesStr}")
+fun instantVector(metricName: String, labels: Map<String, String> = emptyMap()): InstantVectorTypedMetric {
+    val labelsStr = labels.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
+    return SimpleInstantVectorTypedMetric("$metricName{$labelsStr}")
 }
 
 /**
@@ -73,10 +73,10 @@ fun String.asRangeVector(): RangeVectorTypedMetric = SimpleRangeVectorTypedMetri
  * Create [RangeVectorTypedMetric]
  *
  * @param metricName metric name
- * @param aliases aliases
+ * @param labels labels
  * @param interval range interval
  */
-fun rangeVector(metricName: String, aliases: Map<String, String>, interval: String): RangeVectorTypedMetric {
-    val aliasesStr = aliases.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
-    return SimpleRangeVectorTypedMetric("$metricName{$aliasesStr}[$interval]")
+fun rangeVector(metricName: String, labels: Map<String, String> = emptyMap(), interval: String): RangeVectorTypedMetric {
+    val labelsStr = labels.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
+    return SimpleRangeVectorTypedMetric("$metricName{$labelsStr}[$interval]")
 }

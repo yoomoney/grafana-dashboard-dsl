@@ -8,7 +8,7 @@ class PrometheusMetricTest {
     fun `builder should create instantVector`() {
         val instantVector = instantVector(
             metricName = "metricName",
-            aliases = linkedMapOf("label_1" to "value_1", "label_2" to "value_2")
+            labels = linkedMapOf("label_1" to "value_1", "label_2" to "value_2")
         )
 
         instantVector.asString() shouldBeEqualTo """metricName{label_1="value_1", label_2="value_2"}"""
@@ -18,7 +18,7 @@ class PrometheusMetricTest {
     fun `builder should create rangeVector`() {
         val instantVector = rangeVector(
             metricName = "metricName",
-            aliases = linkedMapOf("label_1" to "value_1", "label_2" to "value_2"),
+            labels = linkedMapOf("label_1" to "value_1", "label_2" to "value_2"),
             interval = "1h"
         )
 
