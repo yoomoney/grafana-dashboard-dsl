@@ -24,11 +24,6 @@ class MetricsBuilder<DatasourceT : Datasource> {
         metrics += PromQlMetric(fn(), legendFormat, instant)
     }
 
-    @Deprecated("Use function `prometheusMetric` instead. That supports DSL. Pay attention to `instant` default value")
-    fun promQlMetric(format: String? = null, instant: Boolean = true, fn: () -> Metric) {
-        metrics += PromQlMetric(fn().asString().asPrometheusMetric(), format, instant)
-    }
-
     private fun generateMetricId(): String {
         var generatedId: String
         do {

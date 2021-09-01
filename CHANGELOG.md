@@ -1,6 +1,7 @@
 ### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
-* PromQL DSL implemented
+* Added functions and operators to support PromQl metrics. 
+* Added generic methods to PanelBuilders to support different datasources.
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.4.0]() (24-08-2021)
 

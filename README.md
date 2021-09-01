@@ -21,8 +21,8 @@ Kotlin DSL for generating Grafana dashboards.
 
 ## Supported data sources
 
-* Graphite
-* Prometheus
+* Graphite (`./src/examples/kotlin/ru/yoomoney/tech/grafana/dsl/examples/GrafanaGraphiteDemoLayouts.kts`)
+* Prometheus (`./src/examples/kotlin/ru/yoomoney/tech/grafana/dsl/examples/GrafanaPrometheusDemoLayouts.kts`)
 * Zabbix
 
 ## Usage with gradle plugin
