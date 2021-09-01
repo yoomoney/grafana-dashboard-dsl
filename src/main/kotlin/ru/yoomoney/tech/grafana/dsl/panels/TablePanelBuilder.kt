@@ -55,6 +55,14 @@ class TablePanelBuilder(
         seriesOverrides += builder.seriesOverrides
     }
 
+    fun <T : Datasource>metrics(datasource: T, build: MetricsBuilder<T>.() -> Unit) {
+        val builder = MetricsBuilder<T>()
+        builder.build()
+        metrics += builder.metrics
+        seriesOverrides += builder.seriesOverrides
+        this.datasource = datasource
+    }
+
     fun repeat(variable: Variable, build: RepeatBuilder.() -> Unit) {
         val builder = RepeatBuilder(variable)
         builder.build()

@@ -3,11 +3,15 @@ package ru.yoomoney.tech.grafana.dsl.panels
 import org.amshove.kluent.shouldBe
 import org.json.JSONObject
 import org.testng.annotations.Test
+import ru.yoomoney.tech.grafana.dsl.datasource.PromQl
 import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
 import ru.yoomoney.tech.grafana.dsl.json.set
 import ru.yoomoney.tech.grafana.dsl.jsonFile
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.aliasByNode
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.asPercent
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.asInstantVector
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.operators.div
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.operators.min
 import ru.yoomoney.tech.grafana.dsl.shouldEqualToJson
 
 class MetricPanelBuilderTest : AbstractPanelTest() {
@@ -114,5 +118,28 @@ class MetricPanelBuilderTest : AbstractPanelTest() {
         val panels = testContainer.panels
         panels.size shouldBe 1
         panels[0].toJson().toString() shouldEqualToJson jsonFile("MetricPanelWithAsPercentMetric.json")
+    }
+
+    @Test
+    fun `should create metric prometheus percent metric`() {
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.metricPanel(title = "Test Panel") {
+            metrics(PromQl) {
+                val usedMemory = """jvm_memory_used_bytes{area="heap"}""".asInstantVector()
+                val maxMemory = """jvm_memory_max_bytes{area="heap"}""".asInstantVector()
+
+                prometheusMetric(legendFormat = "instance") {
+                    (usedMemory / maxMemory).min(by = listOf("instance"))
+                }
+            }
+        }
+
+        // then
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("MetricPanelWithPercentPrometheusMetric.json")
     }
 }

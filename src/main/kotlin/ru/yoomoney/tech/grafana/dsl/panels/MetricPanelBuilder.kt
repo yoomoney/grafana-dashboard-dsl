@@ -31,6 +31,13 @@ class MetricPanelBuilder(private val title: String) : PanelBuilder {
         metrics += builder.metrics
     }
 
+    fun <T : Datasource> metrics(datasource: T, build: MetricsBuilder<T>.() -> Unit) {
+        val builder = MetricsBuilder<T>()
+        builder.build()
+        metrics += builder.metrics
+        this.datasource = datasource
+    }
+
     internal fun createPanel(): Panel = AdditionalPropertiesPanel(
             MetricPanel(
                     BasePanel(

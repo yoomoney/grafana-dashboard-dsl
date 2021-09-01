@@ -4,11 +4,13 @@ import org.amshove.kluent.shouldBe
 import org.json.JSONObject
 import org.testng.annotations.Test
 import ru.yoomoney.tech.grafana.dsl.dashboard
+import ru.yoomoney.tech.grafana.dsl.datasource.PromQl
 import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
 import ru.yoomoney.tech.grafana.dsl.json.set
 import ru.yoomoney.tech.grafana.dsl.jsonFile
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.alias
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.aliasByNode
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.asInstantVector
 import ru.yoomoney.tech.grafana.dsl.panels.graph.display.drawoptions.HoverTooltip
 import ru.yoomoney.tech.grafana.dsl.panels.repeat.Horizontal
 import ru.yoomoney.tech.grafana.dsl.shouldEqualToJson
@@ -622,5 +624,23 @@ class GraphPanelBuilderTest : AbstractPanelTest() {
             }
         }
         expectedDashboard shouldEqualToJson jsonFile("RepeatingGraphPanelWithMaxPerRow.json")
+    }
+
+    @Test
+    fun `should create graph panel for prometheus`() {
+        // given
+        val testContainer = TestContainerBuilder()
+
+        // when
+        testContainer.graphPanel(title = "Test Panel") {
+            metrics(PromQl) {
+                prometheusMetric(legendFormat = "{{host}}", instant = false) {
+                    """jvm_classes_loaded_classes{app_name="example"}""".asInstantVector()
+                }
+            }
+        }
+        val panels = testContainer.panels
+        panels.size shouldBe 1
+        panels[0].toJson().toString() shouldEqualToJson jsonFile("GraphPanelWithPrometheusDataSource.json")
     }
 }

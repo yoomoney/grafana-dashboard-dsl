@@ -1,0 +1,79 @@
+{
+  "stack": false,
+  "renderer": "flot",
+  "legend": {
+    "alignAsTable": true,
+    "max": true,
+    "values": true,
+    "show": true,
+    "sortDesc": true,
+    "rightSide": false,
+    "sort": "avg",
+    "hideZero": true,
+    "current": true,
+    "total": true,
+    "avg": true,
+    "min": true,
+    "hideEmpty": true
+  },
+  "tooltip": {
+    "shared": true,
+    "value_type": "individual",
+    "sort": 0
+  },
+  "yaxes": [
+    {
+      "format": "short",
+      "logBase": 1,
+      "show": true
+    },
+    {
+      "format": "short",
+      "logBase": 1,
+      "show": true
+    }
+  ],
+  "title": "Test Panel",
+  "type": "graph",
+  "targets": [
+    {
+      "format": "time_series",
+      "legendFormat": "{{host}}",
+      "expr": "jvm_classes_loaded_classes{app_name=\"example\"}",
+      "instant": false
+    }
+  ],
+  "seriesOverrides": [],
+  "yaxis": {
+    "align": false
+  },
+  "gridPos": {
+    "x": 0,
+    "h": 12,
+    "y": 0,
+    "w": 24
+  },
+  "points": false,
+  "xaxis": {
+    "show": true,
+    "mode": "time",
+    "values": []
+  },
+  "percentage": false,
+  "dashLength": 10,
+  "links": [],
+  "id": 1,
+  "lines": true,
+  "spaceLength": 10,
+  "editable": true,
+  "nullPointMode": "null",
+  "steppedLine": false,
+  "fill": 1,
+  "linewidth": 1,
+  "bars": false,
+  "dashes": false,
+  "fillGradient": 0,
+  "thresholds": [],
+  "datasource": "PromQL",
+  "pointradius": 5
+}

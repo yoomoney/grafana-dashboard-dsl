@@ -1,5 +1,7 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Added functions and operators to support PromQl metrics. 
+* Added generic methods to PanelBuilders to support different datasources.
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.5.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/15) (26-08-2021)
 

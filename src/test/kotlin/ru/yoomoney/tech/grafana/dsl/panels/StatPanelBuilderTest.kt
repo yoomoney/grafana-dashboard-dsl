@@ -6,7 +6,7 @@ import ru.yoomoney.tech.grafana.dsl.dashboard
 import ru.yoomoney.tech.grafana.dsl.datasource.PromQl
 import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
 import ru.yoomoney.tech.grafana.dsl.jsonFile
-import ru.yoomoney.tech.grafana.dsl.metrics.functions.StringMetric
+import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.asInstantVector
 import ru.yoomoney.tech.grafana.dsl.panels.repeat.Horizontal
 import ru.yoomoney.tech.grafana.dsl.panels.stat.ColorMode
 import ru.yoomoney.tech.grafana.dsl.panels.stat.GraphMode
@@ -141,10 +141,9 @@ class StatPanelBuilderTest {
 
         // when
         testContainer.statPanel(title = "PromQl Panel") {
-            datasource = PromQl
-            metrics<PromQl> {
-                promQlMetric(format = "{{version}}", instant = true) {
-                    StringMetric("app_info{app_name=\"my_app\",instance=\"host\"}")
+            metrics(PromQl) {
+                prometheusMetric(legendFormat = "{{version}}", instant = true) {
+                    """app_info{app_name="my_app",instance="host"}""".asInstantVector()
                 }
             }
             options = StatPanelDisplayOptions(
