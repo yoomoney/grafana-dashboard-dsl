@@ -54,6 +54,7 @@ class MetricsBuilderTest {
             "metric_name{}".asInstantVector()
         }
 
-        metricsBuilder.metrics[0].toJson().toString() shouldEqualToJson ("{\"format\":\"time_series\",\"expr\":\"metric_name{}\",\"instant\":true}")
+        metricsBuilder.metrics[0].toJson().toString() shouldEqualToJson
+                ("{\"format\":\"time_series\",\"expr\":\"metric_name{}\",\"instant\":true,\"refId\":\"A\",\"hide\":false}")
     }
 }
