@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* For PrometheusMetric added the ability to pass lables for regex-match
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.6.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/16) (01-09-2021)
 

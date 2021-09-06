@@ -65,6 +65,22 @@ fun instantVector(metricName: String, labels: Map<String, String> = emptyMap()):
 }
 
 /**
+ * Create [InstantVectorTypedMetric] with the ability to pass lables for regex-match
+ *
+ * @param metricName metric name
+ * @param exactlyLabels labels used for exactly equal
+ * @param regexLabels labels used for regex-match
+ */
+fun instantVector(metricName: String,
+                  exactlyLabels: Map<String, String> = emptyMap(),
+                  regexLabels: Map<String, String> = emptyMap()): InstantVectorTypedMetric {
+    val exactlyLabelsStr = exactlyLabels.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
+    val regexLabelsStr = regexLabels.entries.joinToString(", ") { """${it.key}=~"${it.value}"""" }
+
+    return SimpleInstantVectorTypedMetric("$metricName{$exactlyLabelsStr, $regexLabelsStr}")
+}
+
+/**
  * Convert string into prometheus [RangeVectorTypedMetric]
  */
 fun String.asRangeVector(): RangeVectorTypedMetric = SimpleRangeVectorTypedMetric(this)
@@ -79,4 +95,22 @@ fun String.asRangeVector(): RangeVectorTypedMetric = SimpleRangeVectorTypedMetri
 fun rangeVector(metricName: String, labels: Map<String, String> = emptyMap(), interval: String): RangeVectorTypedMetric {
     val labelsStr = labels.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
     return SimpleRangeVectorTypedMetric("$metricName{$labelsStr}[$interval]")
+}
+
+/**
+ * Create [RangeVectorTypedMetric]  with the ability to pass lables for regex-match
+ *
+ * @param metricName metric name
+ * @param exactlyLabels labels used for exactly equal
+ * @param regexLabels labels used for regex-match
+ * @param interval range interval
+ */
+fun rangeVector(metricName: String,
+                exactlyLabels: Map<String, String> = emptyMap(),
+                regexLabels: Map<String, String> = emptyMap(),
+                interval: String): RangeVectorTypedMetric {
+    val exactlyLabelsStr = exactlyLabels.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
+    val regexLabelsStr = regexLabels.entries.joinToString(", ") { """${it.key}=~"${it.value}"""" }
+
+    return SimpleRangeVectorTypedMetric("$metricName{$exactlyLabelsStr, $regexLabelsStr}[$interval]")
 }
