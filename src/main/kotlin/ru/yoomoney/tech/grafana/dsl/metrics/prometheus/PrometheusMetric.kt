@@ -68,16 +68,11 @@ fun instantVector(metricName: String, labels: Map<String, String> = emptyMap()):
  * Create [InstantVectorTypedMetric] with the ability to pass lables for regex-match
  *
  * @param metricName metric name
- * @param exactlyLabels labels used for exactly equal
- * @param regexLabels labels used for regex-match
+ * @param labels labels
  */
 fun instantVector(metricName: String,
-                  exactlyLabels: Map<String, String> = emptyMap(),
-                  regexLabels: Map<String, String> = emptyMap()): InstantVectorTypedMetric {
-    val exactlyLabelsStr = exactlyLabels.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
-    val regexLabelsStr = regexLabels.entries.joinToString(", ") { """${it.key}=~"${it.value}"""" }
-
-    return SimpleInstantVectorTypedMetric("$metricName{$exactlyLabelsStr, $regexLabelsStr}")
+                  labels: LableMatcher): InstantVectorTypedMetric {
+    return SimpleInstantVectorTypedMetric("$metricName{${labels.getLabelsAsString()}}")
 }
 
 /**
@@ -101,16 +96,11 @@ fun rangeVector(metricName: String, labels: Map<String, String> = emptyMap(), in
  * Create [RangeVectorTypedMetric]  with the ability to pass lables for regex-match
  *
  * @param metricName metric name
- * @param exactlyLabels labels used for exactly equal
- * @param regexLabels labels used for regex-match
+ * @param labels labels
  * @param interval range interval
  */
 fun rangeVector(metricName: String,
-                exactlyLabels: Map<String, String> = emptyMap(),
-                regexLabels: Map<String, String> = emptyMap(),
+                labels: LableMatcher,
                 interval: String): RangeVectorTypedMetric {
-    val exactlyLabelsStr = exactlyLabels.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
-    val regexLabelsStr = regexLabels.entries.joinToString(", ") { """${it.key}=~"${it.value}"""" }
-
-    return SimpleRangeVectorTypedMetric("$metricName{$exactlyLabelsStr, $regexLabelsStr}[$interval]")
+    return SimpleRangeVectorTypedMetric("$metricName{${labels.getLabelsAsString()}}[$interval]")
 }
