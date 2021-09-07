@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=PATCH
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.8.1](https://github.com/yoomoney/grafana-dashboard-dsl/pull/20) (07-09-2021)
+
 * Fix generation referenceId for prometheus metric.
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [3.8.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/18) (07-09-2021)
 
 * For PrometheusMetric added the ability to pass lables for not equals match, regex-match, not regex-match.
