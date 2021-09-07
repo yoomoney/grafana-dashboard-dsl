@@ -65,6 +65,17 @@ fun instantVector(metricName: String, labels: Map<String, String> = emptyMap()):
 }
 
 /**
+ * Create [InstantVectorTypedMetric] with the ability to pass lables for regex-match
+ *
+ * @param metricName metric name
+ * @param labels labels
+ */
+fun instantVector(metricName: String,
+                  labels: LabelMatcher): InstantVectorTypedMetric {
+    return SimpleInstantVectorTypedMetric("$metricName{${labels.getLabelsAsString()}}")
+}
+
+/**
  * Convert string into prometheus [RangeVectorTypedMetric]
  */
 fun String.asRangeVector(): RangeVectorTypedMetric = SimpleRangeVectorTypedMetric(this)
@@ -79,4 +90,17 @@ fun String.asRangeVector(): RangeVectorTypedMetric = SimpleRangeVectorTypedMetri
 fun rangeVector(metricName: String, labels: Map<String, String> = emptyMap(), interval: String): RangeVectorTypedMetric {
     val labelsStr = labels.entries.joinToString(", ") { """${it.key}="${it.value}"""" }
     return SimpleRangeVectorTypedMetric("$metricName{$labelsStr}[$interval]")
+}
+
+/**
+ * Create [RangeVectorTypedMetric]  with the ability to pass lables for regex-match
+ *
+ * @param metricName metric name
+ * @param labels labels
+ * @param interval range interval
+ */
+fun rangeVector(metricName: String,
+                labels: LabelMatcher,
+                interval: String): RangeVectorTypedMetric {
+    return SimpleRangeVectorTypedMetric("$metricName{${labels.getLabelsAsString()}}[$interval]")
 }
