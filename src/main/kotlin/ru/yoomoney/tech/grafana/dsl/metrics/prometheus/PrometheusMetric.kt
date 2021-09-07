@@ -71,7 +71,7 @@ fun instantVector(metricName: String, labels: Map<String, String> = emptyMap()):
  * @param labels labels
  */
 fun instantVector(metricName: String,
-                  labels: LableMatcher): InstantVectorTypedMetric {
+                  labels: LabelMatcher): InstantVectorTypedMetric {
     return SimpleInstantVectorTypedMetric("$metricName{${labels.getLabelsAsString()}}")
 }
 
@@ -100,7 +100,7 @@ fun rangeVector(metricName: String, labels: Map<String, String> = emptyMap(), in
  * @param interval range interval
  */
 fun rangeVector(metricName: String,
-                labels: LableMatcher,
+                labels: LabelMatcher,
                 interval: String): RangeVectorTypedMetric {
     return SimpleRangeVectorTypedMetric("$metricName{${labels.getLabelsAsString()}}[$interval]")
 }

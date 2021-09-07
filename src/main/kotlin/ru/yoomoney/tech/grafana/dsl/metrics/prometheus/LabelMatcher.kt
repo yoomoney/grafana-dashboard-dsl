@@ -6,7 +6,7 @@ package ru.yoomoney.tech.grafana.dsl.metrics.prometheus
  * @author horyukova
  * @since 07.09.2021
  */
-class LableMatcher(
+class LabelMatcher(
         val equalsLabels: Map<String, String> = emptyMap(),
         val regexMatchLabels: Map<String, String> = emptyMap(),
         val notEqualsLabels: Map<String, String> = emptyMap(),

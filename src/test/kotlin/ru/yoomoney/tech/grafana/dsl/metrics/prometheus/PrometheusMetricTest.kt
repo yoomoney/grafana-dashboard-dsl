@@ -18,7 +18,7 @@ class PrometheusMetricTest {
     fun `builder should create instantVector with regex-match`() {
         val instantVector = instantVector(
                 metricName = "metricName",
-                labels = LableMatcher(equalsLabels = linkedMapOf("label_1" to "value_1", "label_2" to "value_2"),
+                labels = LabelMatcher(equalsLabels = linkedMapOf("label_1" to "value_1", "label_2" to "value_2"),
                         regexMatchLabels = linkedMapOf("label_reg" to ".*"))
         )
 
@@ -40,7 +40,7 @@ class PrometheusMetricTest {
     fun `builder should create rangeVector with regex-match`() {
         val instantVector = rangeVector(
                 metricName = "metricName",
-                labels = LableMatcher(equalsLabels = linkedMapOf("label_1" to "value_1", "label_2" to "value_2"),
+                labels = LabelMatcher(equalsLabels = linkedMapOf("label_1" to "value_1", "label_2" to "value_2"),
                         regexMatchLabels = linkedMapOf("label_reg" to ".*")),
                 interval = "1h"
         )
@@ -52,7 +52,7 @@ class PrometheusMetricTest {
     fun `builder should create rangeVector with some matchers`() {
         val instantVector = rangeVector(
                 metricName = "metricName",
-                labels = LableMatcher(equalsLabels = linkedMapOf("label_1" to "value_1", "label_2" to "value_2"),
+                labels = LabelMatcher(equalsLabels = linkedMapOf("label_1" to "value_1", "label_2" to "value_2"),
                         regexMatchLabels = linkedMapOf("label_reg" to ".*"),
                         notEqualsLabels = linkedMapOf("label_not" to "value_3"),
                         notRegexMatchLabels = linkedMapOf("label_not_match" to ".*not.*")),
