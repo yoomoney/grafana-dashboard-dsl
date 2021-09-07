@@ -34,6 +34,8 @@
   },
   "targets": [
     {
+      "refId": "A",
+      "hide": false,
       "format": "time_series",
       "legendFormat": "{{version}}",
       "expr": "app_info{app_name=\"my_app\",instance=\"host\"}",

@@ -15,6 +15,10 @@ class ConditionBuilder {
             params = *arrayOf(metric.id, duration.toString(), now.toString())
     )
 
+    fun query(metricId: String, duration: Duration) = AlertQuery(
+        params = *arrayOf(metricId, duration.toString(), now.toString())
+    )
+
     infix fun AlertQuery.isAbove(value: Int) = QueryCondition(evaluator = AlertEvaluator("gt", value), query = this)
 
     fun sum(condition: AlertingCondition) = SumCondition(condition)

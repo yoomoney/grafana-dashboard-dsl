@@ -37,6 +37,8 @@
   "type": "graph",
   "targets": [
     {
+      "refId": "A",
+      "hide": false,
       "format": "time_series",
       "legendFormat": "{{host}}",
       "expr": "jvm_classes_loaded_classes{app_name=\"example\"}",

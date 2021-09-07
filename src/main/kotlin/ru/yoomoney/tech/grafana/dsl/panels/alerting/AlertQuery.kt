@@ -8,7 +8,7 @@ import ru.yoomoney.tech.grafana.dsl.metrics.DashboardMetric
 
 class AlertQuery(
     private val datasourceId: Long = 1,
-    private val metric: DashboardMetric,
+    private val metric: DashboardMetric? = null,
     private vararg val params: Any
 ) : Json<JSONObject> {
 
@@ -16,7 +16,9 @@ class AlertQuery(
         val json = JSONObject()
 
         json["datasourceId"] = datasourceId
-        json["model"] = metric.toJson()
+        if (metric != null) {
+            json["model"] = metric.toJson()
+        }
         json["params"] = JSONArray(params.toList())
 
         return json
