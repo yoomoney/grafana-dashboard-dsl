@@ -55,6 +55,6 @@ class MetricsBuilderTest {
         }
 
         metricsBuilder.metrics[0].toJson().toString() shouldEqualToJson
-                ("{\"format\":\"time_series\",\"expr\":\"metric_name{}\",\"instant\":true,\"refId\":\"A\",\"hide\":false}")
+                ("{\"format\":\"time_series\",\"expr\":\"metric_name{}\",\"instant\":true,\"hide\":false}")
     }
 }

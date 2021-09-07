@@ -7,7 +7,6 @@
   "title": "Test Panel",
   "targets": [
     {
-      "refId": "A",
       "hide": false,
       "format": "time_series",
       "legendFormat": "instance",
