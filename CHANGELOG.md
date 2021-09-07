@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [3.8.1](https://github.com/yoomoney/grafana-dashboard-dsl/pull/20) (07-09-2021)
 
 * Fix generation referenceId for prometheus metric.
