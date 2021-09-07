@@ -1,9 +1,9 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.7.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/19) (07-09-2021)
+
 * Added `referenceId`, `hidden` optional parameters to `MetricsBuilder.prometheusMetric`.
 * Parameter `metric` in `AlertQuery` is now optional.
 * Added method `query(metricId, duration)` to `ConditionBuilder`.
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [3.6.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/16) (01-09-2021)
 
 * Added functions and operators to support PromQl metrics.
