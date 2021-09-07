@@ -26,7 +26,7 @@ class MetricsBuilder<DatasourceT : Datasource> {
         hidden: Boolean = false,
         fn: () -> PrometheusMetric
     ) {
-        metrics += PromQlMetric(fn(), legendFormat, instant, referenceId ?: generateMetricId(), hidden)
+        metrics += PromQlMetric(fn(), legendFormat, instant, referenceId, hidden)
     }
 
     private fun generateMetricId(): String {

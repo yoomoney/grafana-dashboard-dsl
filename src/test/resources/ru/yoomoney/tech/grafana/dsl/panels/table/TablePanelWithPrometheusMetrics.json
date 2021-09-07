@@ -6,7 +6,6 @@
   "type": "table",
   "targets": [
     {
-      "refId": "A",
       "hide": false,
       "format": "time_series",
       "legendFormat": "{{instance}}",
