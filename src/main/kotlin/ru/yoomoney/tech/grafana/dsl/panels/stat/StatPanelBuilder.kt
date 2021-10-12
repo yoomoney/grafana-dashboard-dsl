@@ -66,6 +66,7 @@ class StatPanelBuilder(
         repeat = builder.createRepeat()
     }
 
+    @Deprecated(message = "pass datasource as the first function argument instead")
     inline fun <reified T : Datasource> metrics(build: MetricsBuilder<T>.() -> Unit) {
         datasource = T::class.objectInstance ?: Zabbix
         val builder = MetricsBuilder<T>()

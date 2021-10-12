@@ -3,6 +3,7 @@ package ru.yoomoney.tech.grafana.dsl.panels
 import org.json.JSONObject
 import ru.yoomoney.tech.grafana.dsl.datasource.Datasource
 import ru.yoomoney.tech.grafana.dsl.datasource.Graphite
+import ru.yoomoney.tech.grafana.dsl.datasource.GraphiteDatasource
 import ru.yoomoney.tech.grafana.dsl.generators.PanelLayoutGenerator
 import ru.yoomoney.tech.grafana.dsl.generators.SimplePanelLayoutGenerator
 import ru.yoomoney.tech.grafana.dsl.metrics.DashboardMetric
@@ -25,8 +26,8 @@ class MetricPanelBuilder(private val title: String) : PanelBuilder {
         this.propertiesSetter = propertiesSetter
     }
 
-    fun metrics(build: MetricsBuilder<Graphite>.() -> Unit) {
-        val builder = MetricsBuilder<Graphite>()
+    fun metrics(build: MetricsBuilder<out GraphiteDatasource>.() -> Unit) {
+        val builder = MetricsBuilder<GraphiteDatasource>()
         builder.build()
         metrics += builder.metrics
     }

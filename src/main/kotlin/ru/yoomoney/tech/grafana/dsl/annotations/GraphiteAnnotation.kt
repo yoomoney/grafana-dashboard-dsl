@@ -2,18 +2,20 @@ package ru.yoomoney.tech.grafana.dsl.annotations
 
 import ru.yoomoney.tech.grafana.dsl.DashboardElement
 import ru.yoomoney.tech.grafana.dsl.datasource.Graphite
+import ru.yoomoney.tech.grafana.dsl.datasource.GraphiteDatasource
 import ru.yoomoney.tech.grafana.dsl.json.jsonObject
 import ru.yoomoney.tech.grafana.dsl.metrics.Metric
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.StringMetric
 import ru.yoomoney.tech.grafana.dsl.panels.Color
 
 /**
- * An annotation with [Graphite] datasource
+ * An annotation with [GraphiteDatasource]
  *
  * @param name see [BasicAnnotation.name]
  * @param enabled see [BasicAnnotation.enabled]
  * @param hidden see [BasicAnnotation.hidden]
  * @param color see [BasicAnnotation.color]
+ * @param datasource [GraphiteDatasource] used for querying data to display annotation marks. Default: [Graphite]
  * @param targetQuery the query to Graphite that uses to get events
  */
 class GraphiteAnnotation(
@@ -21,6 +23,7 @@ class GraphiteAnnotation(
     enabled: Boolean,
     hidden: Boolean,
     color: Color,
+    datasource: GraphiteDatasource = Graphite,
     private val targetQuery: Metric
 ) : Annotation {
 
@@ -29,7 +32,7 @@ class GraphiteAnnotation(
         enabled = enabled,
         hidden = hidden,
         color = color,
-        datasource = Graphite
+        datasource = datasource
     )
 
     override fun toJson() = jsonObject(annotation.toJson()) {

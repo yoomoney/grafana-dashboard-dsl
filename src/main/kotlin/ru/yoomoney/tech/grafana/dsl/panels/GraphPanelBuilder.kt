@@ -81,6 +81,7 @@ class GraphPanelBuilder(
         aliasColors = builder.aliasColors
     }
 
+    @Deprecated(message = "pass datasource as the first function argument explicitly")
     fun metrics(build: MetricsBuilder<Graphite>.() -> Unit) {
         val builder = MetricsBuilder<Graphite>()
         builder.build()

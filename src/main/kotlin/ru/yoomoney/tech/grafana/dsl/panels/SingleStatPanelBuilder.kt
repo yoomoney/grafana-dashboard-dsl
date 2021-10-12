@@ -49,11 +49,19 @@ class SingleStatPanelBuilder(
         repeat = builder.createRepeat()
     }
 
+    @Deprecated(message = "pass datasource as the first function argument instead")
     inline fun <reified T : Datasource> metrics(build: MetricsBuilder<T>.() -> Unit) {
         datasource = T::class.objectInstance ?: Zabbix
         val builder = MetricsBuilder<T>()
         builder.build()
         metrics = builder.metrics
+    }
+
+    fun <T : Datasource> metrics(datasource: T, build: MetricsBuilder<T>.() -> Unit) {
+        val builder = MetricsBuilder<T>()
+        builder.build()
+        this.metrics = builder.metrics
+        this.datasource = datasource
     }
 
     inline fun <reified T : ValueMappingType> valueMappings(build: ValueMappingsBuilder<T>.() -> Unit) {

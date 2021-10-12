@@ -3,7 +3,7 @@ package ru.yoomoney.tech.grafana.dsl.annotations
 import ru.yoomoney.tech.grafana.dsl.DashboardElement
 
 /**
- * Mutable builder for building annotations collection.
+ * Mutable builder for building annotation collection.
  */
 @DashboardElement
 class AnnotationsBuilder {

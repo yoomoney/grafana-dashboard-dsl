@@ -4,6 +4,7 @@ import org.json.JSONObject
 import ru.yoomoney.tech.grafana.dsl.DashboardElement
 import ru.yoomoney.tech.grafana.dsl.datasource.Datasource
 import ru.yoomoney.tech.grafana.dsl.datasource.Graphite
+import ru.yoomoney.tech.grafana.dsl.datasource.GraphiteDatasource
 import ru.yoomoney.tech.grafana.dsl.generators.PanelLayoutGenerator
 import ru.yoomoney.tech.grafana.dsl.metrics.Metrics
 import ru.yoomoney.tech.grafana.dsl.metrics.MetricsBuilder
@@ -48,14 +49,14 @@ class TablePanelBuilder(
         propertiesSetters += propertiesSetter
     }
 
-    fun metrics(build: MetricsBuilder<Graphite>.() -> Unit) {
+    fun metrics(build: MetricsBuilder<out GraphiteDatasource>.() -> Unit) {
         val builder = MetricsBuilder<Graphite>()
         builder.build()
         metrics += builder.metrics
         seriesOverrides += builder.seriesOverrides
     }
 
-    fun <T : Datasource>metrics(datasource: T, build: MetricsBuilder<T>.() -> Unit) {
+    fun <T : Datasource> metrics(datasource: T, build: MetricsBuilder<T>.() -> Unit) {
         val builder = MetricsBuilder<T>()
         builder.build()
         metrics += builder.metrics
