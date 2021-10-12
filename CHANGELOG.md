@@ -3,7 +3,7 @@
 * Predefined "Prometheus" datasource added;  
 * Custom datasource factory methods implemented: `graphiteDatasource(name: String)`,
 `prometheusDatasource(name: String)`,`zabbixDatasource(name: String)`;
-* 
+* String alert notificationIds supported.
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.8.1](https://github.com/yoomoney/grafana-dashboard-dsl/pull/20) (07-09-2021)
 
