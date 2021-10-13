@@ -20,7 +20,7 @@ object Prometheus : PrometheusDatasource {
 }
 
 /**
- * Create graphite datasource
+ * Create prometheus datasource
  */
 fun prometheusDatasource(name: String): PrometheusDatasource = SimplePrometheusDatasource(name)
 

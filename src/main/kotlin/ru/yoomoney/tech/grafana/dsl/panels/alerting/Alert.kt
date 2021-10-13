@@ -28,7 +28,7 @@ class Alert(
         json["frequency"] = frequency.toString()
         json["noDataState"] = onNoData.asState()
         json["executionErrorState"] = onExecutionError.asState()
-        json["notifications"] = JSONArray(notificationIds.map { JSONObject().put("id", it.toString()) })
+        json["notifications"] = JSONArray(notificationIds.map { JSONObject().put("id", it) })
         json["conditions"] = conditions.toJson()
         json["for"] = pendingFor.toString()
 

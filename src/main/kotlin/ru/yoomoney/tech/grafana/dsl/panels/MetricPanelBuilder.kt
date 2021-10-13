@@ -26,6 +26,7 @@ class MetricPanelBuilder(private val title: String) : PanelBuilder {
         this.propertiesSetter = propertiesSetter
     }
 
+    @Deprecated(message = "pass datasource as the first function argument explicitly")
     fun metrics(build: MetricsBuilder<out GraphiteDatasource>.() -> Unit) {
         val builder = MetricsBuilder<GraphiteDatasource>()
         builder.build()
