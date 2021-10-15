@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [3.9.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/22) (15-10-2021)
 
 * Predefined "Prometheus" datasource added;
