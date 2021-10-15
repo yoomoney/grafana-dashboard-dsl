@@ -2,7 +2,7 @@ package ru.yoomoney.tech.grafana.dsl.metrics
 
 import ru.yoomoney.tech.grafana.dsl.DashboardElement
 import ru.yoomoney.tech.grafana.dsl.datasource.Datasource
-import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
+import ru.yoomoney.tech.grafana.dsl.datasource.ZabbixDatasource
 import ru.yoomoney.tech.grafana.dsl.metrics.functions.Alias
 import ru.yoomoney.tech.grafana.dsl.metrics.prometheus.PrometheusMetric
 import ru.yoomoney.tech.grafana.dsl.panels.graph.display.seriesoverrides.SeriesOverride
@@ -37,13 +37,13 @@ class MetricsBuilder<DatasourceT : Datasource> {
         return generatedId
     }
 
-    fun MetricsBuilder<Zabbix>.metricsQuery(build: ZabbixMetric.Builder.Metric.() -> Unit = {}) {
+    fun MetricsBuilder<out ZabbixDatasource>.metricsQuery(build: ZabbixMetric.Builder.Metric.() -> Unit = {}) {
         val builder = ZabbixMetric.Builder.Metric()
         builder.build()
         metrics += builder.createMetric()
     }
 
-    fun MetricsBuilder<Zabbix>.textQuery(build: ZabbixMetric.Builder.Text.() -> Unit = {}) {
+    fun MetricsBuilder<out ZabbixDatasource>.textQuery(build: ZabbixMetric.Builder.Text.() -> Unit = {}) {
         val builder = ZabbixMetric.Builder.Text()
         builder.build()
         metrics += builder.createText()

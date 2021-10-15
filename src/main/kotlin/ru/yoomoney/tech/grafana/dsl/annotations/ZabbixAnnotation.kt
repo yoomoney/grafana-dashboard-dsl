@@ -2,11 +2,12 @@ package ru.yoomoney.tech.grafana.dsl.annotations
 
 import ru.yoomoney.tech.grafana.dsl.DashboardElement
 import ru.yoomoney.tech.grafana.dsl.datasource.Zabbix
+import ru.yoomoney.tech.grafana.dsl.datasource.ZabbixDatasource
 import ru.yoomoney.tech.grafana.dsl.json.jsonObject
 import ru.yoomoney.tech.grafana.dsl.panels.Color
 
 /**
- * An annotation with [Zabbix] datasource.
+ * An annotation with [ZabbixDatasource]
  */
 class ZabbixAnnotation private constructor(
     private val annotation: Annotation,
@@ -52,14 +53,15 @@ class ZabbixAnnotation private constructor(
         minSeverity: ZabbixTriggerSeverity,
         showOkEvents: Boolean,
         hideAcknowledgedEvents: Boolean,
-        showHostName: Boolean
+        showHostName: Boolean,
+        datasource: ZabbixDatasource = Zabbix
     ) : this(
         annotation = BasicAnnotation(
             name = name,
             enabled = enabled,
             hidden = hidden,
             color = color,
-            datasource = Zabbix
+            datasource = datasource
         ),
         group = group,
         host = host,

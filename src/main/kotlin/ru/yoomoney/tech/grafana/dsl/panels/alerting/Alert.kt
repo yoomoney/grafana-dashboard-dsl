@@ -14,7 +14,7 @@ class Alert(
     private val frequency: Duration = 1.m,
     private val onNoData: AlertingState = Ok,
     private val onExecutionError: AlertingState = Alerting,
-    private val notificationIds: List<Long> = emptyList(),
+    private val notificationIds: List<Any> = emptyList(),
     private val conditions: AlertingConditions,
     private val pendingFor: Duration = 0.m
 ) : Json<JSONObject> {
