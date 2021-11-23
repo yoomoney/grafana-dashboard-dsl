@@ -15,10 +15,11 @@ class AlertBuilderTest {
         val builder = AlertBuilder("Alert name").apply {
             frequency = 5.m
             pendingFor = 10.m
-
+            onNoData = Alerting
             message = "Alert message"
             notificationIds += 1
             notificationIds += 2
+            notificationUids += "ABC"
 
             conditions {
                 query(

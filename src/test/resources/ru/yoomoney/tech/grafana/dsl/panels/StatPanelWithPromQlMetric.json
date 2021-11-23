@@ -38,7 +38,8 @@
       "format": "time_series",
       "legendFormat": "{{version}}",
       "expr": "app_info{app_name=\"my_app\",instance=\"host\"}",
-      "instant": true
+      "instant": true,
+      "refId": "A"
     }
   ],
   "gridPos": {

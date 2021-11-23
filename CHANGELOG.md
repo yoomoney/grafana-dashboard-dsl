@@ -1,5 +1,9 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Added `notificationUids` to `AlertBuilder`.
+* Fixed fields `onNoData`, `onExecutionError` type in `AlertBuilder`.
+* Methods `metric` and `prometheusMetric` in `MetricsBuilder` return referenceId of the metric created.
+* Added `ConditionBuilder.min` condition.
 ### NEXT_VERSION_DESCRIPTION_END
 ## [3.10.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/23) (18-02-2022)
 

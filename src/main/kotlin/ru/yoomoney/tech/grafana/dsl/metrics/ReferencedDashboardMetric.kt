@@ -4,7 +4,7 @@ import ru.yoomoney.tech.grafana.dsl.json.jsonObject
 
 class ReferencedDashboardMetric(
     private val metric: Metric,
-    val id: String,
+    override val id: String,
     private val hidden: Boolean
 ) : DashboardMetric {
 

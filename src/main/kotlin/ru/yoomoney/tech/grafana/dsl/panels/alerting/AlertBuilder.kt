@@ -11,9 +11,11 @@ class AlertBuilder(private val name: String) {
     var handler = 1
     var frequency = 1.m
     var pendingFor = 0.m
-    var onNoData = Ok
-    var onExecutionError = Alerting
+    var onNoData: AlertingState = Ok
+    var onExecutionError: AlertingState = Alerting
 
+    val notificationUids = mutableListOf<String>()
+    @Deprecated("Use notificationUids instead")
     val notificationIds = mutableListOf<Long>()
 
     private var conditions = emptyList<AlertingCondition>()
@@ -40,6 +42,7 @@ class AlertBuilder(private val name: String) {
                     onNoData = onNoData,
                     onExecutionError = onExecutionError,
                     notificationIds = notificationIds,
+                    notificationUids = notificationUids,
                     conditions = AlertingConditions(conditions),
                     pendingFor = pendingFor
             ),

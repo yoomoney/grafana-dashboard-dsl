@@ -9,4 +9,6 @@ import ru.yoomoney.tech.grafana.dsl.json.Json
  * @author Dmitry Komarov
  * @since 7/23/18
  */
-interface DashboardMetric : Json<JSONObject>
+interface DashboardMetric : Json<JSONObject> {
+    val id: String?
+}

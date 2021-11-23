@@ -10,7 +10,8 @@
       "format": "time_series",
       "legendFormat": "{{instance}}",
       "expr": "min by (instance) (jvm_memory_used_bytes{area=\"heap\"} / jvm_memory_max_bytes{area=\"heap\"})",
-      "instant": false
+      "instant": false,
+      "refId": "A"
     }
   ],
   "gridPos": {
