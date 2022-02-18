@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [3.10.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/23) (18-02-2022)
+
 Add `aliasSub` function
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [3.9.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/22) (15-10-2021)
 
 * Predefined "Prometheus" datasource added;
