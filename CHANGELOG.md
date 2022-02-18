@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [3.10.0](https://github.com/yoomoney/grafana-dashboard-dsl/pull/23) (18-02-2022)
 
 Add `aliasSub` function
