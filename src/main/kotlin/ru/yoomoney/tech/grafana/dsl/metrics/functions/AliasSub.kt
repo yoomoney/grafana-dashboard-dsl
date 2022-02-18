@@ -9,7 +9,7 @@ import ru.yoomoney.tech.grafana.dsl.metrics.Metric
  */
 class AliasSub(
     private val metric: Metric,
-    private val search: String? = "(.*.)",
+    private val search: String,
     private val replace: String
 ) : Metric {
     override fun asString() = "aliasSub(${metric.asString()}, '${search}', '${replace}')"
@@ -17,8 +17,4 @@ class AliasSub(
 
 fun String.aliasSub(search: String, replace: String) = AliasSub(StringMetric(this), search.toString(), replace.toString())
 
-infix fun String.aliasSub(replace: String) = AliasSub(StringMetric(this), replace = replace.toString())
-
 fun Metric.aliasSub(search: String, replace: String) = AliasSub(this, search.toString(), replace.toString())
-
-infix fun Metric.aliasSub(replace: String) = AliasSub(this, replace = replace.toString())
