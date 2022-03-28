@@ -41,7 +41,8 @@
       "format": "time_series",
       "legendFormat": "{{host}}",
       "expr": "jvm_classes_loaded_classes{app_name=\"example\"}",
-      "instant": false
+      "instant": false,
+      "refId": "A"
     }
   ],
   "seriesOverrides": [],

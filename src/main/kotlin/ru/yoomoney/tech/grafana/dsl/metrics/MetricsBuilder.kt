@@ -15,8 +15,10 @@ class MetricsBuilder<DatasourceT : Datasource> {
     internal val seriesOverrides: MutableList<SeriesOverride> = mutableListOf()
     private val metricIdGenerator by lazy { MetricIdGenerator() }
 
-    fun metric(referenceId: String? = null, hidden: Boolean = false, fn: () -> Metric) {
-        metrics += ReferencedDashboardMetric(fn(), referenceId ?: generateMetricId(), hidden)
+    fun metric(referenceId: String? = null, hidden: Boolean = false, fn: () -> Metric): String {
+        val id = referenceId ?: generateMetricId()
+        metrics += ReferencedDashboardMetric(fn(), id, hidden)
+        return id
     }
 
     fun prometheusMetric(
@@ -25,15 +27,17 @@ class MetricsBuilder<DatasourceT : Datasource> {
         referenceId: String? = null,
         hidden: Boolean = false,
         fn: () -> PrometheusMetric
-    ) {
-        metrics += PromQlMetric(fn(), legendFormat, instant, referenceId, hidden)
+    ): String {
+        val id = referenceId ?: generateMetricId()
+        metrics += PromQlMetric(fn(), legendFormat, instant, id, hidden)
+        return id
     }
 
     private fun generateMetricId(): String {
         var generatedId: String
         do {
             generatedId = metricIdGenerator.nextMetricId()
-        } while (metrics.map { (it as ReferencedDashboardMetric).id }.contains(generatedId))
+        } while (metrics.map { it.id }.contains(generatedId))
         return generatedId
     }
 

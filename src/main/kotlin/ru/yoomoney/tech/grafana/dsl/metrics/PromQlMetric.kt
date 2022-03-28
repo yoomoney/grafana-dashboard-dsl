@@ -13,7 +13,7 @@ class PromQlMetric (
     val metric: PrometheusMetric,
     val legendFormat: String?,
     val instant: Boolean,
-    val id: String? = null,
+    override val id: String? = null,
     val hidden: Boolean = false
 ) : DashboardMetric {
 

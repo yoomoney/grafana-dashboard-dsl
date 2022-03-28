@@ -13,7 +13,7 @@
     "executionErrorState": "alerting",
     "name": "Alert name",
     "for": "10m",
-    "noDataState": "ok",
+    "noDataState": "alerting",
     "message": "Alert message",
     "conditions": [
       {
@@ -45,6 +45,9 @@
       },
       {
         "id": 2
+      },
+      {
+        "uid": "ABC"
       }
     ],
     "frequency": "5m"

@@ -1,5 +1,6 @@
 package ru.yoomoney.tech.grafana.dsl.metrics
 
+import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldContainAll
 import org.testng.annotations.Test
 import ru.yoomoney.tech.grafana.dsl.datasource.Graphite
@@ -33,7 +34,7 @@ class MetricsBuilderTest {
         }
 
         // then
-        metricsBuilder.metrics.map { (it as ReferencedDashboardMetric).id } shouldContainAll ('A'..'Z').map { it.toString() }
+        metricsBuilder.metrics.map { it.id } shouldContainAll ('A'..'Z').map { it.toString() }
     }
 
     @Test(expectedExceptions = [IllegalStateException::class], expectedExceptionsMessageRegExp = "Current implementation supports only.*")
@@ -50,11 +51,12 @@ class MetricsBuilderTest {
     @Test
     fun `promQl metric with default legendFormat`() {
         val metricsBuilder = MetricsBuilder<PromQl>()
-        metricsBuilder.prometheusMetric(instant = true) {
+        val id = metricsBuilder.prometheusMetric(instant = true) {
             "metric_name{}".asInstantVector()
         }
 
+        id shouldBeEqualTo "A"
         metricsBuilder.metrics[0].toJson().toString() shouldEqualToJson
-                ("{\"format\":\"time_series\",\"expr\":\"metric_name{}\",\"instant\":true,\"hide\":false}")
+                ("{\"refId\":\"A\",\"format\":\"time_series\",\"expr\":\"metric_name{}\",\"instant\":true,\"hide\":false}")
     }
 }
