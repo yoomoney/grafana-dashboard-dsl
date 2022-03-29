@@ -25,6 +25,8 @@ class ConditionBuilder {
 
     fun max(condition: AlertingCondition) = MaxCondition(condition)
 
+    fun min(condition: AlertingCondition) = MinCondition(condition)
+
     infix fun AlertingCondition.and(condition: AlertingCondition): AlertingCondition {
         conditions += this
         return AndCondition(condition)

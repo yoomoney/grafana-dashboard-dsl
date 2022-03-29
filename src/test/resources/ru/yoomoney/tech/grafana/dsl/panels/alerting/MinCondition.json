@@ -1,0 +1,25 @@
+{
+  "query": {
+    "datasourceId": 1,
+    "model": {
+      "hide": true,
+      "target": "sumSeries(*.*.count)",
+      "refId": "1"
+    },
+    "params": []
+  },
+  "reducer": {
+    "type": "min",
+    "params": []
+  },
+  "type": "query",
+  "operator": {
+    "type": "and"
+  },
+  "evaluator": {
+    "type": "gt",
+    "params": [
+      100
+    ]
+  }
+}

@@ -20,6 +20,8 @@ class ZabbixMetric private constructor(
     private val textFilter: String? = null
 ) : DashboardMetric {
 
+    override val id: String? get() = null
+
     override fun toJson() = jsonObject {
         "group" to jsonObject {
             "filter" to group
